@@ -51,7 +51,7 @@ trait DecodeBsonFields {
   } yield casted
 
   def castableDecoder[A: ClassTag]: DecodeBsonField[A] = DecodeBsonField { (k, dbo) =>
-    extractAndCast[A](k, dbo).validation.toValidationNel
+    extractAndCast[A](k, dbo) leftMap { NonEmptyList(_) }
   }
 
   implicit val booleanDecodeField: DecodeBsonField[Boolean] = castableDecoder[Boolean]

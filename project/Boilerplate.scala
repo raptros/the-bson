@@ -2,8 +2,8 @@ import sbt._
 import scala.collection.immutable.IndexedSeq
 
 object Boilerplate {
-  val arities = 1 to 22
-  val aritiesExceptOne = 2 to 22
+  val arities = 1 to 12
+  val aritiesExceptOne = 2 to 12
   val arityChars: Map[Int, String] = {
     val seq = arities map { n => (n, ('A' + n - 1).toChar.toString)}
     seq.toMap
@@ -32,6 +32,7 @@ object Boilerplate {
       |
       |import scalaz.syntax.id._
       |import com.mongodb.{BasicDBObject, BasicDBList, DBObject}
+      |import scalaz._
       |
     """.stripMargin
 
@@ -91,33 +92,32 @@ object Boilerplate {
     s"${arityChars(n).toLowerCase}Decode"
   } mkString ", "
 
-  def decodeGenerators(arity: Int): String = (1 to arity) map { n =>
+  def decodeValidators(arity: Int): String = (1 to arity) map { n =>
     val char = arityChars(n).toLowerCase
-    s"${char}Decode <- decode$char(${char}k, dbo)"
-  } mkString "\n" + (" " * 8)
+    s"decode$char(${char}k, dbo)"
+  } mkString ", "
 
   def bDecodeFBody(arity: Int): String = {
     val tparams = functionTypeParameters(arity)
     val stringParams = bsonStringParams(arity)
     val decodeParams = decodeBsonParams(arity)
-    val generators = decodeGenerators(arity)
-    val targets = decodeTargets(arity)
+    val validators = decodeValidators(arity)
     s"""
        |  def bdecode${arity}f[$tparams, X](fxn: ($tparams) => X)($stringParams)(implicit $decodeParams): DecodeBson[X] =
        |    DecodeBson { dbo =>
-       |      for {
-       |        $generators
-       |      } yield fxn($targets)
+       |      ApV.apply$arity($validators)(fxn)
        |    }
      """.stripMargin
   }
 
   def genDecodeBsons = {
-    val content = arities map { bDecodeFBody } mkString ""
+    //why except 1? because bdecode1f can't use the Applicative; it is instead implemented directly
+    val content = aritiesExceptOne map { bDecodeFBody } mkString ""
     s"""
        |$header
        |
        |trait GeneratedDecodeBsons { this: DecodeBsons =>
+       |  val ApV = Applicative[({type l[a]=NonEmptyList[DecodeError]\\/ a})#l]
        |  $content
        |}
      """.stripMargin

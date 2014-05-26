@@ -5,6 +5,8 @@ import scalaz.std.option._
 import scalaz.syntax.std.option._
 import scalaz.syntax.std.boolean._
 import scalaz.syntax.validation._
+import scalaz.syntax.id._
+import scalaz.syntax._
 
 trait Extractors {
 
@@ -14,7 +16,7 @@ trait Extractors {
     def field[A](k: String)(implicit d: DecodeBsonField[A]): DecodeResult[A] = d(k, dbo)
 
     def fieldOpt[A](k: String)(implicit d: DecodeBsonField[A]): DecodeResult[Option[A]] =
-      if (dbo containsField k) d(k, dbo) map { _.some } else none[A].successNel
+      if (dbo containsField k) d(k, dbo) map { _.some } else none[A].right
   }
 
 }

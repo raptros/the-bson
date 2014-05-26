@@ -46,10 +46,10 @@ trait DecodeBsons extends GeneratedDecodeBsons {
     case e: ClassCastException => WrongType(classTag[A].runtimeClass, dbo.getClass).left
   }
 
-  implicit val dboDecodeBson: DecodeBson[DBObject] = DecodeBson { _.successNel }
+  implicit val dboDecodeBson: DecodeBson[DBObject] = DecodeBson { _.right }
 
   implicit val dbListDecodeBson: DecodeBson[BasicDBList] = DecodeBson { dbo =>
-    tryCast[BasicDBList](dbo).validation.toValidationNel
+    tryCast[BasicDBList](dbo) leftMap { NonEmptyList(_) }
   }
 
   implicit def listDecodeBson[A](implicit d: DecodeBsonField[A]) = DecodeBson { dbo =>
@@ -58,4 +58,6 @@ trait DecodeBsons extends GeneratedDecodeBsons {
     }
   }
 
+  def bdecode1f[A, X](fxn: (A) => X)(ak: String)(implicit decodea: DecodeBsonField[A]): DecodeBson[X] =
+    DecodeBson { dbo => decodea(ak, dbo) map fxn }
 }

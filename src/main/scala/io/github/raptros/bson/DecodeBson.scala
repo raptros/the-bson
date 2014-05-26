@@ -1,4 +1,4 @@
-package raptros.bson
+package io.github.raptros.bson
 
 /**
  * Created by aidan on 5/26/14.

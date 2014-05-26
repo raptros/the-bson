@@ -1,4 +1,4 @@
-organization := "github.raptros"
+organization := "io.github.raptros"
 
 name := "the-bson"
 

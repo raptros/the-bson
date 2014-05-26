@@ -1,9 +1,6 @@
-package raptros.bson
+package io.github.raptros.bson
 
-import com.mongodb.{BasicDBObject, BasicDBList, DBObject}
-
-import scalaz._
-import scalaz.syntax.id._
+import com.mongodb.{BasicDBList, DBObject}
 
 trait EncodeBson[-A] {
   def encode(a: A): DBObject

@@ -17,7 +17,7 @@ object Boilerplate {
   def gen(dir : File) = {
 //    val generatedDecodeJson = write(dir / "argonaut" / "GeneratedDecodeJsons.scala", genDecodeJsons)
 
-    val generatedEncodeJson = write(dir / "raptros" / "bson" / "GeneratedEncodeBsons.scala", genEncodeBsons)
+    val generatedEncodeJson = write(dir / "io" / "github" / "raptros" / "bson" / "GeneratedEncodeBsons.scala", genEncodeBsons)
 
 //    val generatedCodecJson = write(dir / "argonaut" / "GeneratedCodecJsons.scala", genCodecJsons)
 
@@ -27,7 +27,7 @@ object Boilerplate {
 
   def header =
     """|
-      |package raptros.bson
+      |package io.github.raptros.bson
       |
       |import scalaz.syntax.id._
       |import com.mongodb.{BasicDBObject, BasicDBList, DBObject}

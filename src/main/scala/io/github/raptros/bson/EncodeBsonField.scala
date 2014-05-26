@@ -1,4 +1,4 @@
-package raptros.bson
+package io.github.raptros.bson
 
 import com.mongodb.DBObject
 import java.util.Date

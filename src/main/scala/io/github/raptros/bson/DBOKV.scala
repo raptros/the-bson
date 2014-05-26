@@ -1,7 +1,6 @@
-package raptros.bson
+package io.github.raptros.bson
 
-import com.mongodb.{DBObject, BasicDBObjectBuilder}
-import scalaz.syntax.id._
+import com.mongodb.DBObject
 
 case class DBOKV[A](k: String, v: A)(implicit encode: EncodeBsonField[A]) {
   def write(dbo: DBObject): DBObject = encode(dbo, k, v)

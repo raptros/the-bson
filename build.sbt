@@ -6,6 +6,8 @@ version := "0.1-SNAPSHOT"
 
 scalaVersion := "2.10.3"
 
+scalacOptions ++= Seq("-deprecation", "-unchecked", "-feature")
+
 libraryDependencies ++= Seq(
   "org.scala-lang" % "scala-reflect" % scalaVersion.value,
   "org.mongodb" %% "casbah" % "2.7.0",

@@ -15,24 +15,25 @@ object Boilerplate {
   }
 
   def gen(dir : File) = {
-//    val generatedDecodeJson = write(dir / "argonaut" / "GeneratedDecodeJsons.scala", genDecodeJsons)
+    val packageDir = dir / "io" / "github" / "raptros" / "bson"
+    val generatedDecode = write(packageDir / "GeneratedDecodeBsons.scala", genDecodeBsons)
 
-    val generatedEncodeJson = write(dir / "io" / "github" / "raptros" / "bson" / "GeneratedEncodeBsons.scala", genEncodeBsons)
+    val generatedEncode = write(packageDir / "GeneratedEncodeBsons.scala", genEncodeBsons)
 
-//    val generatedCodecJson = write(dir / "argonaut" / "GeneratedCodecJsons.scala", genCodecJsons)
+    val generatedCodec = write(packageDir / "GeneratedCodecBsons.scala", genCodecs)
 
 //    Seq(generatedDecodeJson, generatedEncodeJson, generatedCodecJson)
-    Seq(generatedEncodeJson)
+    Seq(generatedDecode, generatedEncode, generatedCodec)
   }
 
   def header =
-    """|
+    """
       |package io.github.raptros.bson
       |
       |import scalaz.syntax.id._
       |import com.mongodb.{BasicDBObject, BasicDBList, DBObject}
       |
-      |""".stripMargin
+    """.stripMargin
 
   def functionTypeParameters(arity: Int): String = (1 to arity) map { arityChars } mkString ", "
 
@@ -44,42 +45,119 @@ object Boilerplate {
 
   def bsonStringParamNames(arity: Int): String = 1 to arity map { n => "%sk".format(arityChars(n).toLowerCase) } mkString ", "
 
+  def encodeBsonParams(n: Int): String = (1 to n) map { n =>
+    val char = arityChars(n)
+    s"encode${char.toLowerCase}: EncodeBsonField[$char]"
+  } mkString ", "
+
+  def encodePuts(arity: Int): String = (1 to arity) map { n =>
+    val char = arityChars(n).toLowerCase
+    s"encode$char.writeTo(dbo, ${char}k, $char)"
+  } mkString "\n" + (" " * 8)
+
+  def bEncodeFBody(arity: Int): String = {
+    val tparams = functionTypeParameters(arity)
+    val stringParams = bsonStringParams(arity)
+    val encodeParams = encodeBsonParams(arity)
+    val puts = encodePuts(arity)
+    s"""
+       |  def bencode${arity}f[X, $tparams](fxn: X => ($tparams))($stringParams)(implicit $encodeParams): EncodeBson[X] =
+       |    EncodeBson { x =>
+       |      val (${tparams.toLowerCase}) = fxn(x)
+       |      new BasicDBObject <| { dbo =>
+       |        $puts
+       |      }
+       |    }
+     """.stripMargin
+  }
 
   def genEncodeBsons = {
-    def encodeBsonParams(n: Int): String = (1 to n) map { n =>
-      val char = arityChars(n)
-      s"encode${char.toLowerCase}: EncodeBsonField[$char]"
-    } mkString ", "
+    val content = arities map { bEncodeFBody } mkString ""
+    s"""
+       |$header
+       |
+       |trait GeneratedEncodeBsons { this: EncodeBsons =>
+       |  $content
+       |}
+     """.stripMargin
+  }
 
-    def encodePuts(arity: Int): String = (1 to arity) map { n =>
-      val char = arityChars(n).toLowerCase
-      s"encode$char.writeTo(dbo, ${char}k, $char)"
-    } mkString "\n        "
+  def decodeBsonParams(n: Int): String = (1 to n) map { n =>
+    val char = arityChars(n)
+    s"decode${char.toLowerCase}: DecodeBsonField[$char]"
+  } mkString ", "
 
-    def bencodefbody(arity: Int): String = {
-      val tparams = functionTypeParameters(arity)
-      val stringParams = bsonStringParams(arity)
-      val encodeParams = encodeBsonParams(arity)
-      val puts = encodePuts(arity)
-      s"""|
-          |  def bencode${arity}f[X, $tparams](fxn: X => ($tparams))($stringParams)(implicit $encodeParams): EncodeBson[X] =
-          |    EncodeBson { x =>
-          |      val (${tparams.toLowerCase}) = fxn(x)
-          |      new BasicDBObject <| { dbo =>
-          |        $puts
-          |      }
-          |    }
-         """.stripMargin
-    }
+  def decodeTargets(arity: Int): String = (1 to arity) map { n =>
+    s"${arityChars(n).toLowerCase}Decode"
+  } mkString ", "
 
-    def content = arities map { bencodefbody } mkString ""
+  def decodeGenerators(arity: Int): String = (1 to arity) map { n =>
+    val char = arityChars(n).toLowerCase
+    s"${char}Decode <- decode$char(${char}k, dbo)"
+  } mkString "\n" + (" " * 8)
 
-    header + s"""|
-        |trait GeneratedEncodeBsons {
-        |  this: EncodeBsons =>
-        |  $content
-        |}
-        |""".stripMargin
+  def bDecodeFBody(arity: Int): String = {
+    val tparams = functionTypeParameters(arity)
+    val stringParams = bsonStringParams(arity)
+    val decodeParams = decodeBsonParams(arity)
+    val generators = decodeGenerators(arity)
+    val targets = decodeTargets(arity)
+    s"""
+       |  def bdecode${arity}f[$tparams, X](fxn: ($tparams) => X)($stringParams)(implicit $decodeParams): DecodeBson[X] =
+       |    DecodeBson { dbo =>
+       |      for {
+       |        $generators
+       |      } yield fxn($targets)
+       |    }
+     """.stripMargin
+  }
+
+  def genDecodeBsons = {
+    val content = arities map { bDecodeFBody } mkString ""
+    s"""
+       |$header
+       |
+       |trait GeneratedDecodeBsons { this: DecodeBsons =>
+       |  $content
+       |}
+     """.stripMargin
+  }
+
+  def codecTParams(arity: Int): String = (1 to arity) map { n =>
+    val char = arityChars(n)
+    s"$char: EncodeBsonField: DecodeBsonField"
+  } mkString ", "
+
+  def untypedStringParams(arity: Int): String = (1 to arity) map { n =>
+    s"${arityChars(n).toLowerCase}k"
+  } mkString ", "
+
+  def codecBody(arity: Int): String = {
+    val tparams = functionTypeParameters(arity)
+    val typeSig = codecTParams(arity)
+    val stringParams = bsonStringParams(arity)
+    val stringParamsList = untypedStringParams(arity)
+    s"""
+       |  def bsonCaseCodec$arity[$typeSig, X](f: ($tparams) => X, g: X => Option[($tparams)])($stringParams): CodecBson[X] =
+       |    CodecBson(
+       |      bencode${arity}f(g andThen { _.get })($stringParamsList).encode,
+       |      bdecode${arity}f(f)($stringParamsList).decode
+       |    )
+     """.stripMargin
+  }
+
+  def genCodecs = {
+    val content = arities map { codecBody } mkString ""
+    s"""
+       |$header
+       |
+       |import EncodeBson._
+       |import DecodeBson._
+       |
+       |trait GeneratedCodecBsons { this: CodecBsons =>
+       |  $content
+       |}
+     """.stripMargin
   }
 
 }

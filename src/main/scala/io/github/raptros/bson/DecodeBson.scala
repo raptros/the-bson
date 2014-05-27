@@ -31,6 +31,13 @@ trait DecodeBson[+A] {
   }
 
   def |||[B >: A](x: => DecodeBson[B]): DecodeBson[B] = orElse(x)
+
+  def &&&[B](x: DecodeBson[B]): DecodeBson[(A, B)] = DecodeBson { dbo =>
+    for {
+      a <- apply(dbo)
+      b <- x(dbo)
+    } yield (a, b)
+  }
 }
 
 object DecodeBson extends DecodeBsons {
@@ -40,6 +47,8 @@ object DecodeBson extends DecodeBsons {
 }
 
 trait DecodeBsons extends GeneratedDecodeBsons {
+  val ApD = Applicative[({type l[a] = NonEmptyList[DecodeError] \/ a})#l]
+
   def tryCast[A: ClassTag](dbo: DBObject): DecodeError \/ A = try {
     dbo.asInstanceOf[A].right
   } catch {

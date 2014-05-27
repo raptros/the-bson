@@ -105,7 +105,7 @@ object Boilerplate {
     s"""
        |  def bdecode${arity}f[$tparams, X](fxn: ($tparams) => X)($stringParams)(implicit $decodeParams): DecodeBson[X] =
        |    DecodeBson { dbo =>
-       |      ApV.apply$arity($validators)(fxn)
+       |      ApD.apply$arity($validators)(fxn)
        |    }
      """.stripMargin
   }
@@ -117,7 +117,7 @@ object Boilerplate {
        |$header
        |
        |trait GeneratedDecodeBsons { this: DecodeBsons =>
-       |  val ApV = Applicative[({type l[a]=NonEmptyList[DecodeError]\\/ a})#l]
+       |
        |  $content
        |}
      """.stripMargin

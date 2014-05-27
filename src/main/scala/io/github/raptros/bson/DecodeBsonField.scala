@@ -29,6 +29,12 @@ trait DecodeBsonField[+A] {
 
   def |||[B >: A](x: => DecodeBsonField[B]): DecodeBsonField[B] = orElse(x)
 
+  def &&&[B](x: DecodeBsonField[B]): DecodeBsonField[(A, B)] = DecodeBsonField { (k, dbo) =>
+    for {
+      a <- apply(k, dbo)
+      b <- x(k, dbo)
+    } yield (a, b)
+  }
 }
 
 object DecodeBsonField extends DecodeBsonFields {
@@ -62,7 +68,7 @@ trait DecodeBsonFields {
   implicit val doubleDecodeField: DecodeBsonField[Double] = castableDecoder[Double]
   implicit val dateDecodeField: DecodeBsonField[Date] = castableDecoder[Date]
 
-  implicit val datetimeDecodeField = dateDecodeField map { d => new DateTime(d) }
+  implicit val datetimeDecodeField = castableDecoder[DateTime] ||| dateDecodeField map { d => new DateTime(d) }
 
   implicit val dboDecodeField: DecodeBsonField[DBObject] = castableDecoder[DBObject]
 

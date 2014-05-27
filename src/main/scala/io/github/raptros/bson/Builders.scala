@@ -25,6 +25,11 @@ trait Builders {
   implicit class DBOBuilder(dbo: DBObject) {
     def +@+[A](kv: DBOKV[A]): DBObject = kv.write(dbo)
 
+    def ++@++[A](kvs: Seq[DBOKV[A]]): DBObject = {
+      kvs foreach { _.write(dbo) }
+      dbo
+    }
+
     def +?+[A](okv: Option[DBOKV[A]]): DBObject = (okv fold dbo) { _.write(dbo) }
   }
 }

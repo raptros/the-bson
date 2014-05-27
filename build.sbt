@@ -4,7 +4,7 @@ name := "the-bson"
 
 version := "0.1-SNAPSHOT"
 
-scalaVersion := "2.10.3"
+scalaVersion := "2.11.1"
 
 scalacOptions ++= Seq("-deprecation", "-unchecked", "-feature")
 
@@ -16,3 +16,11 @@ libraryDependencies ++= Seq(
 )
 
 (sourceGenerators in Compile) <+= (sourceManaged in Compile) map Boilerplate.gen
+
+resolvers += Resolver.sonatypeRepo("releases")
+
+// include the macro classes and resources in the main jar
+mappings in (Compile, packageBin) ++= mappings.in(macroSub, Compile, packageBin).value
+
+// include the macro sources in the main source jar
+mappings in (Compile, packageSrc) ++= mappings.in(macroSub, Compile, packageSrc).value

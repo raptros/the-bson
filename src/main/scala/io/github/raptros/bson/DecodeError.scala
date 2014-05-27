@@ -1,6 +1,6 @@
 package io.github.raptros.bson
 
-import scala.reflect.ClassTag
+import scala.language.existentials
 
 sealed trait DecodeError {
   protected def describe: String

@@ -6,10 +6,8 @@ object Common extends Build {
 
   lazy val macroSub = Project("macros", file("macros")) settings(
     scalaVersion := "2.11.1",
-    libraryDependencies ++= Seq(
-      "org.scala-lang" % "scala-reflect" % scalaVersion.value//,
-//      "org.scalamacros" %% "quasiquotes" % "2.0.0"
-    )//,
-//    addCompilerPlugin("org.scalamacros" % "paradise" % "2.0.0" cross CrossVersion.full)
+    scalacOptions += "-Ymacro-debug-lite",
+    libraryDependencies += "org.scala-lang" % "scala-reflect" % scalaVersion.value,
+    libraryDependencies += "org.scalatest" %% "scalatest" % "2.1.6" % "test"
     ) dependsOn main
 }

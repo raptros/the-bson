@@ -12,7 +12,8 @@ libraryDependencies ++= Seq(
   "org.mongodb" % "mongo-java-driver" % "2.12.2",
   "org.joda" % "joda-convert" % "1.2",
   "joda-time" % "joda-time" % "2.3",
-  "org.scalaz" %% "scalaz-core" % "7.0.6"
+  "org.scalaz" %% "scalaz-core" % "7.0.6",
+  "org.scalatest" %% "scalatest" % "2.1.6" % "test"
 )
 
 (sourceGenerators in Compile) <+= (sourceManaged in Compile) map Boilerplate.gen

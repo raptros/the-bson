@@ -9,6 +9,9 @@ class MacroTest extends FlatSpec with Matchers {
 
   implicit val simpleCodec: CodecBson[Simple] = BsonMacros.deriveCaseCodecBson[Simple]
 
+//  implicit def simpleEncode: EncodeBson[Simple] = BsonMacros.deriveCaseEncodeBson[Simple]
+//  implicit def simpleDecode: DecodeBson[Simple] = BsonMacros.deriveCaseDecodeBson[Simple]
+
   behavior of "a macro derived bson codec"
 
   it should "encode and decode" in {

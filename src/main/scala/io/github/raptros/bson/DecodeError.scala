@@ -8,7 +8,7 @@ sealed trait DecodeError {
 }
 
 case class NoSuchField(field: String) extends DecodeError {
-  lazy val describe = s"no such field: field"
+  lazy val describe = s"no such field: $field"
 }
 
 case class WrongFieldType(field: String, wanted: Class[_], got: Class[_]) extends DecodeError {
@@ -23,3 +23,6 @@ case class CustomError(msg: String) extends DecodeError {
   lazy val describe = s"custom error: $msg"
 }
 
+case class WrongFieldCount(expected: Int) extends DecodeError {
+  lazy val describe = s"wrong number of fields, expected $expected"
+}

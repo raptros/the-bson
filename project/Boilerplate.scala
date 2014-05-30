@@ -110,15 +110,33 @@ object Boilerplate {
      """.stripMargin
   }
 
+  def bDecodeTupleBudy(arity: Int): String = {
+    val tparams = functionTypeParameters(arity)
+    val stringParams = bsonStringParams(arity)
+    val decodeParams = decodeBsonParams(arity)
+    val validators = decodeValidators(arity)
+    def tupler = List.fill(arity)("_") mkString ", "
+    s"""
+       |  def bdecodeTuple$arity[$tparams]($stringParams)(implicit $decodeParams): DecodeBson[($tparams)] =
+       |    DecodeBson { dbo =>
+       |      ApD.apply$arity($validators)(($tupler))
+       |    }
+     """.stripMargin
+  }
+
   def genDecodeBsons = {
     //why except 1? because bdecode1f can't use the Applicative; it is instead implemented directly
-    val content = aritiesExceptOne map { bDecodeFBody } mkString ""
+    val content0 = aritiesExceptOne map { bDecodeFBody } mkString ""
+    val content1 = aritiesExceptOne map { bDecodeTupleBudy } mkString ""
+
     s"""
        |$header
        |
        |trait GeneratedDecodeBsons { this: DecodeBsons =>
        |
-       |  $content
+       |  $content0
+       |
+       |  $content1
        |}
      """.stripMargin
   }

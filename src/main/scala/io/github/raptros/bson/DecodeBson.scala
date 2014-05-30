@@ -38,6 +38,15 @@ trait DecodeBson[+A] {
       b <- x(dbo)
     } yield (a, b)
   }
+
+  def validate(f: DBObject => Boolean, msg: => DecodeError) = DecodeBson { dbo =>
+    if (f(dbo))
+      decode(dbo)
+    else
+      msg.wrapNel.left
+  }
+
+  def validateFields(count: Int) = validate(_.keySet().size() == count, WrongFieldCount(count))
 }
 
 object DecodeBson extends DecodeBsons {

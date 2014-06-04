@@ -1,0 +1,998 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>DecodeBson - io.github.raptros.bson.DecodeBson</title>
+          <meta name="description" content="DecodeBson - io.github.raptros.bson.DecodeBson" />
+          <meta name="keywords" content="DecodeBson io.github.raptros.bson.DecodeBson" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../index.html';
+            var hash = 'io.github.raptros.bson.DecodeBson$';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <a href="DecodeBson.html" title="Go to companion"><img src="../../../../lib/object_to_trait_big.png" /></a>
+        <p id="owner"><a href="../../../package.html" class="extype" name="io">io</a>.<a href="../../package.html" class="extype" name="io.github">github</a>.<a href="../package.html" class="extype" name="io.github.raptros">raptros</a>.<a href="package.html" class="extype" name="io.github.raptros.bson">bson</a></p>
+        <h1><a href="DecodeBson.html" title="Go to companion">DecodeBson</a></h1> <span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <span class="name">DecodeBson</span><span class="result"> extends <a href="DecodeBsons.html" class="extype" name="io.github.raptros.bson.DecodeBsons">DecodeBsons</a></span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><a href="DecodeBsons.html" class="extype" name="io.github.raptros.bson.DecodeBsons">DecodeBsons</a>, <a href="GeneratedDecodeBsons.html" class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons">GeneratedDecodeBsons</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="io.github.raptros.bson.DecodeBson"><span>DecodeBson</span></li><li class="in" name="io.github.raptros.bson.DecodeBsons"><span>DecodeBsons</span></li><li class="in" name="io.github.raptros.bson.GeneratedDecodeBsons"><span>GeneratedDecodeBsons</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show all</span></li>
+            </ol>
+            <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#members" target="_blank">Learn more about member selection</a>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="io.github.raptros.bson.DecodeBsons.DecodeResultV" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="DecodeResultV[A]=scalaz.ValidationNel[io.github.raptros.bson.DecodeError,A]"></a>
+      <a id="DecodeResultV[A]:DecodeResultV[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">DecodeResultV</span><span class="tparams">[<span name="A">A</span>]</span><span class="result"> = <span class="extype" name="scalaz.Validation">Validation</span>[<span class="extype" name="scalaz.NonEmptyList">NonEmptyList</span>[<a href="DecodeError.html" class="extype" name="io.github.raptros.bson.DecodeError">DecodeError</a>], <span class="extype" name="io.github.raptros.bson.DecodeBsons.DecodeResultV.A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@DecodeResultV[A]=scalaz.ValidationNel[io.github.raptros.bson.DecodeError,A]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="DecodeBsons.html" class="extype" name="io.github.raptros.bson.DecodeBsons">DecodeBsons</a></dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a>
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@##():Int" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a>
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@==(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="io.github.raptros.bson.DecodeBsons#ApD" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ApD:scalaz.Applicative[io.github.raptros.bson.DecodeResult]"></a>
+      <a id="ApD:Applicative[DecodeResult]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ApD</span><span class="result">: <span class="extype" name="scalaz.Applicative">Applicative</span>[<a href="package.html#DecodeResult[+A]=scalaz.\/[scalaz.NonEmptyList[io.github.raptros.bson.DecodeError],A]" class="extmbr" name="io.github.raptros.bson.DecodeResult">DecodeResult</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@ApD:scalaz.Applicative[io.github.raptros.bson.DecodeResult]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="DecodeBsons.html" class="extype" name="io.github.raptros.bson.DecodeBsons">DecodeBsons</a></dd></dl></div>
+    </li><li name="io.github.raptros.bson.DecodeBsons#ApV" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ApV:scalaz.Applicative[DecodeBsons.this.DecodeResultV]"></a>
+      <a id="ApV:Applicative[DecodeResultV]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ApV</span><span class="result">: <span class="extype" name="scalaz.Applicative">Applicative</span>[<a href="#DecodeResultV[A]=scalaz.ValidationNel[io.github.raptros.bson.DecodeError,A]" class="extmbr" name="io.github.raptros.bson.DecodeBson.DecodeResultV">DecodeResultV</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@ApV:scalaz.Applicative[DecodeBsons.this.DecodeResultV]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="DecodeBsons.html" class="extype" name="io.github.raptros.bson.DecodeBsons">DecodeBsons</a></dd></dl></div>
+    </li><li name="io.github.raptros.bson.DecodeBson#apply" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="apply[A](f:com.mongodb.DBObject=&gt;io.github.raptros.bson.DecodeResult[A]):io.github.raptros.bson.DecodeBson[A]"></a>
+      <a id="apply[A]((DBObject)⇒DecodeResult[A]):DecodeBson[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="com.mongodb.DBObject">DBObject</span>) ⇒ <a href="package.html#DecodeResult[+A]=scalaz.\/[scalaz.NonEmptyList[io.github.raptros.bson.DecodeError],A]" class="extmbr" name="io.github.raptros.bson.DecodeResult">DecodeResult</a>[<span class="extype" name="io.github.raptros.bson.DecodeBson.apply.A">A</span>]</span>)</span><span class="result">: <a href="DecodeBson.html" class="extype" name="io.github.raptros.bson.DecodeBson">DecodeBson</a>[<span class="extype" name="io.github.raptros.bson.DecodeBson.apply.A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@apply[A](f:com.mongodb.DBObject=&gt;io.github.raptros.bson.DecodeResult[A]):io.github.raptros.bson.DecodeBson[A]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="io.github.raptros.bson.GeneratedDecodeBsons#bdecode10f" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="bdecode10f[A,B,C,D,E,F,G,H,I,J,X](fxn:(A,B,C,D,E,F,G,H,I,J)=&gt;X)(ak:String,bk:String,ck:String,dk:String,ek:String,fk:String,gk:String,hk:String,ik:String,jk:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B],implicitdecodec:io.github.raptros.bson.DecodeBsonField[C],implicitdecoded:io.github.raptros.bson.DecodeBsonField[D],implicitdecodee:io.github.raptros.bson.DecodeBsonField[E],implicitdecodef:io.github.raptros.bson.DecodeBsonField[F],implicitdecodeg:io.github.raptros.bson.DecodeBsonField[G],implicitdecodeh:io.github.raptros.bson.DecodeBsonField[H],implicitdecodei:io.github.raptros.bson.DecodeBsonField[I],implicitdecodej:io.github.raptros.bson.DecodeBsonField[J]):io.github.raptros.bson.DecodeBson[X]"></a>
+      <a id="bdecode10f[A,B,C,D,E,F,G,H,I,J,X]((A,B,C,D,E,F,G,H,I,J)⇒X)(String,String,String,String,String,String,String,String,String,String)(DecodeBsonField[A],DecodeBsonField[B],DecodeBsonField[C],DecodeBsonField[D],DecodeBsonField[E],DecodeBsonField[F],DecodeBsonField[G],DecodeBsonField[H],DecodeBsonField[I],DecodeBsonField[J]):DecodeBson[X]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">bdecode10f</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>, <span name="D">D</span>, <span name="E">E</span>, <span name="F">F</span>, <span name="G">G</span>, <span name="H">H</span>, <span name="I">I</span>, <span name="J">J</span>, <span name="X">X</span>]</span><span class="params">(<span name="fxn">fxn: (<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode10f.A">A</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode10f.B">B</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode10f.C">C</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode10f.D">D</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode10f.E">E</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode10f.F">F</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode10f.G">G</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode10f.H">H</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode10f.I">I</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode10f.J">J</span>) ⇒ <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode10f.X">X</span></span>)</span><span class="params">(<span name="ak">ak: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="bk">bk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ck">ck: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="dk">dk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ek">ek: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="fk">fk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="gk">gk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="hk">hk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ik">ik: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="jk">jk: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="decodea">decodea: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode10f.A">A</span>]</span>, <span name="decodeb">decodeb: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode10f.B">B</span>]</span>, <span name="decodec">decodec: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode10f.C">C</span>]</span>, <span name="decoded">decoded: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode10f.D">D</span>]</span>, <span name="decodee">decodee: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode10f.E">E</span>]</span>, <span name="decodef">decodef: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode10f.F">F</span>]</span>, <span name="decodeg">decodeg: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode10f.G">G</span>]</span>, <span name="decodeh">decodeh: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode10f.H">H</span>]</span>, <span name="decodei">decodei: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode10f.I">I</span>]</span>, <span name="decodej">decodej: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode10f.J">J</span>]</span>)</span><span class="result">: <a href="DecodeBson.html" class="extype" name="io.github.raptros.bson.DecodeBson">DecodeBson</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode10f.X">X</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@bdecode10f[A,B,C,D,E,F,G,H,I,J,X](fxn:(A,B,C,D,E,F,G,H,I,J)=&gt;X)(ak:String,bk:String,ck:String,dk:String,ek:String,fk:String,gk:String,hk:String,ik:String,jk:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B],implicitdecodec:io.github.raptros.bson.DecodeBsonField[C],implicitdecoded:io.github.raptros.bson.DecodeBsonField[D],implicitdecodee:io.github.raptros.bson.DecodeBsonField[E],implicitdecodef:io.github.raptros.bson.DecodeBsonField[F],implicitdecodeg:io.github.raptros.bson.DecodeBsonField[G],implicitdecodeh:io.github.raptros.bson.DecodeBsonField[H],implicitdecodei:io.github.raptros.bson.DecodeBsonField[I],implicitdecodej:io.github.raptros.bson.DecodeBsonField[J]):io.github.raptros.bson.DecodeBson[X]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="GeneratedDecodeBsons.html" class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons">GeneratedDecodeBsons</a></dd></dl></div>
+    </li><li name="io.github.raptros.bson.GeneratedDecodeBsons#bdecode11f" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="bdecode11f[A,B,C,D,E,F,G,H,I,J,K,X](fxn:(A,B,C,D,E,F,G,H,I,J,K)=&gt;X)(ak:String,bk:String,ck:String,dk:String,ek:String,fk:String,gk:String,hk:String,ik:String,jk:String,kk:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B],implicitdecodec:io.github.raptros.bson.DecodeBsonField[C],implicitdecoded:io.github.raptros.bson.DecodeBsonField[D],implicitdecodee:io.github.raptros.bson.DecodeBsonField[E],implicitdecodef:io.github.raptros.bson.DecodeBsonField[F],implicitdecodeg:io.github.raptros.bson.DecodeBsonField[G],implicitdecodeh:io.github.raptros.bson.DecodeBsonField[H],implicitdecodei:io.github.raptros.bson.DecodeBsonField[I],implicitdecodej:io.github.raptros.bson.DecodeBsonField[J],implicitdecodek:io.github.raptros.bson.DecodeBsonField[K]):io.github.raptros.bson.DecodeBson[X]"></a>
+      <a id="bdecode11f[A,B,C,D,E,F,G,H,I,J,K,X]((A,B,C,D,E,F,G,H,I,J,K)⇒X)(String,String,String,String,String,String,String,String,String,String,String)(DecodeBsonField[A],DecodeBsonField[B],DecodeBsonField[C],DecodeBsonField[D],DecodeBsonField[E],DecodeBsonField[F],DecodeBsonField[G],DecodeBsonField[H],DecodeBsonField[I],DecodeBsonField[J],DecodeBsonField[K]):DecodeBson[X]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">bdecode11f</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>, <span name="D">D</span>, <span name="E">E</span>, <span name="F">F</span>, <span name="G">G</span>, <span name="H">H</span>, <span name="I">I</span>, <span name="J">J</span>, <span name="K">K</span>, <span name="X">X</span>]</span><span class="params">(<span name="fxn">fxn: (<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode11f.A">A</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode11f.B">B</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode11f.C">C</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode11f.D">D</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode11f.E">E</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode11f.F">F</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode11f.G">G</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode11f.H">H</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode11f.I">I</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode11f.J">J</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode11f.K">K</span>) ⇒ <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode11f.X">X</span></span>)</span><span class="params">(<span name="ak">ak: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="bk">bk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ck">ck: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="dk">dk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ek">ek: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="fk">fk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="gk">gk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="hk">hk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ik">ik: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="jk">jk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="kk">kk: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="decodea">decodea: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode11f.A">A</span>]</span>, <span name="decodeb">decodeb: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode11f.B">B</span>]</span>, <span name="decodec">decodec: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode11f.C">C</span>]</span>, <span name="decoded">decoded: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode11f.D">D</span>]</span>, <span name="decodee">decodee: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode11f.E">E</span>]</span>, <span name="decodef">decodef: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode11f.F">F</span>]</span>, <span name="decodeg">decodeg: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode11f.G">G</span>]</span>, <span name="decodeh">decodeh: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode11f.H">H</span>]</span>, <span name="decodei">decodei: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode11f.I">I</span>]</span>, <span name="decodej">decodej: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode11f.J">J</span>]</span>, <span name="decodek">decodek: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode11f.K">K</span>]</span>)</span><span class="result">: <a href="DecodeBson.html" class="extype" name="io.github.raptros.bson.DecodeBson">DecodeBson</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode11f.X">X</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@bdecode11f[A,B,C,D,E,F,G,H,I,J,K,X](fxn:(A,B,C,D,E,F,G,H,I,J,K)=&gt;X)(ak:String,bk:String,ck:String,dk:String,ek:String,fk:String,gk:String,hk:String,ik:String,jk:String,kk:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B],implicitdecodec:io.github.raptros.bson.DecodeBsonField[C],implicitdecoded:io.github.raptros.bson.DecodeBsonField[D],implicitdecodee:io.github.raptros.bson.DecodeBsonField[E],implicitdecodef:io.github.raptros.bson.DecodeBsonField[F],implicitdecodeg:io.github.raptros.bson.DecodeBsonField[G],implicitdecodeh:io.github.raptros.bson.DecodeBsonField[H],implicitdecodei:io.github.raptros.bson.DecodeBsonField[I],implicitdecodej:io.github.raptros.bson.DecodeBsonField[J],implicitdecodek:io.github.raptros.bson.DecodeBsonField[K]):io.github.raptros.bson.DecodeBson[X]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="GeneratedDecodeBsons.html" class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons">GeneratedDecodeBsons</a></dd></dl></div>
+    </li><li name="io.github.raptros.bson.GeneratedDecodeBsons#bdecode12f" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="bdecode12f[A,B,C,D,E,F,G,H,I,J,K,L,X](fxn:(A,B,C,D,E,F,G,H,I,J,K,L)=&gt;X)(ak:String,bk:String,ck:String,dk:String,ek:String,fk:String,gk:String,hk:String,ik:String,jk:String,kk:String,lk:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B],implicitdecodec:io.github.raptros.bson.DecodeBsonField[C],implicitdecoded:io.github.raptros.bson.DecodeBsonField[D],implicitdecodee:io.github.raptros.bson.DecodeBsonField[E],implicitdecodef:io.github.raptros.bson.DecodeBsonField[F],implicitdecodeg:io.github.raptros.bson.DecodeBsonField[G],implicitdecodeh:io.github.raptros.bson.DecodeBsonField[H],implicitdecodei:io.github.raptros.bson.DecodeBsonField[I],implicitdecodej:io.github.raptros.bson.DecodeBsonField[J],implicitdecodek:io.github.raptros.bson.DecodeBsonField[K],implicitdecodel:io.github.raptros.bson.DecodeBsonField[L]):io.github.raptros.bson.DecodeBson[X]"></a>
+      <a id="bdecode12f[A,B,C,D,E,F,G,H,I,J,K,L,X]((A,B,C,D,E,F,G,H,I,J,K,L)⇒X)(String,String,String,String,String,String,String,String,String,String,String,String)(DecodeBsonField[A],DecodeBsonField[B],DecodeBsonField[C],DecodeBsonField[D],DecodeBsonField[E],DecodeBsonField[F],DecodeBsonField[G],DecodeBsonField[H],DecodeBsonField[I],DecodeBsonField[J],DecodeBsonField[K],DecodeBsonField[L]):DecodeBson[X]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">bdecode12f</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>, <span name="D">D</span>, <span name="E">E</span>, <span name="F">F</span>, <span name="G">G</span>, <span name="H">H</span>, <span name="I">I</span>, <span name="J">J</span>, <span name="K">K</span>, <span name="L">L</span>, <span name="X">X</span>]</span><span class="params">(<span name="fxn">fxn: (<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode12f.A">A</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode12f.B">B</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode12f.C">C</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode12f.D">D</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode12f.E">E</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode12f.F">F</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode12f.G">G</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode12f.H">H</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode12f.I">I</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode12f.J">J</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode12f.K">K</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode12f.L">L</span>) ⇒ <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode12f.X">X</span></span>)</span><span class="params">(<span name="ak">ak: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="bk">bk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ck">ck: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="dk">dk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ek">ek: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="fk">fk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="gk">gk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="hk">hk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ik">ik: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="jk">jk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="kk">kk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="lk">lk: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="decodea">decodea: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode12f.A">A</span>]</span>, <span name="decodeb">decodeb: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode12f.B">B</span>]</span>, <span name="decodec">decodec: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode12f.C">C</span>]</span>, <span name="decoded">decoded: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode12f.D">D</span>]</span>, <span name="decodee">decodee: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode12f.E">E</span>]</span>, <span name="decodef">decodef: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode12f.F">F</span>]</span>, <span name="decodeg">decodeg: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode12f.G">G</span>]</span>, <span name="decodeh">decodeh: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode12f.H">H</span>]</span>, <span name="decodei">decodei: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode12f.I">I</span>]</span>, <span name="decodej">decodej: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode12f.J">J</span>]</span>, <span name="decodek">decodek: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode12f.K">K</span>]</span>, <span name="decodel">decodel: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode12f.L">L</span>]</span>)</span><span class="result">: <a href="DecodeBson.html" class="extype" name="io.github.raptros.bson.DecodeBson">DecodeBson</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode12f.X">X</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@bdecode12f[A,B,C,D,E,F,G,H,I,J,K,L,X](fxn:(A,B,C,D,E,F,G,H,I,J,K,L)=&gt;X)(ak:String,bk:String,ck:String,dk:String,ek:String,fk:String,gk:String,hk:String,ik:String,jk:String,kk:String,lk:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B],implicitdecodec:io.github.raptros.bson.DecodeBsonField[C],implicitdecoded:io.github.raptros.bson.DecodeBsonField[D],implicitdecodee:io.github.raptros.bson.DecodeBsonField[E],implicitdecodef:io.github.raptros.bson.DecodeBsonField[F],implicitdecodeg:io.github.raptros.bson.DecodeBsonField[G],implicitdecodeh:io.github.raptros.bson.DecodeBsonField[H],implicitdecodei:io.github.raptros.bson.DecodeBsonField[I],implicitdecodej:io.github.raptros.bson.DecodeBsonField[J],implicitdecodek:io.github.raptros.bson.DecodeBsonField[K],implicitdecodel:io.github.raptros.bson.DecodeBsonField[L]):io.github.raptros.bson.DecodeBson[X]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="GeneratedDecodeBsons.html" class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons">GeneratedDecodeBsons</a></dd></dl></div>
+    </li><li name="io.github.raptros.bson.DecodeBsons#bdecode1f" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="bdecode1f[A,X](fxn:A=&gt;X)(ak:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A]):io.github.raptros.bson.DecodeBson[X]"></a>
+      <a id="bdecode1f[A,X]((A)⇒X)(String)(DecodeBsonField[A]):DecodeBson[X]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">bdecode1f</span><span class="tparams">[<span name="A">A</span>, <span name="X">X</span>]</span><span class="params">(<span name="fxn">fxn: (<span class="extype" name="io.github.raptros.bson.DecodeBsons.bdecode1f.A">A</span>) ⇒ <span class="extype" name="io.github.raptros.bson.DecodeBsons.bdecode1f.X">X</span></span>)</span><span class="params">(<span name="ak">ak: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="decodea">decodea: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.DecodeBsons.bdecode1f.A">A</span>]</span>)</span><span class="result">: <a href="DecodeBson.html" class="extype" name="io.github.raptros.bson.DecodeBson">DecodeBson</a>[<span class="extype" name="io.github.raptros.bson.DecodeBsons.bdecode1f.X">X</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@bdecode1f[A,X](fxn:A=&gt;X)(ak:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A]):io.github.raptros.bson.DecodeBson[X]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="DecodeBsons.html" class="extype" name="io.github.raptros.bson.DecodeBsons">DecodeBsons</a></dd></dl></div>
+    </li><li name="io.github.raptros.bson.GeneratedDecodeBsons#bdecode2f" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="bdecode2f[A,B,X](fxn:(A,B)=&gt;X)(ak:String,bk:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B]):io.github.raptros.bson.DecodeBson[X]"></a>
+      <a id="bdecode2f[A,B,X]((A,B)⇒X)(String,String)(DecodeBsonField[A],DecodeBsonField[B]):DecodeBson[X]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">bdecode2f</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="X">X</span>]</span><span class="params">(<span name="fxn">fxn: (<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode2f.A">A</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode2f.B">B</span>) ⇒ <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode2f.X">X</span></span>)</span><span class="params">(<span name="ak">ak: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="bk">bk: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="decodea">decodea: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode2f.A">A</span>]</span>, <span name="decodeb">decodeb: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode2f.B">B</span>]</span>)</span><span class="result">: <a href="DecodeBson.html" class="extype" name="io.github.raptros.bson.DecodeBson">DecodeBson</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode2f.X">X</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@bdecode2f[A,B,X](fxn:(A,B)=&gt;X)(ak:String,bk:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B]):io.github.raptros.bson.DecodeBson[X]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="GeneratedDecodeBsons.html" class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons">GeneratedDecodeBsons</a></dd></dl></div>
+    </li><li name="io.github.raptros.bson.GeneratedDecodeBsons#bdecode3f" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="bdecode3f[A,B,C,X](fxn:(A,B,C)=&gt;X)(ak:String,bk:String,ck:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B],implicitdecodec:io.github.raptros.bson.DecodeBsonField[C]):io.github.raptros.bson.DecodeBson[X]"></a>
+      <a id="bdecode3f[A,B,C,X]((A,B,C)⇒X)(String,String,String)(DecodeBsonField[A],DecodeBsonField[B],DecodeBsonField[C]):DecodeBson[X]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">bdecode3f</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>, <span name="X">X</span>]</span><span class="params">(<span name="fxn">fxn: (<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode3f.A">A</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode3f.B">B</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode3f.C">C</span>) ⇒ <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode3f.X">X</span></span>)</span><span class="params">(<span name="ak">ak: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="bk">bk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ck">ck: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="decodea">decodea: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode3f.A">A</span>]</span>, <span name="decodeb">decodeb: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode3f.B">B</span>]</span>, <span name="decodec">decodec: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode3f.C">C</span>]</span>)</span><span class="result">: <a href="DecodeBson.html" class="extype" name="io.github.raptros.bson.DecodeBson">DecodeBson</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode3f.X">X</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@bdecode3f[A,B,C,X](fxn:(A,B,C)=&gt;X)(ak:String,bk:String,ck:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B],implicitdecodec:io.github.raptros.bson.DecodeBsonField[C]):io.github.raptros.bson.DecodeBson[X]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="GeneratedDecodeBsons.html" class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons">GeneratedDecodeBsons</a></dd></dl></div>
+    </li><li name="io.github.raptros.bson.GeneratedDecodeBsons#bdecode4f" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="bdecode4f[A,B,C,D,X](fxn:(A,B,C,D)=&gt;X)(ak:String,bk:String,ck:String,dk:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B],implicitdecodec:io.github.raptros.bson.DecodeBsonField[C],implicitdecoded:io.github.raptros.bson.DecodeBsonField[D]):io.github.raptros.bson.DecodeBson[X]"></a>
+      <a id="bdecode4f[A,B,C,D,X]((A,B,C,D)⇒X)(String,String,String,String)(DecodeBsonField[A],DecodeBsonField[B],DecodeBsonField[C],DecodeBsonField[D]):DecodeBson[X]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">bdecode4f</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>, <span name="D">D</span>, <span name="X">X</span>]</span><span class="params">(<span name="fxn">fxn: (<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode4f.A">A</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode4f.B">B</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode4f.C">C</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode4f.D">D</span>) ⇒ <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode4f.X">X</span></span>)</span><span class="params">(<span name="ak">ak: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="bk">bk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ck">ck: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="dk">dk: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="decodea">decodea: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode4f.A">A</span>]</span>, <span name="decodeb">decodeb: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode4f.B">B</span>]</span>, <span name="decodec">decodec: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode4f.C">C</span>]</span>, <span name="decoded">decoded: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode4f.D">D</span>]</span>)</span><span class="result">: <a href="DecodeBson.html" class="extype" name="io.github.raptros.bson.DecodeBson">DecodeBson</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode4f.X">X</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@bdecode4f[A,B,C,D,X](fxn:(A,B,C,D)=&gt;X)(ak:String,bk:String,ck:String,dk:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B],implicitdecodec:io.github.raptros.bson.DecodeBsonField[C],implicitdecoded:io.github.raptros.bson.DecodeBsonField[D]):io.github.raptros.bson.DecodeBson[X]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="GeneratedDecodeBsons.html" class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons">GeneratedDecodeBsons</a></dd></dl></div>
+    </li><li name="io.github.raptros.bson.GeneratedDecodeBsons#bdecode5f" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="bdecode5f[A,B,C,D,E,X](fxn:(A,B,C,D,E)=&gt;X)(ak:String,bk:String,ck:String,dk:String,ek:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B],implicitdecodec:io.github.raptros.bson.DecodeBsonField[C],implicitdecoded:io.github.raptros.bson.DecodeBsonField[D],implicitdecodee:io.github.raptros.bson.DecodeBsonField[E]):io.github.raptros.bson.DecodeBson[X]"></a>
+      <a id="bdecode5f[A,B,C,D,E,X]((A,B,C,D,E)⇒X)(String,String,String,String,String)(DecodeBsonField[A],DecodeBsonField[B],DecodeBsonField[C],DecodeBsonField[D],DecodeBsonField[E]):DecodeBson[X]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">bdecode5f</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>, <span name="D">D</span>, <span name="E">E</span>, <span name="X">X</span>]</span><span class="params">(<span name="fxn">fxn: (<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode5f.A">A</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode5f.B">B</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode5f.C">C</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode5f.D">D</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode5f.E">E</span>) ⇒ <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode5f.X">X</span></span>)</span><span class="params">(<span name="ak">ak: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="bk">bk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ck">ck: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="dk">dk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ek">ek: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="decodea">decodea: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode5f.A">A</span>]</span>, <span name="decodeb">decodeb: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode5f.B">B</span>]</span>, <span name="decodec">decodec: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode5f.C">C</span>]</span>, <span name="decoded">decoded: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode5f.D">D</span>]</span>, <span name="decodee">decodee: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode5f.E">E</span>]</span>)</span><span class="result">: <a href="DecodeBson.html" class="extype" name="io.github.raptros.bson.DecodeBson">DecodeBson</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode5f.X">X</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@bdecode5f[A,B,C,D,E,X](fxn:(A,B,C,D,E)=&gt;X)(ak:String,bk:String,ck:String,dk:String,ek:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B],implicitdecodec:io.github.raptros.bson.DecodeBsonField[C],implicitdecoded:io.github.raptros.bson.DecodeBsonField[D],implicitdecodee:io.github.raptros.bson.DecodeBsonField[E]):io.github.raptros.bson.DecodeBson[X]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="GeneratedDecodeBsons.html" class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons">GeneratedDecodeBsons</a></dd></dl></div>
+    </li><li name="io.github.raptros.bson.GeneratedDecodeBsons#bdecode6f" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="bdecode6f[A,B,C,D,E,F,X](fxn:(A,B,C,D,E,F)=&gt;X)(ak:String,bk:String,ck:String,dk:String,ek:String,fk:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B],implicitdecodec:io.github.raptros.bson.DecodeBsonField[C],implicitdecoded:io.github.raptros.bson.DecodeBsonField[D],implicitdecodee:io.github.raptros.bson.DecodeBsonField[E],implicitdecodef:io.github.raptros.bson.DecodeBsonField[F]):io.github.raptros.bson.DecodeBson[X]"></a>
+      <a id="bdecode6f[A,B,C,D,E,F,X]((A,B,C,D,E,F)⇒X)(String,String,String,String,String,String)(DecodeBsonField[A],DecodeBsonField[B],DecodeBsonField[C],DecodeBsonField[D],DecodeBsonField[E],DecodeBsonField[F]):DecodeBson[X]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">bdecode6f</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>, <span name="D">D</span>, <span name="E">E</span>, <span name="F">F</span>, <span name="X">X</span>]</span><span class="params">(<span name="fxn">fxn: (<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode6f.A">A</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode6f.B">B</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode6f.C">C</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode6f.D">D</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode6f.E">E</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode6f.F">F</span>) ⇒ <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode6f.X">X</span></span>)</span><span class="params">(<span name="ak">ak: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="bk">bk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ck">ck: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="dk">dk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ek">ek: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="fk">fk: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="decodea">decodea: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode6f.A">A</span>]</span>, <span name="decodeb">decodeb: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode6f.B">B</span>]</span>, <span name="decodec">decodec: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode6f.C">C</span>]</span>, <span name="decoded">decoded: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode6f.D">D</span>]</span>, <span name="decodee">decodee: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode6f.E">E</span>]</span>, <span name="decodef">decodef: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode6f.F">F</span>]</span>)</span><span class="result">: <a href="DecodeBson.html" class="extype" name="io.github.raptros.bson.DecodeBson">DecodeBson</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode6f.X">X</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@bdecode6f[A,B,C,D,E,F,X](fxn:(A,B,C,D,E,F)=&gt;X)(ak:String,bk:String,ck:String,dk:String,ek:String,fk:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B],implicitdecodec:io.github.raptros.bson.DecodeBsonField[C],implicitdecoded:io.github.raptros.bson.DecodeBsonField[D],implicitdecodee:io.github.raptros.bson.DecodeBsonField[E],implicitdecodef:io.github.raptros.bson.DecodeBsonField[F]):io.github.raptros.bson.DecodeBson[X]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="GeneratedDecodeBsons.html" class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons">GeneratedDecodeBsons</a></dd></dl></div>
+    </li><li name="io.github.raptros.bson.GeneratedDecodeBsons#bdecode7f" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="bdecode7f[A,B,C,D,E,F,G,X](fxn:(A,B,C,D,E,F,G)=&gt;X)(ak:String,bk:String,ck:String,dk:String,ek:String,fk:String,gk:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B],implicitdecodec:io.github.raptros.bson.DecodeBsonField[C],implicitdecoded:io.github.raptros.bson.DecodeBsonField[D],implicitdecodee:io.github.raptros.bson.DecodeBsonField[E],implicitdecodef:io.github.raptros.bson.DecodeBsonField[F],implicitdecodeg:io.github.raptros.bson.DecodeBsonField[G]):io.github.raptros.bson.DecodeBson[X]"></a>
+      <a id="bdecode7f[A,B,C,D,E,F,G,X]((A,B,C,D,E,F,G)⇒X)(String,String,String,String,String,String,String)(DecodeBsonField[A],DecodeBsonField[B],DecodeBsonField[C],DecodeBsonField[D],DecodeBsonField[E],DecodeBsonField[F],DecodeBsonField[G]):DecodeBson[X]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">bdecode7f</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>, <span name="D">D</span>, <span name="E">E</span>, <span name="F">F</span>, <span name="G">G</span>, <span name="X">X</span>]</span><span class="params">(<span name="fxn">fxn: (<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode7f.A">A</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode7f.B">B</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode7f.C">C</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode7f.D">D</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode7f.E">E</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode7f.F">F</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode7f.G">G</span>) ⇒ <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode7f.X">X</span></span>)</span><span class="params">(<span name="ak">ak: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="bk">bk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ck">ck: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="dk">dk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ek">ek: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="fk">fk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="gk">gk: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="decodea">decodea: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode7f.A">A</span>]</span>, <span name="decodeb">decodeb: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode7f.B">B</span>]</span>, <span name="decodec">decodec: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode7f.C">C</span>]</span>, <span name="decoded">decoded: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode7f.D">D</span>]</span>, <span name="decodee">decodee: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode7f.E">E</span>]</span>, <span name="decodef">decodef: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode7f.F">F</span>]</span>, <span name="decodeg">decodeg: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode7f.G">G</span>]</span>)</span><span class="result">: <a href="DecodeBson.html" class="extype" name="io.github.raptros.bson.DecodeBson">DecodeBson</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode7f.X">X</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@bdecode7f[A,B,C,D,E,F,G,X](fxn:(A,B,C,D,E,F,G)=&gt;X)(ak:String,bk:String,ck:String,dk:String,ek:String,fk:String,gk:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B],implicitdecodec:io.github.raptros.bson.DecodeBsonField[C],implicitdecoded:io.github.raptros.bson.DecodeBsonField[D],implicitdecodee:io.github.raptros.bson.DecodeBsonField[E],implicitdecodef:io.github.raptros.bson.DecodeBsonField[F],implicitdecodeg:io.github.raptros.bson.DecodeBsonField[G]):io.github.raptros.bson.DecodeBson[X]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="GeneratedDecodeBsons.html" class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons">GeneratedDecodeBsons</a></dd></dl></div>
+    </li><li name="io.github.raptros.bson.GeneratedDecodeBsons#bdecode8f" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="bdecode8f[A,B,C,D,E,F,G,H,X](fxn:(A,B,C,D,E,F,G,H)=&gt;X)(ak:String,bk:String,ck:String,dk:String,ek:String,fk:String,gk:String,hk:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B],implicitdecodec:io.github.raptros.bson.DecodeBsonField[C],implicitdecoded:io.github.raptros.bson.DecodeBsonField[D],implicitdecodee:io.github.raptros.bson.DecodeBsonField[E],implicitdecodef:io.github.raptros.bson.DecodeBsonField[F],implicitdecodeg:io.github.raptros.bson.DecodeBsonField[G],implicitdecodeh:io.github.raptros.bson.DecodeBsonField[H]):io.github.raptros.bson.DecodeBson[X]"></a>
+      <a id="bdecode8f[A,B,C,D,E,F,G,H,X]((A,B,C,D,E,F,G,H)⇒X)(String,String,String,String,String,String,String,String)(DecodeBsonField[A],DecodeBsonField[B],DecodeBsonField[C],DecodeBsonField[D],DecodeBsonField[E],DecodeBsonField[F],DecodeBsonField[G],DecodeBsonField[H]):DecodeBson[X]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">bdecode8f</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>, <span name="D">D</span>, <span name="E">E</span>, <span name="F">F</span>, <span name="G">G</span>, <span name="H">H</span>, <span name="X">X</span>]</span><span class="params">(<span name="fxn">fxn: (<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode8f.A">A</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode8f.B">B</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode8f.C">C</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode8f.D">D</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode8f.E">E</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode8f.F">F</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode8f.G">G</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode8f.H">H</span>) ⇒ <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode8f.X">X</span></span>)</span><span class="params">(<span name="ak">ak: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="bk">bk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ck">ck: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="dk">dk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ek">ek: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="fk">fk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="gk">gk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="hk">hk: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="decodea">decodea: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode8f.A">A</span>]</span>, <span name="decodeb">decodeb: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode8f.B">B</span>]</span>, <span name="decodec">decodec: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode8f.C">C</span>]</span>, <span name="decoded">decoded: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode8f.D">D</span>]</span>, <span name="decodee">decodee: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode8f.E">E</span>]</span>, <span name="decodef">decodef: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode8f.F">F</span>]</span>, <span name="decodeg">decodeg: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode8f.G">G</span>]</span>, <span name="decodeh">decodeh: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode8f.H">H</span>]</span>)</span><span class="result">: <a href="DecodeBson.html" class="extype" name="io.github.raptros.bson.DecodeBson">DecodeBson</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode8f.X">X</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@bdecode8f[A,B,C,D,E,F,G,H,X](fxn:(A,B,C,D,E,F,G,H)=&gt;X)(ak:String,bk:String,ck:String,dk:String,ek:String,fk:String,gk:String,hk:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B],implicitdecodec:io.github.raptros.bson.DecodeBsonField[C],implicitdecoded:io.github.raptros.bson.DecodeBsonField[D],implicitdecodee:io.github.raptros.bson.DecodeBsonField[E],implicitdecodef:io.github.raptros.bson.DecodeBsonField[F],implicitdecodeg:io.github.raptros.bson.DecodeBsonField[G],implicitdecodeh:io.github.raptros.bson.DecodeBsonField[H]):io.github.raptros.bson.DecodeBson[X]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="GeneratedDecodeBsons.html" class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons">GeneratedDecodeBsons</a></dd></dl></div>
+    </li><li name="io.github.raptros.bson.GeneratedDecodeBsons#bdecode9f" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="bdecode9f[A,B,C,D,E,F,G,H,I,X](fxn:(A,B,C,D,E,F,G,H,I)=&gt;X)(ak:String,bk:String,ck:String,dk:String,ek:String,fk:String,gk:String,hk:String,ik:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B],implicitdecodec:io.github.raptros.bson.DecodeBsonField[C],implicitdecoded:io.github.raptros.bson.DecodeBsonField[D],implicitdecodee:io.github.raptros.bson.DecodeBsonField[E],implicitdecodef:io.github.raptros.bson.DecodeBsonField[F],implicitdecodeg:io.github.raptros.bson.DecodeBsonField[G],implicitdecodeh:io.github.raptros.bson.DecodeBsonField[H],implicitdecodei:io.github.raptros.bson.DecodeBsonField[I]):io.github.raptros.bson.DecodeBson[X]"></a>
+      <a id="bdecode9f[A,B,C,D,E,F,G,H,I,X]((A,B,C,D,E,F,G,H,I)⇒X)(String,String,String,String,String,String,String,String,String)(DecodeBsonField[A],DecodeBsonField[B],DecodeBsonField[C],DecodeBsonField[D],DecodeBsonField[E],DecodeBsonField[F],DecodeBsonField[G],DecodeBsonField[H],DecodeBsonField[I]):DecodeBson[X]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">bdecode9f</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>, <span name="D">D</span>, <span name="E">E</span>, <span name="F">F</span>, <span name="G">G</span>, <span name="H">H</span>, <span name="I">I</span>, <span name="X">X</span>]</span><span class="params">(<span name="fxn">fxn: (<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode9f.A">A</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode9f.B">B</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode9f.C">C</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode9f.D">D</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode9f.E">E</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode9f.F">F</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode9f.G">G</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode9f.H">H</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode9f.I">I</span>) ⇒ <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode9f.X">X</span></span>)</span><span class="params">(<span name="ak">ak: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="bk">bk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ck">ck: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="dk">dk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ek">ek: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="fk">fk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="gk">gk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="hk">hk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ik">ik: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="decodea">decodea: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode9f.A">A</span>]</span>, <span name="decodeb">decodeb: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode9f.B">B</span>]</span>, <span name="decodec">decodec: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode9f.C">C</span>]</span>, <span name="decoded">decoded: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode9f.D">D</span>]</span>, <span name="decodee">decodee: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode9f.E">E</span>]</span>, <span name="decodef">decodef: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode9f.F">F</span>]</span>, <span name="decodeg">decodeg: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode9f.G">G</span>]</span>, <span name="decodeh">decodeh: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode9f.H">H</span>]</span>, <span name="decodei">decodei: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode9f.I">I</span>]</span>)</span><span class="result">: <a href="DecodeBson.html" class="extype" name="io.github.raptros.bson.DecodeBson">DecodeBson</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecode9f.X">X</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@bdecode9f[A,B,C,D,E,F,G,H,I,X](fxn:(A,B,C,D,E,F,G,H,I)=&gt;X)(ak:String,bk:String,ck:String,dk:String,ek:String,fk:String,gk:String,hk:String,ik:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B],implicitdecodec:io.github.raptros.bson.DecodeBsonField[C],implicitdecoded:io.github.raptros.bson.DecodeBsonField[D],implicitdecodee:io.github.raptros.bson.DecodeBsonField[E],implicitdecodef:io.github.raptros.bson.DecodeBsonField[F],implicitdecodeg:io.github.raptros.bson.DecodeBsonField[G],implicitdecodeh:io.github.raptros.bson.DecodeBsonField[H],implicitdecodei:io.github.raptros.bson.DecodeBsonField[I]):io.github.raptros.bson.DecodeBson[X]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="GeneratedDecodeBsons.html" class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons">GeneratedDecodeBsons</a></dd></dl></div>
+    </li><li name="io.github.raptros.bson.GeneratedDecodeBsons#bdecodeTuple10" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="bdecodeTuple10[A,B,C,D,E,F,G,H,I,J](ak:String,bk:String,ck:String,dk:String,ek:String,fk:String,gk:String,hk:String,ik:String,jk:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B],implicitdecodec:io.github.raptros.bson.DecodeBsonField[C],implicitdecoded:io.github.raptros.bson.DecodeBsonField[D],implicitdecodee:io.github.raptros.bson.DecodeBsonField[E],implicitdecodef:io.github.raptros.bson.DecodeBsonField[F],implicitdecodeg:io.github.raptros.bson.DecodeBsonField[G],implicitdecodeh:io.github.raptros.bson.DecodeBsonField[H],implicitdecodei:io.github.raptros.bson.DecodeBsonField[I],implicitdecodej:io.github.raptros.bson.DecodeBsonField[J]):io.github.raptros.bson.DecodeBson[(A,B,C,D,E,F,G,H,I,J)]"></a>
+      <a id="bdecodeTuple10[A,B,C,D,E,F,G,H,I,J](String,String,String,String,String,String,String,String,String,String)(DecodeBsonField[A],DecodeBsonField[B],DecodeBsonField[C],DecodeBsonField[D],DecodeBsonField[E],DecodeBsonField[F],DecodeBsonField[G],DecodeBsonField[H],DecodeBsonField[I],DecodeBsonField[J]):DecodeBson[(A,B,C,D,E,F,G,H,I,J)]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">bdecodeTuple10</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>, <span name="D">D</span>, <span name="E">E</span>, <span name="F">F</span>, <span name="G">G</span>, <span name="H">H</span>, <span name="I">I</span>, <span name="J">J</span>]</span><span class="params">(<span name="ak">ak: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="bk">bk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ck">ck: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="dk">dk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ek">ek: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="fk">fk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="gk">gk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="hk">hk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ik">ik: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="jk">jk: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="decodea">decodea: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple10.A">A</span>]</span>, <span name="decodeb">decodeb: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple10.B">B</span>]</span>, <span name="decodec">decodec: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple10.C">C</span>]</span>, <span name="decoded">decoded: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple10.D">D</span>]</span>, <span name="decodee">decodee: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple10.E">E</span>]</span>, <span name="decodef">decodef: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple10.F">F</span>]</span>, <span name="decodeg">decodeg: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple10.G">G</span>]</span>, <span name="decodeh">decodeh: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple10.H">H</span>]</span>, <span name="decodei">decodei: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple10.I">I</span>]</span>, <span name="decodej">decodej: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple10.J">J</span>]</span>)</span><span class="result">: <a href="DecodeBson.html" class="extype" name="io.github.raptros.bson.DecodeBson">DecodeBson</a>[(<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple10.A">A</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple10.B">B</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple10.C">C</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple10.D">D</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple10.E">E</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple10.F">F</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple10.G">G</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple10.H">H</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple10.I">I</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple10.J">J</span>)]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@bdecodeTuple10[A,B,C,D,E,F,G,H,I,J](ak:String,bk:String,ck:String,dk:String,ek:String,fk:String,gk:String,hk:String,ik:String,jk:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B],implicitdecodec:io.github.raptros.bson.DecodeBsonField[C],implicitdecoded:io.github.raptros.bson.DecodeBsonField[D],implicitdecodee:io.github.raptros.bson.DecodeBsonField[E],implicitdecodef:io.github.raptros.bson.DecodeBsonField[F],implicitdecodeg:io.github.raptros.bson.DecodeBsonField[G],implicitdecodeh:io.github.raptros.bson.DecodeBsonField[H],implicitdecodei:io.github.raptros.bson.DecodeBsonField[I],implicitdecodej:io.github.raptros.bson.DecodeBsonField[J]):io.github.raptros.bson.DecodeBson[(A,B,C,D,E,F,G,H,I,J)]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="GeneratedDecodeBsons.html" class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons">GeneratedDecodeBsons</a></dd></dl></div>
+    </li><li name="io.github.raptros.bson.GeneratedDecodeBsons#bdecodeTuple11" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="bdecodeTuple11[A,B,C,D,E,F,G,H,I,J,K](ak:String,bk:String,ck:String,dk:String,ek:String,fk:String,gk:String,hk:String,ik:String,jk:String,kk:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B],implicitdecodec:io.github.raptros.bson.DecodeBsonField[C],implicitdecoded:io.github.raptros.bson.DecodeBsonField[D],implicitdecodee:io.github.raptros.bson.DecodeBsonField[E],implicitdecodef:io.github.raptros.bson.DecodeBsonField[F],implicitdecodeg:io.github.raptros.bson.DecodeBsonField[G],implicitdecodeh:io.github.raptros.bson.DecodeBsonField[H],implicitdecodei:io.github.raptros.bson.DecodeBsonField[I],implicitdecodej:io.github.raptros.bson.DecodeBsonField[J],implicitdecodek:io.github.raptros.bson.DecodeBsonField[K]):io.github.raptros.bson.DecodeBson[(A,B,C,D,E,F,G,H,I,J,K)]"></a>
+      <a id="bdecodeTuple11[A,B,C,D,E,F,G,H,I,J,K](String,String,String,String,String,String,String,String,String,String,String)(DecodeBsonField[A],DecodeBsonField[B],DecodeBsonField[C],DecodeBsonField[D],DecodeBsonField[E],DecodeBsonField[F],DecodeBsonField[G],DecodeBsonField[H],DecodeBsonField[I],DecodeBsonField[J],DecodeBsonField[K]):DecodeBson[(A,B,C,D,E,F,G,H,I,J,K)]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">bdecodeTuple11</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>, <span name="D">D</span>, <span name="E">E</span>, <span name="F">F</span>, <span name="G">G</span>, <span name="H">H</span>, <span name="I">I</span>, <span name="J">J</span>, <span name="K">K</span>]</span><span class="params">(<span name="ak">ak: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="bk">bk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ck">ck: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="dk">dk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ek">ek: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="fk">fk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="gk">gk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="hk">hk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ik">ik: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="jk">jk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="kk">kk: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="decodea">decodea: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple11.A">A</span>]</span>, <span name="decodeb">decodeb: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple11.B">B</span>]</span>, <span name="decodec">decodec: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple11.C">C</span>]</span>, <span name="decoded">decoded: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple11.D">D</span>]</span>, <span name="decodee">decodee: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple11.E">E</span>]</span>, <span name="decodef">decodef: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple11.F">F</span>]</span>, <span name="decodeg">decodeg: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple11.G">G</span>]</span>, <span name="decodeh">decodeh: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple11.H">H</span>]</span>, <span name="decodei">decodei: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple11.I">I</span>]</span>, <span name="decodej">decodej: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple11.J">J</span>]</span>, <span name="decodek">decodek: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple11.K">K</span>]</span>)</span><span class="result">: <a href="DecodeBson.html" class="extype" name="io.github.raptros.bson.DecodeBson">DecodeBson</a>[(<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple11.A">A</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple11.B">B</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple11.C">C</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple11.D">D</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple11.E">E</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple11.F">F</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple11.G">G</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple11.H">H</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple11.I">I</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple11.J">J</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple11.K">K</span>)]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@bdecodeTuple11[A,B,C,D,E,F,G,H,I,J,K](ak:String,bk:String,ck:String,dk:String,ek:String,fk:String,gk:String,hk:String,ik:String,jk:String,kk:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B],implicitdecodec:io.github.raptros.bson.DecodeBsonField[C],implicitdecoded:io.github.raptros.bson.DecodeBsonField[D],implicitdecodee:io.github.raptros.bson.DecodeBsonField[E],implicitdecodef:io.github.raptros.bson.DecodeBsonField[F],implicitdecodeg:io.github.raptros.bson.DecodeBsonField[G],implicitdecodeh:io.github.raptros.bson.DecodeBsonField[H],implicitdecodei:io.github.raptros.bson.DecodeBsonField[I],implicitdecodej:io.github.raptros.bson.DecodeBsonField[J],implicitdecodek:io.github.raptros.bson.DecodeBsonField[K]):io.github.raptros.bson.DecodeBson[(A,B,C,D,E,F,G,H,I,J,K)]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="GeneratedDecodeBsons.html" class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons">GeneratedDecodeBsons</a></dd></dl></div>
+    </li><li name="io.github.raptros.bson.GeneratedDecodeBsons#bdecodeTuple12" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="bdecodeTuple12[A,B,C,D,E,F,G,H,I,J,K,L](ak:String,bk:String,ck:String,dk:String,ek:String,fk:String,gk:String,hk:String,ik:String,jk:String,kk:String,lk:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B],implicitdecodec:io.github.raptros.bson.DecodeBsonField[C],implicitdecoded:io.github.raptros.bson.DecodeBsonField[D],implicitdecodee:io.github.raptros.bson.DecodeBsonField[E],implicitdecodef:io.github.raptros.bson.DecodeBsonField[F],implicitdecodeg:io.github.raptros.bson.DecodeBsonField[G],implicitdecodeh:io.github.raptros.bson.DecodeBsonField[H],implicitdecodei:io.github.raptros.bson.DecodeBsonField[I],implicitdecodej:io.github.raptros.bson.DecodeBsonField[J],implicitdecodek:io.github.raptros.bson.DecodeBsonField[K],implicitdecodel:io.github.raptros.bson.DecodeBsonField[L]):io.github.raptros.bson.DecodeBson[(A,B,C,D,E,F,G,H,I,J,K,L)]"></a>
+      <a id="bdecodeTuple12[A,B,C,D,E,F,G,H,I,J,K,L](String,String,String,String,String,String,String,String,String,String,String,String)(DecodeBsonField[A],DecodeBsonField[B],DecodeBsonField[C],DecodeBsonField[D],DecodeBsonField[E],DecodeBsonField[F],DecodeBsonField[G],DecodeBsonField[H],DecodeBsonField[I],DecodeBsonField[J],DecodeBsonField[K],DecodeBsonField[L]):DecodeBson[(A,B,C,D,E,F,G,H,I,J,K,L)]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">bdecodeTuple12</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>, <span name="D">D</span>, <span name="E">E</span>, <span name="F">F</span>, <span name="G">G</span>, <span name="H">H</span>, <span name="I">I</span>, <span name="J">J</span>, <span name="K">K</span>, <span name="L">L</span>]</span><span class="params">(<span name="ak">ak: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="bk">bk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ck">ck: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="dk">dk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ek">ek: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="fk">fk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="gk">gk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="hk">hk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ik">ik: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="jk">jk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="kk">kk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="lk">lk: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="decodea">decodea: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple12.A">A</span>]</span>, <span name="decodeb">decodeb: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple12.B">B</span>]</span>, <span name="decodec">decodec: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple12.C">C</span>]</span>, <span name="decoded">decoded: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple12.D">D</span>]</span>, <span name="decodee">decodee: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple12.E">E</span>]</span>, <span name="decodef">decodef: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple12.F">F</span>]</span>, <span name="decodeg">decodeg: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple12.G">G</span>]</span>, <span name="decodeh">decodeh: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple12.H">H</span>]</span>, <span name="decodei">decodei: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple12.I">I</span>]</span>, <span name="decodej">decodej: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple12.J">J</span>]</span>, <span name="decodek">decodek: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple12.K">K</span>]</span>, <span name="decodel">decodel: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple12.L">L</span>]</span>)</span><span class="result">: <a href="DecodeBson.html" class="extype" name="io.github.raptros.bson.DecodeBson">DecodeBson</a>[(<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple12.A">A</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple12.B">B</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple12.C">C</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple12.D">D</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple12.E">E</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple12.F">F</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple12.G">G</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple12.H">H</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple12.I">I</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple12.J">J</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple12.K">K</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple12.L">L</span>)]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@bdecodeTuple12[A,B,C,D,E,F,G,H,I,J,K,L](ak:String,bk:String,ck:String,dk:String,ek:String,fk:String,gk:String,hk:String,ik:String,jk:String,kk:String,lk:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B],implicitdecodec:io.github.raptros.bson.DecodeBsonField[C],implicitdecoded:io.github.raptros.bson.DecodeBsonField[D],implicitdecodee:io.github.raptros.bson.DecodeBsonField[E],implicitdecodef:io.github.raptros.bson.DecodeBsonField[F],implicitdecodeg:io.github.raptros.bson.DecodeBsonField[G],implicitdecodeh:io.github.raptros.bson.DecodeBsonField[H],implicitdecodei:io.github.raptros.bson.DecodeBsonField[I],implicitdecodej:io.github.raptros.bson.DecodeBsonField[J],implicitdecodek:io.github.raptros.bson.DecodeBsonField[K],implicitdecodel:io.github.raptros.bson.DecodeBsonField[L]):io.github.raptros.bson.DecodeBson[(A,B,C,D,E,F,G,H,I,J,K,L)]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="GeneratedDecodeBsons.html" class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons">GeneratedDecodeBsons</a></dd></dl></div>
+    </li><li name="io.github.raptros.bson.GeneratedDecodeBsons#bdecodeTuple2" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="bdecodeTuple2[A,B](ak:String,bk:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B]):io.github.raptros.bson.DecodeBson[(A,B)]"></a>
+      <a id="bdecodeTuple2[A,B](String,String)(DecodeBsonField[A],DecodeBsonField[B]):DecodeBson[(A,B)]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">bdecodeTuple2</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>]</span><span class="params">(<span name="ak">ak: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="bk">bk: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="decodea">decodea: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple2.A">A</span>]</span>, <span name="decodeb">decodeb: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple2.B">B</span>]</span>)</span><span class="result">: <a href="DecodeBson.html" class="extype" name="io.github.raptros.bson.DecodeBson">DecodeBson</a>[(<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple2.A">A</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple2.B">B</span>)]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@bdecodeTuple2[A,B](ak:String,bk:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B]):io.github.raptros.bson.DecodeBson[(A,B)]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="GeneratedDecodeBsons.html" class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons">GeneratedDecodeBsons</a></dd></dl></div>
+    </li><li name="io.github.raptros.bson.GeneratedDecodeBsons#bdecodeTuple3" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="bdecodeTuple3[A,B,C](ak:String,bk:String,ck:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B],implicitdecodec:io.github.raptros.bson.DecodeBsonField[C]):io.github.raptros.bson.DecodeBson[(A,B,C)]"></a>
+      <a id="bdecodeTuple3[A,B,C](String,String,String)(DecodeBsonField[A],DecodeBsonField[B],DecodeBsonField[C]):DecodeBson[(A,B,C)]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">bdecodeTuple3</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>]</span><span class="params">(<span name="ak">ak: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="bk">bk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ck">ck: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="decodea">decodea: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple3.A">A</span>]</span>, <span name="decodeb">decodeb: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple3.B">B</span>]</span>, <span name="decodec">decodec: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple3.C">C</span>]</span>)</span><span class="result">: <a href="DecodeBson.html" class="extype" name="io.github.raptros.bson.DecodeBson">DecodeBson</a>[(<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple3.A">A</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple3.B">B</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple3.C">C</span>)]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@bdecodeTuple3[A,B,C](ak:String,bk:String,ck:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B],implicitdecodec:io.github.raptros.bson.DecodeBsonField[C]):io.github.raptros.bson.DecodeBson[(A,B,C)]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="GeneratedDecodeBsons.html" class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons">GeneratedDecodeBsons</a></dd></dl></div>
+    </li><li name="io.github.raptros.bson.GeneratedDecodeBsons#bdecodeTuple4" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="bdecodeTuple4[A,B,C,D](ak:String,bk:String,ck:String,dk:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B],implicitdecodec:io.github.raptros.bson.DecodeBsonField[C],implicitdecoded:io.github.raptros.bson.DecodeBsonField[D]):io.github.raptros.bson.DecodeBson[(A,B,C,D)]"></a>
+      <a id="bdecodeTuple4[A,B,C,D](String,String,String,String)(DecodeBsonField[A],DecodeBsonField[B],DecodeBsonField[C],DecodeBsonField[D]):DecodeBson[(A,B,C,D)]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">bdecodeTuple4</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>, <span name="D">D</span>]</span><span class="params">(<span name="ak">ak: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="bk">bk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ck">ck: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="dk">dk: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="decodea">decodea: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple4.A">A</span>]</span>, <span name="decodeb">decodeb: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple4.B">B</span>]</span>, <span name="decodec">decodec: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple4.C">C</span>]</span>, <span name="decoded">decoded: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple4.D">D</span>]</span>)</span><span class="result">: <a href="DecodeBson.html" class="extype" name="io.github.raptros.bson.DecodeBson">DecodeBson</a>[(<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple4.A">A</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple4.B">B</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple4.C">C</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple4.D">D</span>)]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@bdecodeTuple4[A,B,C,D](ak:String,bk:String,ck:String,dk:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B],implicitdecodec:io.github.raptros.bson.DecodeBsonField[C],implicitdecoded:io.github.raptros.bson.DecodeBsonField[D]):io.github.raptros.bson.DecodeBson[(A,B,C,D)]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="GeneratedDecodeBsons.html" class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons">GeneratedDecodeBsons</a></dd></dl></div>
+    </li><li name="io.github.raptros.bson.GeneratedDecodeBsons#bdecodeTuple5" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="bdecodeTuple5[A,B,C,D,E](ak:String,bk:String,ck:String,dk:String,ek:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B],implicitdecodec:io.github.raptros.bson.DecodeBsonField[C],implicitdecoded:io.github.raptros.bson.DecodeBsonField[D],implicitdecodee:io.github.raptros.bson.DecodeBsonField[E]):io.github.raptros.bson.DecodeBson[(A,B,C,D,E)]"></a>
+      <a id="bdecodeTuple5[A,B,C,D,E](String,String,String,String,String)(DecodeBsonField[A],DecodeBsonField[B],DecodeBsonField[C],DecodeBsonField[D],DecodeBsonField[E]):DecodeBson[(A,B,C,D,E)]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">bdecodeTuple5</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>, <span name="D">D</span>, <span name="E">E</span>]</span><span class="params">(<span name="ak">ak: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="bk">bk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ck">ck: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="dk">dk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ek">ek: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="decodea">decodea: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple5.A">A</span>]</span>, <span name="decodeb">decodeb: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple5.B">B</span>]</span>, <span name="decodec">decodec: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple5.C">C</span>]</span>, <span name="decoded">decoded: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple5.D">D</span>]</span>, <span name="decodee">decodee: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple5.E">E</span>]</span>)</span><span class="result">: <a href="DecodeBson.html" class="extype" name="io.github.raptros.bson.DecodeBson">DecodeBson</a>[(<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple5.A">A</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple5.B">B</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple5.C">C</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple5.D">D</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple5.E">E</span>)]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@bdecodeTuple5[A,B,C,D,E](ak:String,bk:String,ck:String,dk:String,ek:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B],implicitdecodec:io.github.raptros.bson.DecodeBsonField[C],implicitdecoded:io.github.raptros.bson.DecodeBsonField[D],implicitdecodee:io.github.raptros.bson.DecodeBsonField[E]):io.github.raptros.bson.DecodeBson[(A,B,C,D,E)]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="GeneratedDecodeBsons.html" class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons">GeneratedDecodeBsons</a></dd></dl></div>
+    </li><li name="io.github.raptros.bson.GeneratedDecodeBsons#bdecodeTuple6" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="bdecodeTuple6[A,B,C,D,E,F](ak:String,bk:String,ck:String,dk:String,ek:String,fk:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B],implicitdecodec:io.github.raptros.bson.DecodeBsonField[C],implicitdecoded:io.github.raptros.bson.DecodeBsonField[D],implicitdecodee:io.github.raptros.bson.DecodeBsonField[E],implicitdecodef:io.github.raptros.bson.DecodeBsonField[F]):io.github.raptros.bson.DecodeBson[(A,B,C,D,E,F)]"></a>
+      <a id="bdecodeTuple6[A,B,C,D,E,F](String,String,String,String,String,String)(DecodeBsonField[A],DecodeBsonField[B],DecodeBsonField[C],DecodeBsonField[D],DecodeBsonField[E],DecodeBsonField[F]):DecodeBson[(A,B,C,D,E,F)]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">bdecodeTuple6</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>, <span name="D">D</span>, <span name="E">E</span>, <span name="F">F</span>]</span><span class="params">(<span name="ak">ak: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="bk">bk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ck">ck: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="dk">dk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ek">ek: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="fk">fk: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="decodea">decodea: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple6.A">A</span>]</span>, <span name="decodeb">decodeb: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple6.B">B</span>]</span>, <span name="decodec">decodec: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple6.C">C</span>]</span>, <span name="decoded">decoded: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple6.D">D</span>]</span>, <span name="decodee">decodee: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple6.E">E</span>]</span>, <span name="decodef">decodef: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple6.F">F</span>]</span>)</span><span class="result">: <a href="DecodeBson.html" class="extype" name="io.github.raptros.bson.DecodeBson">DecodeBson</a>[(<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple6.A">A</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple6.B">B</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple6.C">C</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple6.D">D</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple6.E">E</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple6.F">F</span>)]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@bdecodeTuple6[A,B,C,D,E,F](ak:String,bk:String,ck:String,dk:String,ek:String,fk:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B],implicitdecodec:io.github.raptros.bson.DecodeBsonField[C],implicitdecoded:io.github.raptros.bson.DecodeBsonField[D],implicitdecodee:io.github.raptros.bson.DecodeBsonField[E],implicitdecodef:io.github.raptros.bson.DecodeBsonField[F]):io.github.raptros.bson.DecodeBson[(A,B,C,D,E,F)]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="GeneratedDecodeBsons.html" class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons">GeneratedDecodeBsons</a></dd></dl></div>
+    </li><li name="io.github.raptros.bson.GeneratedDecodeBsons#bdecodeTuple7" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="bdecodeTuple7[A,B,C,D,E,F,G](ak:String,bk:String,ck:String,dk:String,ek:String,fk:String,gk:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B],implicitdecodec:io.github.raptros.bson.DecodeBsonField[C],implicitdecoded:io.github.raptros.bson.DecodeBsonField[D],implicitdecodee:io.github.raptros.bson.DecodeBsonField[E],implicitdecodef:io.github.raptros.bson.DecodeBsonField[F],implicitdecodeg:io.github.raptros.bson.DecodeBsonField[G]):io.github.raptros.bson.DecodeBson[(A,B,C,D,E,F,G)]"></a>
+      <a id="bdecodeTuple7[A,B,C,D,E,F,G](String,String,String,String,String,String,String)(DecodeBsonField[A],DecodeBsonField[B],DecodeBsonField[C],DecodeBsonField[D],DecodeBsonField[E],DecodeBsonField[F],DecodeBsonField[G]):DecodeBson[(A,B,C,D,E,F,G)]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">bdecodeTuple7</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>, <span name="D">D</span>, <span name="E">E</span>, <span name="F">F</span>, <span name="G">G</span>]</span><span class="params">(<span name="ak">ak: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="bk">bk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ck">ck: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="dk">dk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ek">ek: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="fk">fk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="gk">gk: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="decodea">decodea: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple7.A">A</span>]</span>, <span name="decodeb">decodeb: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple7.B">B</span>]</span>, <span name="decodec">decodec: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple7.C">C</span>]</span>, <span name="decoded">decoded: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple7.D">D</span>]</span>, <span name="decodee">decodee: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple7.E">E</span>]</span>, <span name="decodef">decodef: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple7.F">F</span>]</span>, <span name="decodeg">decodeg: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple7.G">G</span>]</span>)</span><span class="result">: <a href="DecodeBson.html" class="extype" name="io.github.raptros.bson.DecodeBson">DecodeBson</a>[(<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple7.A">A</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple7.B">B</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple7.C">C</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple7.D">D</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple7.E">E</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple7.F">F</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple7.G">G</span>)]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@bdecodeTuple7[A,B,C,D,E,F,G](ak:String,bk:String,ck:String,dk:String,ek:String,fk:String,gk:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B],implicitdecodec:io.github.raptros.bson.DecodeBsonField[C],implicitdecoded:io.github.raptros.bson.DecodeBsonField[D],implicitdecodee:io.github.raptros.bson.DecodeBsonField[E],implicitdecodef:io.github.raptros.bson.DecodeBsonField[F],implicitdecodeg:io.github.raptros.bson.DecodeBsonField[G]):io.github.raptros.bson.DecodeBson[(A,B,C,D,E,F,G)]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="GeneratedDecodeBsons.html" class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons">GeneratedDecodeBsons</a></dd></dl></div>
+    </li><li name="io.github.raptros.bson.GeneratedDecodeBsons#bdecodeTuple8" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="bdecodeTuple8[A,B,C,D,E,F,G,H](ak:String,bk:String,ck:String,dk:String,ek:String,fk:String,gk:String,hk:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B],implicitdecodec:io.github.raptros.bson.DecodeBsonField[C],implicitdecoded:io.github.raptros.bson.DecodeBsonField[D],implicitdecodee:io.github.raptros.bson.DecodeBsonField[E],implicitdecodef:io.github.raptros.bson.DecodeBsonField[F],implicitdecodeg:io.github.raptros.bson.DecodeBsonField[G],implicitdecodeh:io.github.raptros.bson.DecodeBsonField[H]):io.github.raptros.bson.DecodeBson[(A,B,C,D,E,F,G,H)]"></a>
+      <a id="bdecodeTuple8[A,B,C,D,E,F,G,H](String,String,String,String,String,String,String,String)(DecodeBsonField[A],DecodeBsonField[B],DecodeBsonField[C],DecodeBsonField[D],DecodeBsonField[E],DecodeBsonField[F],DecodeBsonField[G],DecodeBsonField[H]):DecodeBson[(A,B,C,D,E,F,G,H)]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">bdecodeTuple8</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>, <span name="D">D</span>, <span name="E">E</span>, <span name="F">F</span>, <span name="G">G</span>, <span name="H">H</span>]</span><span class="params">(<span name="ak">ak: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="bk">bk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ck">ck: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="dk">dk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ek">ek: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="fk">fk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="gk">gk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="hk">hk: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="decodea">decodea: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple8.A">A</span>]</span>, <span name="decodeb">decodeb: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple8.B">B</span>]</span>, <span name="decodec">decodec: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple8.C">C</span>]</span>, <span name="decoded">decoded: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple8.D">D</span>]</span>, <span name="decodee">decodee: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple8.E">E</span>]</span>, <span name="decodef">decodef: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple8.F">F</span>]</span>, <span name="decodeg">decodeg: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple8.G">G</span>]</span>, <span name="decodeh">decodeh: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple8.H">H</span>]</span>)</span><span class="result">: <a href="DecodeBson.html" class="extype" name="io.github.raptros.bson.DecodeBson">DecodeBson</a>[(<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple8.A">A</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple8.B">B</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple8.C">C</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple8.D">D</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple8.E">E</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple8.F">F</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple8.G">G</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple8.H">H</span>)]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@bdecodeTuple8[A,B,C,D,E,F,G,H](ak:String,bk:String,ck:String,dk:String,ek:String,fk:String,gk:String,hk:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B],implicitdecodec:io.github.raptros.bson.DecodeBsonField[C],implicitdecoded:io.github.raptros.bson.DecodeBsonField[D],implicitdecodee:io.github.raptros.bson.DecodeBsonField[E],implicitdecodef:io.github.raptros.bson.DecodeBsonField[F],implicitdecodeg:io.github.raptros.bson.DecodeBsonField[G],implicitdecodeh:io.github.raptros.bson.DecodeBsonField[H]):io.github.raptros.bson.DecodeBson[(A,B,C,D,E,F,G,H)]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="GeneratedDecodeBsons.html" class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons">GeneratedDecodeBsons</a></dd></dl></div>
+    </li><li name="io.github.raptros.bson.GeneratedDecodeBsons#bdecodeTuple9" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="bdecodeTuple9[A,B,C,D,E,F,G,H,I](ak:String,bk:String,ck:String,dk:String,ek:String,fk:String,gk:String,hk:String,ik:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B],implicitdecodec:io.github.raptros.bson.DecodeBsonField[C],implicitdecoded:io.github.raptros.bson.DecodeBsonField[D],implicitdecodee:io.github.raptros.bson.DecodeBsonField[E],implicitdecodef:io.github.raptros.bson.DecodeBsonField[F],implicitdecodeg:io.github.raptros.bson.DecodeBsonField[G],implicitdecodeh:io.github.raptros.bson.DecodeBsonField[H],implicitdecodei:io.github.raptros.bson.DecodeBsonField[I]):io.github.raptros.bson.DecodeBson[(A,B,C,D,E,F,G,H,I)]"></a>
+      <a id="bdecodeTuple9[A,B,C,D,E,F,G,H,I](String,String,String,String,String,String,String,String,String)(DecodeBsonField[A],DecodeBsonField[B],DecodeBsonField[C],DecodeBsonField[D],DecodeBsonField[E],DecodeBsonField[F],DecodeBsonField[G],DecodeBsonField[H],DecodeBsonField[I]):DecodeBson[(A,B,C,D,E,F,G,H,I)]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">bdecodeTuple9</span><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>, <span name="D">D</span>, <span name="E">E</span>, <span name="F">F</span>, <span name="G">G</span>, <span name="H">H</span>, <span name="I">I</span>]</span><span class="params">(<span name="ak">ak: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="bk">bk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ck">ck: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="dk">dk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ek">ek: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="fk">fk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="gk">gk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="hk">hk: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="ik">ik: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="decodea">decodea: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple9.A">A</span>]</span>, <span name="decodeb">decodeb: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple9.B">B</span>]</span>, <span name="decodec">decodec: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple9.C">C</span>]</span>, <span name="decoded">decoded: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple9.D">D</span>]</span>, <span name="decodee">decodee: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple9.E">E</span>]</span>, <span name="decodef">decodef: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple9.F">F</span>]</span>, <span name="decodeg">decodeg: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple9.G">G</span>]</span>, <span name="decodeh">decodeh: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple9.H">H</span>]</span>, <span name="decodei">decodei: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple9.I">I</span>]</span>)</span><span class="result">: <a href="DecodeBson.html" class="extype" name="io.github.raptros.bson.DecodeBson">DecodeBson</a>[(<span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple9.A">A</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple9.B">B</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple9.C">C</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple9.D">D</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple9.E">E</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple9.F">F</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple9.G">G</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple9.H">H</span>, <span class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons.bdecodeTuple9.I">I</span>)]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@bdecodeTuple9[A,B,C,D,E,F,G,H,I](ak:String,bk:String,ck:String,dk:String,ek:String,fk:String,gk:String,hk:String,ik:String)(implicitdecodea:io.github.raptros.bson.DecodeBsonField[A],implicitdecodeb:io.github.raptros.bson.DecodeBsonField[B],implicitdecodec:io.github.raptros.bson.DecodeBsonField[C],implicitdecoded:io.github.raptros.bson.DecodeBsonField[D],implicitdecodee:io.github.raptros.bson.DecodeBsonField[E],implicitdecodef:io.github.raptros.bson.DecodeBsonField[F],implicitdecodeg:io.github.raptros.bson.DecodeBsonField[G],implicitdecodeh:io.github.raptros.bson.DecodeBsonField[H],implicitdecodei:io.github.raptros.bson.DecodeBsonField[I]):io.github.raptros.bson.DecodeBson[(A,B,C,D,E,F,G,H,I)]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="GeneratedDecodeBsons.html" class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons">GeneratedDecodeBsons</a></dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a>
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@clone():Object" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="io.github.raptros.bson.DecodeBsons#dboDecodeBson" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="dboDecodeBson:io.github.raptros.bson.DecodeBson[com.mongodb.DBObject]"></a>
+      <a id="dboDecodeBson:DecodeBson[DBObject]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">dboDecodeBson</span><span class="result">: <a href="DecodeBson.html" class="extype" name="io.github.raptros.bson.DecodeBson">DecodeBson</a>[<span class="extype" name="com.mongodb.DBObject">DBObject</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@dboDecodeBson:io.github.raptros.bson.DecodeBson[com.mongodb.DBObject]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="DecodeBsons.html" class="extype" name="io.github.raptros.bson.DecodeBsons">DecodeBsons</a></dd></dl></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a>
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a>
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@equals(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@finalize():Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <a id="getClass():Class[_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@getClass():Class[_]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@hashCode():Int" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="io.github.raptros.bson.DecodeBsons#listDecodeBson" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="listDecodeBson[A](implicitd:io.github.raptros.bson.DecodeBsonField[A]):io.github.raptros.bson.DecodeBson[List[A]]"></a>
+      <a id="listDecodeBson[A](DecodeBsonField[A]):DecodeBson[List[A]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">listDecodeBson</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="d">d: <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a>[<span class="extype" name="io.github.raptros.bson.DecodeBsons.listDecodeBson.A">A</span>]</span>)</span><span class="result">: <a href="DecodeBson.html" class="extype" name="io.github.raptros.bson.DecodeBson">DecodeBson</a>[<span class="extype" name="scala.List">List</span>[<span class="extype" name="io.github.raptros.bson.DecodeBsons.listDecodeBson.A">A</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@listDecodeBson[A](implicitd:io.github.raptros.bson.DecodeBsonField[A]):io.github.raptros.bson.DecodeBson[List[A]]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="DecodeBsons.html" class="extype" name="io.github.raptros.bson.DecodeBsons">DecodeBsons</a></dd></dl></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a>
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@notify():Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@notifyAll():Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
+      <a id="synchronized[T0](⇒T0):T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@toString():String" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="io.github.raptros.bson.DecodeBsons#tryCast" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="tryCast[A](v:Any)(implicitevidence$1:scala.reflect.ClassTag[A]):scalaz.\/[io.github.raptros.bson.DecodeError,A]"></a>
+      <a id="tryCast[A](Any)(ClassTag[A]):\/[DecodeError,A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">tryCast</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="v">v: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="io.github.raptros.bson.DecodeBsons.tryCast.A">A</span>]</span>)</span><span class="result">: <span class="extype" name="scalaz.\/">\/</span>[<a href="DecodeError.html" class="extype" name="io.github.raptros.bson.DecodeError">DecodeError</a>, <span class="extype" name="io.github.raptros.bson.DecodeBsons.tryCast.A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@tryCast[A](v:Any)(implicitevidence$1:scala.reflect.ClassTag[A]):scalaz.\/[io.github.raptros.bson.DecodeError,A]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="DecodeBsons.html" class="extype" name="io.github.raptros.bson.DecodeBsons">DecodeBsons</a></dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@wait():Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a>
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a>
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.github.raptros.bson.DecodeBson$@wait(x$1:Long):Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="io.github.raptros.bson.DecodeBsons">
+              <h3>Inherited from <a href="DecodeBsons.html" class="extype" name="io.github.raptros.bson.DecodeBsons">DecodeBsons</a></h3>
+            </div><div class="parent" name="io.github.raptros.bson.GeneratedDecodeBsons">
+              <h3>Inherited from <a href="GeneratedDecodeBsons.html" class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons">GeneratedDecodeBsons</a></h3>
+            </div><div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>

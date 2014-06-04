@@ -1,6 +1,7 @@
 package io.github.raptros.bson
 
 import scala.language.existentials
+import scala.reflect._
 
 sealed trait DecodeError {
   protected def describe: String
@@ -23,6 +24,6 @@ case class CustomError(msg: String) extends DecodeError {
   lazy val describe = s"custom error: $msg"
 }
 
-case class WrongFieldCount(expected: Int) extends DecodeError {
-  lazy val describe = s"wrong number of fields, expected $expected"
+case class WrongFieldCount(expected: Int, got: Int) extends DecodeError {
+  lazy val describe = s"wrong number of fields, expected $expected, got $got"
 }

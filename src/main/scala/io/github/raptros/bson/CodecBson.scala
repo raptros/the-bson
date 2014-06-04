@@ -18,7 +18,7 @@ object CodecBson extends CodecBsons {
 //  def withReattempt[A](encoder: A => DBObject, decoder: DBObject => DecodeResult[A]): CodecBson[A] =
 //    derived(EncodeBson(encoder), DecodeBson.withReattempt(decoder))
 
-  def derived[A](implicit e: EncodeBson[A], d: DecodeBson[A]) =
+  implicit def derived[A](implicit e: EncodeBson[A], d: DecodeBson[A]) =
     new CodecBson[A] {
       val encoder = e
       val decoder = d

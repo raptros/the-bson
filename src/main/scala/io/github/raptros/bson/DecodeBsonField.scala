@@ -4,6 +4,7 @@ import com.mongodb.{BasicDBList, DBObject}
 import scalaz._
 import scalaz.syntax.id._
 import scalaz.syntax.std.boolean._
+import scalaz.std.option._
 import scalaz.syntax.validation._
 import scala.reflect._
 import java.util.Date
@@ -45,13 +46,10 @@ object DecodeBsonField extends DecodeBsonFields {
 
 trait DecodeBsonFields {
 
-  def tryCast[A: ClassTag](k: String, v: Any): DecodeError \/ A = try {
-    v.asInstanceOf[A].right
-  } catch {
-    case e: ClassCastException => WrongFieldType(k, classTag[A].runtimeClass, v.getClass).left
-  }
+  protected def tryCast[A: ClassTag](k: String, v: Any): DecodeError \/ A =
+    (v != null && !(classTag[A].runtimeClass isAssignableFrom v.getClass)) either WrongFieldType(k, classTag[A].runtimeClass, v.getClass) or v.asInstanceOf[A]
 
-  def extractAndCast[A: ClassTag](k: String, dbo: DBObject): DecodeError \/ A = for {
+  protected def extractAndCast[A: ClassTag](k: String, dbo: DBObject): DecodeError \/ A = for {
     uncasted <- !(dbo containsField k) either NoSuchField(k) or dbo.get(k)
     casted <- tryCast[A](k, uncasted)
   } yield casted
@@ -60,12 +58,12 @@ trait DecodeBsonFields {
     extractAndCast[A](k, dbo) leftMap { NonEmptyList(_) }
   }
 
-  implicit val booleanDecodeField: DecodeBsonField[Boolean] = castableDecoder[Boolean]
-  implicit val intDecodeField: DecodeBsonField[Int] = castableDecoder[Int]
+  implicit val booleanDecodeField: DecodeBsonField[Boolean] = castableDecoder[java.lang.Boolean] map { _.booleanValue() }
+  implicit val integerDecodeField: DecodeBsonField[Int] = castableDecoder[Integer] map { _.intValue() }
   implicit val stringDecodeField: DecodeBsonField[String] = castableDecoder[String]
-  implicit val longDecodeField: DecodeBsonField[Long] = castableDecoder[Long]
-  implicit val floatDecodeField: DecodeBsonField[Float] = castableDecoder[Float]
-  implicit val doubleDecodeField: DecodeBsonField[Double] = castableDecoder[Double]
+  implicit val longDecodeField: DecodeBsonField[Long] = castableDecoder[java.lang.Long] map { _.intValue() }
+  implicit val floatDecodeField: DecodeBsonField[Float] = castableDecoder[java.lang.Float] map { _.floatValue() }
+  implicit val doubleDecodeField: DecodeBsonField[Double] = castableDecoder[java.lang.Double] map { _.doubleValue() }
   implicit val dateDecodeField: DecodeBsonField[Date] = castableDecoder[Date]
 
   implicit val datetimeDecodeField = castableDecoder[DateTime] ||| dateDecodeField map { d => new DateTime(d) }
@@ -74,6 +72,15 @@ trait DecodeBsonFields {
 
   implicit def decodeBsonDecodeField[A](implicit d: DecodeBson[A]): DecodeBsonField[A] = DecodeBsonField { (k, dbo) =>
     dboDecodeField(k, dbo) flatMap { d(_) }
+  }
+
+  import scalaz.std.list._
+  implicit def listDecodeField[A](implicit d: DecodeBsonField[A]): DecodeBsonField[List[A]] = DecodeBsonField { (k, dbo) =>
+    dbo.containsField(k) ?? (dboDecodeField(k, dbo) flatMap { DecodeBson.listDecodeBson[A].decode })
+  }
+
+  implicit def decodeOptionalField[A](implicit d: DecodeBsonField[A]): DecodeBsonField[Option[A]] = DecodeBsonField { (k, dbo) =>
+    if (dbo.containsField(k)) d(k, dbo) map { Some(_) } else none[A].right
   }
 
 }

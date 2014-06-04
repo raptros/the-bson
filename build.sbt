@@ -9,6 +9,7 @@ scalaVersion := "2.11.1"
 scalacOptions ++= Seq("-deprecation", "-unchecked", "-feature")
 
 libraryDependencies ++= Seq(
+  "org.scala-lang" % "scala-reflect" % scalaVersion.value,
   "org.mongodb" % "mongo-java-driver" % "2.12.2",
   "org.joda" % "joda-convert" % "1.2",
   "joda-time" % "joda-time" % "2.3",

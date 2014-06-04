@@ -94,7 +94,7 @@ object Boilerplate {
 
   def decodeValidators(arity: Int): String = (1 to arity) map { n =>
     val char = arityChars(n).toLowerCase
-    s"decode$char(${char}k, dbo)"
+    s"decode$char(${char}k, dbo).validation"
   } mkString ", "
 
   def bDecodeFBody(arity: Int): String = {
@@ -105,7 +105,7 @@ object Boilerplate {
     s"""
        |  def bdecode${arity}f[$tparams, X](fxn: ($tparams) => X)($stringParams)(implicit $decodeParams): DecodeBson[X] =
        |    DecodeBson { dbo =>
-       |      ApD.apply$arity($validators)(fxn)
+       |      ApV.apply$arity($validators)(fxn).disjunction
        |    }
      """.stripMargin
   }
@@ -119,7 +119,7 @@ object Boilerplate {
     s"""
        |  def bdecodeTuple$arity[$tparams]($stringParams)(implicit $decodeParams): DecodeBson[($tparams)] =
        |    DecodeBson { dbo =>
-       |      ApD.apply$arity($validators)(($tupler))
+       |      ApV.apply$arity($validators)(($tupler)).disjunction
        |    }
      """.stripMargin
   }

@@ -25,11 +25,15 @@ trait Builders {
   implicit class DBOBuilder(dbo: DBObject) {
     def +@+[A](kv: DBOKV[A]): DBObject = kv.write(dbo)
 
-    def ++@++[A](kvs: Seq[DBOKV[A]]): DBObject = {
+    def ++@++(kvs: Seq[DBOKV[_]]): DBObject = {
       kvs foreach { _.write(dbo) }
       dbo
     }
 
     def +?+[A](okv: Option[DBOKV[A]]): DBObject = (okv fold dbo) { _.write(dbo) }
+
+    def write[A](k: String, v: A)(implicit f: EncodeBsonField[A]) = f.writeTo(dbo, k, v)
   }
 }
+
+object Builders extends Builders

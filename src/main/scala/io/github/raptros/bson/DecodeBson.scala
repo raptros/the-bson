@@ -39,14 +39,15 @@ trait DecodeBson[+A] {
     } yield (a, b)
   }
 
-  def validate(f: DBObject => Boolean, msg: => DecodeError) = DecodeBson { dbo =>
+  def validate(f: DBObject => Boolean, msg: DBObject => DecodeError) = DecodeBson { dbo =>
     if (f(dbo))
       decode(dbo)
     else
-      msg.wrapNel.left
+      msg(dbo).wrapNel.left
   }
 
-  def validateFields(count: Int) = validate(_.keySet().size() == count, WrongFieldCount(count))
+  def validateFields(count: Int) = validate(_.keySet.size == count,
+    dbo => WrongFieldCount(count, dbo.keySet.size))
 }
 
 object DecodeBson extends DecodeBsons {
@@ -56,23 +57,24 @@ object DecodeBson extends DecodeBsons {
 }
 
 trait DecodeBsons extends GeneratedDecodeBsons {
-  val ApD = Applicative[({type l[a] = NonEmptyList[DecodeError] \/ a})#l]
+  val ApD = Applicative[DecodeResult]
 
-  def tryCast[A: ClassTag](dbo: DBObject): DecodeError \/ A = try {
-    dbo.asInstanceOf[A].right
-  } catch {
-    case e: ClassCastException => WrongType(classTag[A].runtimeClass, dbo.getClass).left
-  }
+  type DecodeResultV[A] = ValidationNel[DecodeError, A]
+  val ApV = Applicative[DecodeResultV]
+
+  import scalaz.syntax.traverse._
+
+  protected def tryCast[A: ClassTag](v: Any): DecodeError \/ A =
+    (v != null && !(classTag[A].runtimeClass isAssignableFrom v.getClass)) either WrongType(classTag[A].runtimeClass, v.getClass) or v.asInstanceOf[A]
 
   implicit val dboDecodeBson: DecodeBson[DBObject] = DecodeBson { _.right }
 
-  implicit val dbListDecodeBson: DecodeBson[BasicDBList] = DecodeBson { dbo =>
-    tryCast[BasicDBList](dbo) leftMap { NonEmptyList(_) }
-  }
-
   implicit def listDecodeBson[A](implicit d: DecodeBsonField[A]) = DecodeBson { dbo =>
-    dbListDecodeBson(dbo) flatMap { dbl =>
-      dbl.keySet().asScala map { k => d(k, dbl) map { List(_) } } reduce { _ +++ _ }
+    tryCast[BasicDBList](dbo) leftMap { NonEmptyList(_) } flatMap { dbl =>
+      //first: decode each item in the list
+      val decodes = (0 until dbl.size()) map { idx => d(idx.toString, dbl).validation }
+      //second: sequence the decode results - takes a list of decode results and makes it a decode result of a list
+      decodes.toList.sequence[DecodeResultV, A].disjunction
     }
   }
 

@@ -20,3 +20,5 @@ trait Extractors {
   }
 
 }
+
+object Extractor extends Extractors

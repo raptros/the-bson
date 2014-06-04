@@ -5,7 +5,7 @@ import java.util.Date
 import org.bson.types.ObjectId
 import org.joda.time.DateTime
 
-trait EncodeBsonField[A] {
+trait EncodeBsonField[-A] {
   def apply(dbo: DBObject, k: String, v: A): DBObject = {
     writeTo(dbo, k, v)
     dbo
@@ -46,5 +46,9 @@ trait EncodeBsonFields {
 
   implicit val dateTimeEncodeField: EncodeBsonField[DateTime] = dateEncodeField contramap { _.toDate }
 
-
+  implicit def optionEncodeField[A](implicit e: EncodeBsonField[A]): EncodeBsonField[Option[A]] = EncodeBsonField { (dbo, k, optA) =>
+    for (a <- optA) {
+      e(dbo, k, a)
+    }
+  }
 }

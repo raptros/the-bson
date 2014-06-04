@@ -8,6 +8,8 @@ import scalaz.syntax.validation._
 import scalaz.syntax.id._
 import scalaz.syntax._
 
+/**
+  */
 trait Extractors {
 
   implicit class DBOWrapper(dbo: DBObject) {
@@ -21,4 +23,4 @@ trait Extractors {
 
 }
 
-object Extractor extends Extractors
+object Extractors extends Extractors

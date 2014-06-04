@@ -7,14 +7,13 @@ import scalaz._
 import java.util.Date
 import org.scalatest.matchers.{HavePropertyMatchResult, HavePropertyMatcher, MatchResult, Matcher}
 
-class DecodeBsonFieldSpec extends FlatSpec with Matchers with GivenWhenThen {
-  import DecodeBson._
-  import DecodeBsonField._
-  import Extractor._
-  import EncodeBson._
-  import EncodeBsonField._
-  import Builders._
+import DecodeBsonField._
+import Extractors._
+import EncodeBsonField._
+import Builders._
 
+
+class DecodeBsonFieldSpec extends FlatSpec with Matchers with GivenWhenThen {
   behavior of "the provided DecodeBsonField instances"
 
   they should "decode the basic types" in {

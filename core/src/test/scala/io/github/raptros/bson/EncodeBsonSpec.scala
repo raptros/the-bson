@@ -9,7 +9,6 @@ import Builders._
 
 class EncodeBsonSpec extends FlatSpec with Matchers with GivenWhenThen {
 
-
   behavior of "a handwritten encode bson"
   class Pants(val x: String, val y: Int, val z: List[String])
   implicit val pantsEncodeBson = EncodeBson[Pants] { pants =>

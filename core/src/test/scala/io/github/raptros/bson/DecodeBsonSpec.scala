@@ -4,14 +4,14 @@ import org.scalatest.{GivenWhenThen, Matchers, FlatSpec}
 import com.mongodb.{BasicDBList, DBObject, BasicDBObject}
 import scalaz._
 
-class DecodeBsonSpec extends FlatSpec with Matchers with GivenWhenThen {
+import DecodeBson._
+import DecodeBsonField._
+import Extractors._
+import EncodeBson._
+import EncodeBsonField._
+import Builders._
 
-  import DecodeBson._
-  import DecodeBsonField._
-  import Extractor._
-  import EncodeBson._
-  import EncodeBsonField._
-  import Builders._
+class DecodeBsonSpec extends FlatSpec with Matchers with GivenWhenThen {
 
   behavior of "the provided DecodeBson instances"
 

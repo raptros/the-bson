@@ -3,6 +3,7 @@ package io.github.raptros.bson
 import scala.language.existentials
 import scala.reflect._
 
+/** the base type of things that can go wrong when decoding a DBO. */
 sealed trait DecodeError {
   protected def describe: String
   override def toString = s"decode error: $describe"

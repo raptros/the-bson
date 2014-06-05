@@ -9,11 +9,11 @@ import scala.language.experimental.macros
   *  - find the generated encode/decode/codec method that has the same arity as that constructor (note that the macros fail if they can't find one)
   *  - find the companion object and refer to the apply or unapply method (note that case classes that use unapplySeq won't work)
   *  - construct the call to the coding method, using the names of the constructor parameters as the strings for the fields
-  *  - use the types of the constructor params to pass in implicitly available Encode Json and Decode Json instances for the fields
+  *  - use the types of the constructor params to pass in implicitly available [[EncodeBson]] and [[DecodeBson]] instances for the fields
   */
 object BsonMacros {
 
-  /** Derives a CodecBson for a case class by building a call to bsonCaseCodec`N`. Make sure to have Bson._ imported wherever you use this.
+  /** Derives a [[CodecBson]] for a case class by building a call to bsonCaseCodec`N`. Make sure to have Bson._ imported wherever you use this.
     * @tparam C a case class - i.e. it has a companion object with an apply and unapply method that each match the primary constructor's signature.
     * @return if C is a case class, a working CodecBson. if not, who knows.
     */
@@ -51,7 +51,7 @@ object BsonMacros {
      """
   }
 
-  /** Derives a EncodeBson for a case class by building a call to bencode`N`f. Make sure to have Bson._ imported wherever you use this.
+  /** Derives a [[EncodeBson]] for a case class by building a call to bencode`N`f. Make sure to have Bson._ imported wherever you use this.
     * @tparam C a case class - i.e. it has a companion object with an unapply method that is compatible with the primary constructor's signature.
     * @return if C is a case class, a working CodecBson. if not, who knows.
     */
@@ -91,7 +91,7 @@ object BsonMacros {
      """
   }
 
-  /** Derives a DecodeBson for a case class by building a call to bdecode`N`f. Make sure to have Bson._ imported wherever you use this.
+  /** Derives a [[DecodeBson]] for a case class by building a call to bdecode`N`f. Make sure to have Bson._ imported wherever you use this.
     * @tparam C a case class - i.e. it has a companion object with an apply method that matches the primary constructor's signature.
     * @return if C is a case class, a working CodecBson. if not, who knows.
     */

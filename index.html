@@ -31,13 +31,38 @@
         <hr>
 
         <section id="main_content">
-            
-            <h1 id="the-bson" class="title">the-bson</h1>
-            <p>this library is an attempt to recreate some of the utilities of the (excellent) <a href="http://argonaut.io/">Argonaut</a> library for manipulation Mongo DB objects;
-            the structure and interfaces of this library were made to be familiar to a user of Argonaut.
-            (also various things, especially how to use SBT to generate a bunch of typeclass instance building methods, were figured out by looking at the prior library.)
-            in particular, this library provides typeclasses for encoding and decoding DBObjects (and the fields of DBObjects).</p>
-            <p><a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.package">API documentation for the latest version</a> is available.</p>
+          <h1>
+<a name="the-bson" class="anchor" href="#the-bson"><span class="octicon octicon-link"></span></a>the-bson</h1>
+
+<p>this library is an attempt to recreate some of the utilities of the (excellent) <a href="http://argonaut.io/">Argonaut</a> library for manipulation Mongo DB objects;
+the structure and interfaces of this library were made to be familiar to a user of Argonaut.
+(also various things, especially how to use SBT to generate a bunch of typeclass instance building methods, were figured out by looking at the prior library.)
+in particular, this library provides typeclasses for encoding and decoding DBObjects (and the fields of DBObjects).</p>
+
+<p><a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.package">API documentation for the latest version</a> is available.</p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>(pending)</p>
+
+<h2>
+<a name="how-to-use" class="anchor" href="#how-to-use"><span class="octicon octicon-link"></span></a>How to use</h2>
+
+<p>use this by implementing instances of <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.EncodeBson">EncodeBson</a> and <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.DecodeBson">DecodeBson</a>, primarily. </p>
+
+<h3>
+<a name="building-dbobjects" class="anchor" href="#building-dbobjects"><span class="octicon octicon-link"></span></a>Building DBObjects</h3>
+
+<h3>
+<a name="encoding" class="anchor" href="#encoding"><span class="octicon octicon-link"></span></a>Encoding</h3>
+
+<div class="highlight highlight-scala"><pre><span class="k">import</span> <span class="nn">io.github.raptros.bson._</span>
+<span class="k">import</span> <span class="nn">Bson._</span>
+</pre></div>
+
+<h3>
+<a name="decoding" class="anchor" href="#decoding"><span class="octicon octicon-link"></span></a>Decoding</h3>
         </section>
 
         <footer>

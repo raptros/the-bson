@@ -25,19 +25,5 @@ Installation
 ------------
 (pending)
 
-[manual]: http://raptros.github.io/the-bson/manual/the-bson.html
-[api-docs]: http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.package 
-[Builders]: http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.Builders
-[DBO]: http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.Builders$DBO$
-[DBOKV]: http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.Builders$DBO
-[StringToDBOKV]: http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.Builders$StringToDBOKV
-[DBOBuilder]: http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.Builders$DBOBuilder
-[ValueToBson]: http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.Builders$ValueToBson
-[EncodeBson]: http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.EncodeBson
-[EncodeBsons]: http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.EncodeBsons
-[EncodeBsonField]: http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.EncodeBsonField
-[EncodeBsonFields]: http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.EncodeBsonFields
-[DecodeBson]: http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.DecodeBson
-[DecodeBsons]: http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.DecodeBsons
-[DecodeBsonField]: http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.DecodeBsonField
-[DecodeBsonFields]: http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.DecodeBsonFields
+[manual]: http://raptros.github.io/the-bson/docs/the-bson.html
+[api-docs]: http://raptros.github.io/the-bson/docs/latest/api/#io.github.raptros.bson.package 

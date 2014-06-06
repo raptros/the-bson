@@ -62,11 +62,15 @@ SiteKeys.makeSite <<= SiteKeys.makeSite dependsOn mkSiteManaged
 
 GhPagesKeys.ghpagesNoJekyll := false
 
-site.addMappingsToSiteDir(mappings in (ScalaUnidoc, packageDoc), "latest/api")
+site.addMappingsToSiteDir(mappings in (ScalaUnidoc, packageDoc), "docs/latest/api")
+
+site.pamfletSupport("docs")
 
 SiteKeys.siteMappings ++= Seq(siteManaged.value / "index.md" -> "index.md")
 
 (includeFilter in SiteKeys.makeSite) := "*.html" | "*.css" | "*.png" | "*.jpg" | "*.gif" | "*.js" | "*.swf" | "*.yml" | "*.md"
 
 git.remoteRepo := "git@github.com:raptros/the-bson.git"
+
+GhPagesKeys.synchLocal <<= GhPagesKeys.synchLocal dependsOn SiteKeys.makeSite
 

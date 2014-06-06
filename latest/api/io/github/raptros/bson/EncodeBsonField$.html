@@ -160,8 +160,8 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="EncodeBsonFields.html" class="extype" name="io.github.raptros.bson.EncodeBsonFields">EncodeBsonFields</a></dd></dl></div>
-    </li><li name="io.github.raptros.bson.EncodeBsonField#apply" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">this allows anything that has an <a href="EncodeBson.html" class="extype" name="io.github.raptros.bson.EncodeBson">EncodeBson</a> to also be encoded as a bson field.</p><div class="fullcomment"><div class="comment cmt"><p>this allows anything that has an <a href="EncodeBson.html" class="extype" name="io.github.raptros.bson.EncodeBson">EncodeBson</a> to also be encoded as a bson field.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="EncodeBsonFields.html" class="extype" name="io.github.raptros.bson.EncodeBsonFields">EncodeBsonFields</a></dd></dl></div>
+    </li><li name="io.github.raptros.bson.EncodeBsonField#apply" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="apply[A](f:(com.mongodb.DBObject,String,A)=&gt;Unit):io.github.raptros.bson.EncodeBsonField[A]"></a>
       <a id="apply[A]((DBObject,String,A)⇒Unit):EncodeBsonField[A]"></a>
       <h4 class="signature">
@@ -177,7 +177,8 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">constructs a new EncodeBsonField by implementing <code>writeTo</code> using the given function.</p><div class="fullcomment"><div class="comment cmt"><p>constructs a new EncodeBsonField by implementing <code>writeTo</code> using the given function.</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the type to encode as a field</p></dd><dt class="param">f</dt><dd class="cmt"><p>a function that implements <a href="EncodeBsonField.html#writeTo(dbo:com.mongodb.DBObject,k:String,v:A):Unit" class="extmbr" name="io.github.raptros.bson.EncodeBsonField#writeTo">EncodeBsonField#writeTo</a></p></dd><dt>returns</dt><dd class="cmt"><p>an <a href="EncodeBsonField.html" class="extype" name="io.github.raptros.bson.EncodeBsonField">EncodeBsonField</a>[A]
+</p></dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -285,7 +286,7 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="EncodeBsonFields.html" class="extype" name="io.github.raptros.bson.EncodeBsonFields">EncodeBsonFields</a></dd></dl></div>
+      <p class="shortcomment cmt">if something is <a href="EncodeBsonFields.html#directWritable[A]:io.github.raptros.bson.EncodeBsonField[A]" class="extmbr" name="io.github.raptros.bson.EncodeBsonFields#directWritable">directWritable</a>, the mongo java driver supports it as a directly inserted field.</p><div class="fullcomment"><div class="comment cmt"><p>if something is <a href="EncodeBsonFields.html#directWritable[A]:io.github.raptros.bson.EncodeBsonField[A]" class="extmbr" name="io.github.raptros.bson.EncodeBsonFields#directWritable">directWritable</a>, the mongo java driver supports it as a directly inserted field.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="EncodeBsonFields.html" class="extype" name="io.github.raptros.bson.EncodeBsonFields">EncodeBsonFields</a></dd></dl></div>
     </li><li name="io.github.raptros.bson.EncodeBsonFields#doubleEncodeField" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="doubleEncodeField:io.github.raptros.bson.EncodeBsonField[Double]"></a>
       <a id="doubleEncodeField:EncodeBsonField[Double]"></a>

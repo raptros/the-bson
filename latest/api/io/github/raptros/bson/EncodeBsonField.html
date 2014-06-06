@@ -47,7 +47,9 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>these allow things of type <code>A</code> to be written into DBObjects as keyed values.
+this is important because with BSON the only valid database objects are, well, objects.</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the type that can be encoded. contravariant for the same reason as <a href="EncodeBson.html" class="extype" name="io.github.raptros.bson.EncodeBson">EncodeBson</a>.
+</p></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
@@ -91,7 +93,7 @@
 
         <div id="values" class="values members">
               <h3>Abstract Value Members</h3>
-              <ol><li name="io.github.raptros.bson.EncodeBsonField#writeTo" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+              <ol><li name="io.github.raptros.bson.EncodeBsonField#writeTo" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="writeTo(dbo:com.mongodb.DBObject,k:String,v:A):Unit"></a>
       <a id="writeTo(DBObject,String,A):Unit"></a>
       <h4 class="signature">
@@ -107,7 +109,8 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">encodes and inserts <code>v</code> into <code>dbo</code> at key <code>k</code>.</p><div class="fullcomment"><div class="comment cmt"><p>encodes and inserts <code>v</code> into <code>dbo</code> at key <code>k</code>.</p></div><dl class="paramcmts block"><dt class="param">dbo</dt><dd class="cmt"><p>the DBObject to modify.</p></dd><dt class="param">k</dt><dd class="cmt"><p>the key to insert the value at.</p></dd><dt class="param">v</dt><dd class="cmt"><p>the value to encode.
+</p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -180,7 +183,7 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">alias for <a href="#writeTo(dbo:com.mongodb.DBObject,k:String,v:A):Unit" class="extmbr" name="io.github.raptros.bson.EncodeBsonField#writeTo">writeTo</a> that also returns the modified object</p>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -237,7 +240,7 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">derives a new field encoder by transforming other values into values this encoder can encode.</p>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>

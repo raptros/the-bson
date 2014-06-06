@@ -47,7 +47,10 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>this permits a syntax for adding key-value pairs to <code>DBObject</code>s.</p></div><dl class="attributes block"> <dt>Note</dt><dd><span class="cmt"><p>the methods given by this class mutate the underlying <code>DBObject</code>.
+      you should really only construct a <code>DBObject</code> right near where you will use it -
+      don't let those mutable, untyped things spread around your codebase.
+</p></span></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
@@ -147,7 +150,7 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="io.github.raptros.bson.Builders.DBOBuilder#++@++" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="io.github.raptros.bson.Builders.DBOBuilder#++@++" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="++@++(kvs:Seq[Builders.this.DBOKV[_]]):com.mongodb.DBObject"></a>
       <a id="++@++(Seq[DBOKV[_]]):DBObject"></a>
       <h4 class="signature">
@@ -163,8 +166,8 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      
-    </li><li name="io.github.raptros.bson.Builders.DBOBuilder#+?+" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">this appends multiple <a href="Builders$DBOKV.html" class="extype" name="io.github.raptros.bson.Builders.DBOKV">DBOKV</a>s to a dbo.</p><div class="fullcomment"><div class="comment cmt"><p>this appends multiple <a href="Builders$DBOKV.html" class="extype" name="io.github.raptros.bson.Builders.DBOKV">DBOKV</a>s to a dbo.</p><pre>dbo ++@++ <span class="std">List</span>(<span class="lit">"k0"</span> :&gt; &lt;encodable1&gt;, <span class="lit">"k1"</span> :&gt; &lt;encodable2&gt;) +@+ (<span class="lit">"k2"</span> :&gt; &lt;encodable2&gt;)</pre></div></div>
+    </li><li name="io.github.raptros.bson.Builders.DBOBuilder#+?+" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="+?+[A](okv:Option[Builders.this.DBOKV[A]]):com.mongodb.DBObject"></a>
       <a id="+?+[A](Option[DBOKV[A]]):DBObject"></a>
       <h4 class="signature">
@@ -180,8 +183,9 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      
-    </li><li name="io.github.raptros.bson.Builders.DBOBuilder#+@+" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">this optionally appends optional <a href="Builders$DBOKV.html" class="extype" name="io.github.raptros.bson.Builders.DBOKV">DBOKV</a>s to a dbo.</p><div class="fullcomment"><div class="comment cmt"><p>this optionally appends optional <a href="Builders$DBOKV.html" class="extype" name="io.github.raptros.bson.Builders.DBOKV">DBOKV</a>s to a dbo.</p><pre><span class="cmt">//this will end up adding the keys k0 (with the encoded value of encodable0) and k1, but not the key k1.</span>
+dbo +?+ (<span class="lit">"k0"</span> :?&gt; <span class="std">Some</span>(&lt;encodable0&gt;)) +?+ (<span class="lit">"k1"</span> :?&gt; <span class="std">None</span>) +@+ (<span class="lit">"k2"</span> :&gt; &lt;encodable1&gt;)</pre></div></div>
+    </li><li name="io.github.raptros.bson.Builders.DBOBuilder#+@+" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="+@+[A](kv:Builders.this.DBOKV[A]):com.mongodb.DBObject"></a>
       <a id="+@+[A](DBOKV[A]):DBObject"></a>
       <h4 class="signature">
@@ -197,7 +201,7 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">this appends a <a href="Builders$DBOKV.html" class="extype" name="io.github.raptros.bson.Builders.DBOKV">io.github.raptros.bson.Builders.DBOKV</a> to a dbo, and returns the same dbo.</p><div class="fullcomment"><div class="comment cmt"><p>this appends a <a href="Builders$DBOKV.html" class="extype" name="io.github.raptros.bson.Builders.DBOKV">io.github.raptros.bson.Builders.DBOKV</a> to a dbo, and returns the same dbo.</p><pre>dbo +@+ (<span class="lit">"k0"</span> :&gt; &lt;encodable1&gt;) +@+ (<span class="lit">"k1"</span> :&gt; &lt;encodable2&gt;)</pre></div></div>
     </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="==(x$1:Any):Boolean"></a>
       <a id="==(Any):Boolean"></a>
@@ -533,7 +537,7 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">directly appends a key and value to the dbo, with a Unit return type; no fancy syntax here.</p>
     </li></ol>
             </div>
 

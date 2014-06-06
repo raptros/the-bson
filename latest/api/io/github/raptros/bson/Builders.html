@@ -47,12 +47,12 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Builders are all the things you need to build up DBObjects using available <a href="EncodeBson.html" class="extype" name="io.github.raptros.bson.EncodeBson">EncodeBson</a>s and <a href="EncodeBsonField.html" class="extype" name="io.github.raptros.bson.EncodeBsonField">EncodeBsonField</a>s.</p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div><div class="toggleContainer block">
             <span class="toggle">Known Subclasses</span>
-            <div class="subClasses hiddenContent"><a href="Bson.html" class="extype" name="io.github.raptros.bson.Bson">Bson</a>, <a href="Bson$.html" class="extype" name="io.github.raptros.bson.Bson">Bson</a>, <a href="Builders$.html" class="extype" name="io.github.raptros.bson.Builders">Builders</a></div>
+            <div class="subClasses hiddenContent"><a href="Bson$.html" class="extype" name="io.github.raptros.bson.Bson">Bson</a>, <a href="Bson.html" class="extype" name="io.github.raptros.bson.Bson">Bson</a>, <a href="Builders$.html" class="extype" name="io.github.raptros.bson.Builders">Builders</a></div>
           </div></div>
         
 
@@ -92,7 +92,7 @@
 
         <div id="types" class="types members">
               <h3>Type Members</h3>
-              <ol><li name="io.github.raptros.bson.Builders.DBOBuilder" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+              <ol><li name="io.github.raptros.bson.Builders.DBOBuilder" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="DBOBuilderextendsAnyRef"></a>
       <a id="DBOBuilder:DBOBuilder"></a>
       <h4 class="signature">
@@ -108,8 +108,11 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      
-    </li><li name="io.github.raptros.bson.Builders.DBOKV" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">this permits a syntax for adding key-value pairs to <code>DBObject</code>s.</p><div class="fullcomment"><div class="comment cmt"><p>this permits a syntax for adding key-value pairs to <code>DBObject</code>s.</p></div><dl class="attributes block"> <dt>Note</dt><dd><span class="cmt"><p>the methods given by this class mutate the underlying <code>DBObject</code>.
+      you should really only construct a <code>DBObject</code> right near where you will use it -
+      don't let those mutable, untyped things spread around your codebase.
+</p></span></dd></dl></div>
+    </li><li name="io.github.raptros.bson.Builders.DBOKV" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="DBOKV[V]extendsProductwithSerializable"></a>
       <a id="DBOKV[V]:DBOKV[V]"></a>
       <h4 class="signature">
@@ -125,8 +128,10 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      
-    </li><li name="io.github.raptros.bson.Builders.StringToDBOKV" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">wraps up a key and a value that can be encoded as a field along with the <a href="EncodeBsonField.html" class="extype" name="io.github.raptros.bson.EncodeBsonField">EncodeBsonField</a> that will encode it.</p><div class="fullcomment"><div class="comment cmt"><p>wraps up a key and a value that can be encoded as a field along with the <a href="EncodeBsonField.html" class="extype" name="io.github.raptros.bson.EncodeBsonField">EncodeBsonField</a> that will encode it.
+used by the syntax provided by <a href="Builders$StringToDBOKV.html" class="extype" name="io.github.raptros.bson.Builders.StringToDBOKV">StringToDBOKV</a>.
+</p></div></div>
+    </li><li name="io.github.raptros.bson.Builders.StringToDBOKV" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="StringToDBOKVextendsAnyRef"></a>
       <a id="StringToDBOKV:StringToDBOKV"></a>
       <h4 class="signature">
@@ -142,7 +147,10 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">this enables a syntax for constructing key-value pairs with values that can be written to a DBObject -
+i.</p><div class="fullcomment"><div class="comment cmt"><p>this enables a syntax for constructing key-value pairs with values that can be written to a DBObject -
+i.e. because the value type has a <a href="EncodeBsonField.html" class="extype" name="io.github.raptros.bson.EncodeBsonField">EncodeBsonField</a> instance</p><pre><span class="lit">"string"</span> :&gt; &lt;some encodable&gt;</pre><p>also, you can get an Option of a DBOKV:</p><pre><span class="lit">"string"</span> :&gt; <span class="std">Some</span>(&lt;encodable&gt;) <span class="cmt">//gives you Some(DBOKV("string", <encodable>))</span>
+<span class="lit">"string"</span> :&gt; <span class="std">None</span> <span class="cmt">//gives you None</span></pre></div></div>
     </li><li name="io.github.raptros.bson.Builders.ValueToBson" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="ValueToBson[A]extendsAnyRef"></a>
       <a id="ValueToBson[A]:ValueToBson[A]"></a>
@@ -159,7 +167,7 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">allows you to call asBson on any value that some <a href="EncodeBson.html" class="extype" name="io.github.raptros.bson.EncodeBson">EncodeBson</a> instance applies to.</p>
     </li></ol>
             </div>
 
@@ -218,7 +226,7 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="io.github.raptros.bson.Builders.DBO" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="io.github.raptros.bson.Builders.DBO" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="DBO"></a>
       <a id="DBO:DBO"></a>
       <h4 class="signature">
@@ -234,7 +242,7 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">apply this to a bunch of <a href="Builders$DBOKV.html" class="extype" name="io.github.raptros.bson.Builders.DBOKV">DBOKV</a>s and get a DBObject.</p><div class="fullcomment"><div class="comment cmt"><p>apply this to a bunch of <a href="Builders$DBOKV.html" class="extype" name="io.github.raptros.bson.Builders.DBOKV">DBOKV</a>s and get a DBObject.</p><pre>DBO(<span class="lit">"k0"</span> :&gt; <span class="kw">true</span>, <span class="lit">"k1"</span> :&gt; <span class="std">List</span>(<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>), k3 :&gt; <span class="lit">"a string"</span>)</pre></div></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>

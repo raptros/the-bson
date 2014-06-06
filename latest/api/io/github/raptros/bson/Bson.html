@@ -47,7 +47,7 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>instead of importing, you could mix in Bson. if anyone finds a good use case for that, let me know.</p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><a href="CodecBsons.html" class="extype" name="io.github.raptros.bson.CodecBsons">CodecBsons</a>, <a href="GeneratedCodecBsons.html" class="extype" name="io.github.raptros.bson.GeneratedCodecBsons">GeneratedCodecBsons</a>, <a href="DecodeBsons.html" class="extype" name="io.github.raptros.bson.DecodeBsons">DecodeBsons</a>, <a href="GeneratedDecodeBsons.html" class="extype" name="io.github.raptros.bson.GeneratedDecodeBsons">GeneratedDecodeBsons</a>, <a href="DecodeBsonFields.html" class="extype" name="io.github.raptros.bson.DecodeBsonFields">DecodeBsonFields</a>, <a href="EncodeBsons.html" class="extype" name="io.github.raptros.bson.EncodeBsons">EncodeBsons</a>, <a href="GeneratedEncodeBsons.html" class="extype" name="io.github.raptros.bson.GeneratedEncodeBsons">GeneratedEncodeBsons</a>, <a href="EncodeBsonFields.html" class="extype" name="io.github.raptros.bson.EncodeBsonFields">EncodeBsonFields</a>, <a href="Builders.html" class="extype" name="io.github.raptros.bson.Builders">Builders</a>, <a href="Extractors.html" class="extype" name="io.github.raptros.bson.Extractors">Extractors</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div><div class="toggleContainer block">
@@ -108,7 +108,10 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Builders.html" class="extype" name="io.github.raptros.bson.Builders">Builders</a></dd></dl></div>
+      <p class="shortcomment cmt">this permits a syntax for adding key-value pairs to <code>DBObject</code>s.</p><div class="fullcomment"><div class="comment cmt"><p>this permits a syntax for adding key-value pairs to <code>DBObject</code>s.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Builders.html" class="extype" name="io.github.raptros.bson.Builders">Builders</a></dd><dt>Note</dt><dd><span class="cmt"><p>the methods given by this class mutate the underlying <code>DBObject</code>.
+      you should really only construct a <code>DBObject</code> right near where you will use it -
+      don't let those mutable, untyped things spread around your codebase.
+</p></span></dd></dl></div>
     </li><li name="io.github.raptros.bson.Builders.DBOKV" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="DBOKV[V]extendsProductwithSerializable"></a>
       <a id="DBOKV[V]:DBOKV[V]"></a>
@@ -125,7 +128,9 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Builders.html" class="extype" name="io.github.raptros.bson.Builders">Builders</a></dd></dl></div>
+      <p class="shortcomment cmt">wraps up a key and a value that can be encoded as a field along with the <a href="EncodeBsonField.html" class="extype" name="io.github.raptros.bson.EncodeBsonField">EncodeBsonField</a> that will encode it.</p><div class="fullcomment"><div class="comment cmt"><p>wraps up a key and a value that can be encoded as a field along with the <a href="EncodeBsonField.html" class="extype" name="io.github.raptros.bson.EncodeBsonField">EncodeBsonField</a> that will encode it.
+used by the syntax provided by <a href="Builders$StringToDBOKV.html" class="extype" name="io.github.raptros.bson.Builders.StringToDBOKV">StringToDBOKV</a>.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Builders.html" class="extype" name="io.github.raptros.bson.Builders">Builders</a></dd></dl></div>
     </li><li name="io.github.raptros.bson.Extractors.DBOWrapper" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="DBOWrapperextendsAnyRef"></a>
       <a id="DBOWrapper:DBOWrapper"></a>
@@ -142,7 +147,7 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Extractors.html" class="extype" name="io.github.raptros.bson.Extractors">Extractors</a></dd></dl></div>
+      <p class="shortcomment cmt">wraps up DBObjects so that various decode methods can be used on them</p><div class="fullcomment"><div class="comment cmt"><p>wraps up DBObjects so that various decode methods can be used on them</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Extractors.html" class="extype" name="io.github.raptros.bson.Extractors">Extractors</a></dd></dl></div>
     </li><li name="io.github.raptros.bson.DecodeBsons.DecodeResultV" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="DecodeResultV[A]=scalaz.ValidationNel[io.github.raptros.bson.DecodeError,A]"></a>
       <a id="DecodeResultV[A]:DecodeResultV[A]"></a>
@@ -176,7 +181,10 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Builders.html" class="extype" name="io.github.raptros.bson.Builders">Builders</a></dd></dl></div>
+      <p class="shortcomment cmt">this enables a syntax for constructing key-value pairs with values that can be written to a DBObject -
+i.</p><div class="fullcomment"><div class="comment cmt"><p>this enables a syntax for constructing key-value pairs with values that can be written to a DBObject -
+i.e. because the value type has a <a href="EncodeBsonField.html" class="extype" name="io.github.raptros.bson.EncodeBsonField">EncodeBsonField</a> instance</p><pre><span class="lit">"string"</span> :&gt; &lt;some encodable&gt;</pre><p>also, you can get an Option of a DBOKV:</p><pre><span class="lit">"string"</span> :&gt; <span class="std">Some</span>(&lt;encodable&gt;) <span class="cmt">//gives you Some(DBOKV("string", <encodable>))</span>
+<span class="lit">"string"</span> :&gt; <span class="std">None</span> <span class="cmt">//gives you None</span></pre></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Builders.html" class="extype" name="io.github.raptros.bson.Builders">Builders</a></dd></dl></div>
     </li><li name="io.github.raptros.bson.Builders.ValueToBson" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ValueToBson[A]extendsAnyRef"></a>
       <a id="ValueToBson[A]:ValueToBson[A]"></a>
@@ -193,7 +201,7 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Builders.html" class="extype" name="io.github.raptros.bson.Builders">Builders</a></dd></dl></div>
+      <p class="shortcomment cmt">allows you to call asBson on any value that some <a href="EncodeBson.html" class="extype" name="io.github.raptros.bson.EncodeBson">EncodeBson</a> instance applies to.</p><div class="fullcomment"><div class="comment cmt"><p>allows you to call asBson on any value that some <a href="EncodeBson.html" class="extype" name="io.github.raptros.bson.EncodeBson">EncodeBson</a> instance applies to.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Builders.html" class="extype" name="io.github.raptros.bson.Builders">Builders</a></dd></dl></div>
     </li></ol>
             </div>
 
@@ -302,7 +310,7 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Builders.html" class="extype" name="io.github.raptros.bson.Builders">Builders</a></dd></dl></div>
+      <p class="shortcomment cmt">apply this to a bunch of <a href="Builders$DBOKV.html" class="extype" name="io.github.raptros.bson.Builders.DBOKV">DBOKV</a>s and get a DBObject.</p><div class="fullcomment"><div class="comment cmt"><p>apply this to a bunch of <a href="Builders$DBOKV.html" class="extype" name="io.github.raptros.bson.Builders.DBOKV">DBOKV</a>s and get a DBObject.</p><pre>DBO(<span class="lit">"k0"</span> :&gt; <span class="kw">true</span>, <span class="lit">"k1"</span> :&gt; <span class="std">List</span>(<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>), k3 :&gt; <span class="lit">"a string"</span>)</pre></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Builders.html" class="extype" name="io.github.raptros.bson.Builders">Builders</a></dd></dl></div>
     </li><li name="io.github.raptros.bson.EncodeBsonFields#EncodeBsonEncodeBsonField" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="EncodeBsonEncodeBsonField[A](impliciteb:io.github.raptros.bson.EncodeBson[A]):io.github.raptros.bson.EncodeBsonField[A]"></a>
       <a id="EncodeBsonEncodeBsonField[A](EncodeBson[A]):EncodeBsonField[A]"></a>
@@ -319,7 +327,7 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="EncodeBsonFields.html" class="extype" name="io.github.raptros.bson.EncodeBsonFields">EncodeBsonFields</a></dd></dl></div>
+      <p class="shortcomment cmt">this allows anything that has an <a href="EncodeBson.html" class="extype" name="io.github.raptros.bson.EncodeBson">EncodeBson</a> to also be encoded as a bson field.</p><div class="fullcomment"><div class="comment cmt"><p>this allows anything that has an <a href="EncodeBson.html" class="extype" name="io.github.raptros.bson.EncodeBson">EncodeBson</a> to also be encoded as a bson field.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="EncodeBsonFields.html" class="extype" name="io.github.raptros.bson.EncodeBsonFields">EncodeBsonFields</a></dd></dl></div>
     </li><li name="io.github.raptros.bson.EncodeBsons#SeqEncodeBson" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="SeqEncodeBson[A](implicite:io.github.raptros.bson.EncodeBsonField[A]):io.github.raptros.bson.EncodeBson[Seq[A]]"></a>
       <a id="SeqEncodeBson[A](EncodeBsonField[A]):EncodeBson[Seq[A]]"></a>
@@ -1203,7 +1211,7 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="DecodeBsonFields.html" class="extype" name="io.github.raptros.bson.DecodeBsonFields">DecodeBsonFields</a></dd></dl></div>
+      <p class="shortcomment cmt">produces a decoder that attempts to cast the field to the target type.</p><div class="fullcomment"><div class="comment cmt"><p>produces a decoder that attempts to cast the field to the target type.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="DecodeBsonFields.html" class="extype" name="io.github.raptros.bson.DecodeBsonFields">DecodeBsonFields</a></dd></dl></div>
     </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a>
       <a id="clone():AnyRef"></a>
@@ -1345,7 +1353,7 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="DecodeBsonFields.html" class="extype" name="io.github.raptros.bson.DecodeBsonFields">DecodeBsonFields</a></dd></dl></div>
+      <p class="shortcomment cmt">this allows anything with a <a href="DecodeBson.html" class="extype" name="io.github.raptros.bson.DecodeBson">DecodeBson</a> to be decoded from a field as well</p><div class="fullcomment"><div class="comment cmt"><p>this allows anything with a <a href="DecodeBson.html" class="extype" name="io.github.raptros.bson.DecodeBson">DecodeBson</a> to be decoded from a field as well</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="DecodeBsonFields.html" class="extype" name="io.github.raptros.bson.DecodeBsonFields">DecodeBsonFields</a></dd></dl></div>
     </li><li name="io.github.raptros.bson.DecodeBsonFields#decodeOptionalField" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="decodeOptionalField[A](implicitd:io.github.raptros.bson.DecodeBsonField[A]):io.github.raptros.bson.DecodeBsonField[Option[A]]"></a>
       <a id="decodeOptionalField[A](DecodeBsonField[A]):DecodeBsonField[Option[A]]"></a>
@@ -1379,7 +1387,7 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="EncodeBsonFields.html" class="extype" name="io.github.raptros.bson.EncodeBsonFields">EncodeBsonFields</a></dd></dl></div>
+      <p class="shortcomment cmt">if something is <a href="EncodeBsonFields.html#directWritable[A]:io.github.raptros.bson.EncodeBsonField[A]" class="extmbr" name="io.github.raptros.bson.EncodeBsonFields#directWritable">directWritable</a>, the mongo java driver supports it as a directly inserted field.</p><div class="fullcomment"><div class="comment cmt"><p>if something is <a href="EncodeBsonFields.html#directWritable[A]:io.github.raptros.bson.EncodeBsonField[A]" class="extmbr" name="io.github.raptros.bson.EncodeBsonFields#directWritable">directWritable</a>, the mongo java driver supports it as a directly inserted field.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="EncodeBsonFields.html" class="extype" name="io.github.raptros.bson.EncodeBsonFields">EncodeBsonFields</a></dd></dl></div>
     </li><li name="io.github.raptros.bson.DecodeBsonFields#doubleDecodeField" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="doubleDecodeField:io.github.raptros.bson.DecodeBsonField[Double]"></a>
       <a id="doubleDecodeField:DecodeBsonField[Double]"></a>

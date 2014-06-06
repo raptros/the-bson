@@ -47,7 +47,8 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>instances of this trait encode things to DBObjects.</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>the type that this can encode. contravariant so that this can be used in any situation where a subtype of A needs to be encoded.
+</p></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div><div class="toggleContainer block">
@@ -110,7 +111,7 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">encodes an A into a mongo DBObject</p>
     </li></ol>
             </div>
 
@@ -183,7 +184,7 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">alias for encode</p>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -224,7 +225,7 @@
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="io.github.raptros.bson.EncodeBson#contramap" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="io.github.raptros.bson.EncodeBson#contramap" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="contramap[B](f:B=&gt;A):io.github.raptros.bson.EncodeBson[B]"></a>
       <a id="contramap[B]((B)⇒A):EncodeBson[B]"></a>
       <h4 class="signature">
@@ -240,7 +241,8 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">derives a new encoder by transforming them into things this encoder applies to.</p><div class="fullcomment"><div class="comment cmt"><p>derives a new encoder by transforming them into things this encoder applies to.</p></div><dl class="paramcmts block"><dt class="tparam">B</dt><dd class="cmt"><p>something that can be transformed.</p></dd><dt class="param">f</dt><dd class="cmt"><p>a function that transforms a <code>B</code> into an <code>A</code></p></dd><dt>returns</dt><dd class="cmt"><p>an encoder for <code>B</code>
+</p></dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>

@@ -47,7 +47,9 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>this enables a syntax for constructing key-value pairs with values that can be written to a DBObject -
+i.e. because the value type has a <a href="EncodeBsonField.html" class="extype" name="io.github.raptros.bson.EncodeBsonField">EncodeBsonField</a> instance</p><pre><span class="lit">"string"</span> :&gt; &lt;some encodable&gt;</pre><p>also, you can get an Option of a DBOKV:</p><pre><span class="lit">"string"</span> :&gt; <span class="std">Some</span>(&lt;encodable&gt;) <span class="cmt">//gives you Some(DBOKV("string", <encodable>))</span>
+<span class="lit">"string"</span> :&gt; <span class="std">None</span> <span class="cmt">//gives you None</span></pre></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>

@@ -47,7 +47,8 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>an instance of <a href="" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a> for a type A can extract an A from a field of a db object.
+</p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
@@ -91,7 +92,7 @@
 
         <div id="values" class="values members">
               <h3>Abstract Value Members</h3>
-              <ol><li name="io.github.raptros.bson.DecodeBsonField#decode" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+              <ol><li name="io.github.raptros.bson.DecodeBsonField#decode" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="decode(k:String,dbo:com.mongodb.DBObject):io.github.raptros.bson.DecodeResult[A]"></a>
       <a id="decode(String,DBObject):DecodeResult[A]"></a>
       <h4 class="signature">
@@ -107,7 +108,8 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">decodes an A from a field of a dbo.</p><div class="fullcomment"><div class="comment cmt"><p>decodes an A from a field of a dbo.</p></div><dl class="paramcmts block"><dt class="param">k</dt><dd class="cmt"><p>a key to look up in <code>dbo</code></p></dd><dt class="param">dbo</dt><dd class="cmt"><p>a DBObject.</p></dd><dt>returns</dt><dd class="cmt"><p>a DecodeResult with an A if successful.
+</p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -147,7 +149,7 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="io.github.raptros.bson.DecodeBsonField#&amp;&amp;&amp;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="io.github.raptros.bson.DecodeBsonField#&amp;&amp;&amp;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="&amp;&amp;&amp;[B](x:io.github.raptros.bson.DecodeBsonField[B]):io.github.raptros.bson.DecodeBsonField[(A,B)]"></a>
       <a id="&amp;&amp;&amp;[B](DecodeBsonField[B]):DecodeBsonField[(A,B)]"></a>
       <h4 class="signature">
@@ -163,7 +165,7 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">i'm not certain if this is useful.</p><div class="fullcomment"><div class="comment cmt"><p>i'm not certain if this is useful. it produces a decoder that uses this decoder and a second one to produce a pair of values decoded from a single field.</p></div></div>
     </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="==(x$1:Any):Boolean"></a>
       <a id="==(Any):Boolean"></a>
@@ -197,7 +199,7 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">alias for <a href="#decode(k:String,dbo:com.mongodb.DBObject):io.github.raptros.bson.DecodeResult[A]" class="extmbr" name="io.github.raptros.bson.DecodeBsonField#decode">decode</a></p>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -311,7 +313,8 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">derives a new <a href="" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a> by passing a decoded value to a function that produces a DecodeBsonField which is then used to decode the field
+</p>
     </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
       <a id="getClass():Class[_]"></a>
@@ -379,7 +382,7 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">derives a new <a href="" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a> by transforming decoded values</p>
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -431,7 +434,7 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="io.github.raptros.bson.DecodeBsonField#orElse" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="io.github.raptros.bson.DecodeBsonField#orElse" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="orElse[B&gt;:A](x:=&gt;io.github.raptros.bson.DecodeBsonField[B]):io.github.raptros.bson.DecodeBsonField[B]"></a>
       <a id="orElse[B&gt;:A](⇒DecodeBsonField[B]):DecodeBsonField[B]"></a>
       <h4 class="signature">
@@ -447,7 +450,8 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">derives a new <a href="" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a> that first tries this one and then tries another one.</p><div class="fullcomment"><div class="comment cmt"><p>derives a new <a href="" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a> that first tries this one and then tries another one.</p></div><dl class="paramcmts block"><dt class="tparam">B</dt><dd class="cmt"><p>a supertype of <code>A</code> that <code>x</code> produces</p></dd><dt class="param">x</dt><dd class="cmt"><p>the decoder to try after this one.</p></dd><dt>returns</dt><dd class="cmt"><p>a new decoder.
+</p></dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -567,7 +571,7 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">alias for <a href="#orElse[B&gt;:A](x:=&gt;io.github.raptros.bson.DecodeBsonField[B]):io.github.raptros.bson.DecodeBsonField[B]" class="extmbr" name="io.github.raptros.bson.DecodeBsonField#orElse">orElse</a></p>
     </li></ol>
             </div>
 

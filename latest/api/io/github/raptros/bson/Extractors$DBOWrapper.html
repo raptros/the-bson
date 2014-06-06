@@ -47,7 +47,7 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>wraps up DBObjects so that various decode methods can be used on them</p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
@@ -220,7 +220,7 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">decodes the dbo as type <code>A</code> using the in-scope <a href="DecodeBson.html" class="extype" name="io.github.raptros.bson.DecodeBson">DecodeBson</a> instance for <code>A</code></p>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>
@@ -271,8 +271,8 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      
-    </li><li name="io.github.raptros.bson.Extractors.DBOWrapper#fieldOpt" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">extracts the field named by <code>k</code> and decodes it using a <a href="DecodeBsonField.html" class="extype" name="io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a> for type <code>A</code></p>
+    </li><li name="io.github.raptros.bson.Extractors.DBOWrapper#fieldOpt" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="fieldOpt[A](k:String)(implicitd:io.github.raptros.bson.DecodeBsonField[A]):io.github.raptros.bson.DecodeResult[Option[A]]"></a>
       <a id="fieldOpt[A](String)(DecodeBsonField[A]):DecodeResult[Option[A]]"></a>
       <h4 class="signature">
@@ -288,7 +288,7 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">if <code>k</code> is present in the dbo, extracts and decodes it as Some(a: A); returns None if not present.</p><div class="fullcomment"><div class="comment cmt"><p>if <code>k</code> is present in the dbo, extracts and decodes it as Some(a: A); returns None if not present.</p><pre>fieldOpt[A](field)</pre><p>should be equivalent to</p><pre>field[<span class="std">Option</span>[A]](key)</pre></div></div>
     </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <a id="finalize():Unit"></a>

@@ -1,2 +1,2 @@
-markup: redcarpet
-path: http://raptros.github.io/the-bson
+markdown: redcarpet
+baseurl: /the-bson

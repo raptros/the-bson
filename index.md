@@ -1,3 +1,6 @@
+---
+layout: index
+---
 # the-bson
 
 

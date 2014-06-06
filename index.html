@@ -1,0 +1,210 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>The-bson by raptros</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/raptros/the-bson">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/raptros/the-bson/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/raptros/the-bson/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>The-bson</h1>
+          <p>typeclass-based utility for encoding and decoding mongo db objects</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/raptros">raptros</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>
+<a name="the-bson" class="anchor" href="#the-bson"><span class="octicon octicon-link"></span></a>the-bson</h1>
+
+<p>this library is an attempt to recreate some of the utilities of the (excellent) <a href="http://argonaut.io/">Argonaut</a> library for manipulation Mongo DB objects;
+the structure and interfaces of this library were made to be familiar to a user of Argonaut.
+(also various things, especially how to use SBT to generate a bunch of typeclass instance building methods, were figured out by looking at the prior library.)
+in particular, this library provides typeclasses for encoding and decoding DBObjects (and the fields of DBObjects).</p>
+
+<p><a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.package">API documentation for the latest version</a> is available.</p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>(pending)</p>
+
+<h2>
+<a name="how-to-use" class="anchor" href="#how-to-use"><span class="octicon octicon-link"></span></a>How to use</h2>
+
+<p>The entire functionality of the-bson can be imported in one go:</p>
+
+<div class="highlight highlight-scala"><pre><span class="k">import</span> <span class="nn">io.github.raptros.bson._</span>
+<span class="k">import</span> <span class="nn">Bson._</span>
+</pre></div>
+
+<p>if you find this too cumbersome, functionality and implicits can also be imported in various objects, e.g.</p>
+
+<div class="highlight highlight-scala"><pre><span class="k">import</span> <span class="nn">io.github.raptros.bson._</span>
+<span class="k">import</span> <span class="nn">EncodeBsonField._</span> <span class="c1">//imports implicits for encoding basic types as object fields</span>
+<span class="k">import</span> <span class="nn">EncodeBson._</span> <span class="c1">//imports additional implicits and several methods for constructing EncodeBson instances using extraction functions and named fields</span>
+<span class="k">import</span> <span class="nn">DecodeBsonField._</span> <span class="c1">//imports implicits for decoding basic types from DBObjects</span>
+<span class="k">import</span> <span class="nn">DecodeBson._</span> <span class="c1">//imports additional implicit decoders, along with several methods for building DecodeBson instances by extracting named fields and applying constructor functions (or making tuples)</span>
+<span class="k">import</span> <span class="nn">Builders._</span> <span class="c1">//imports implicit classes that give syntax for encoding entire objects or building DBObjects from key-value pairs</span>
+<span class="k">import</span> <span class="nn">Extractors._</span> <span class="c1">//imports implicit classes that wrap DBObjects to allow you to decode entire objects or decode particular fields</span>
+</pre></div>
+
+<h3>
+<a name="field-encoding" class="anchor" href="#field-encoding"><span class="octicon octicon-link"></span></a>Field encoding</h3>
+
+<p>instances of the trait <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.EncodeBsonField">EncodeBsonField</a> are used to write key-value pairs to DBObjects.
+for instance, one of the provided definition in <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.EncodeBsonFields">EncodeBsonFields</a> is:</p>
+
+<div class="highlight highlight-scala"><pre><span class="k">implicit</span> <span class="k">val</span> <span class="n">intEncodeField</span><span class="k">:</span> <span class="kt">EncodeBsonField</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="n">directWritable</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span>
+</pre></div>
+
+<p>you could use this like so:</p>
+
+<div class="highlight highlight-scala"><pre><span class="k">val</span> <span class="n">dbo</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">BasicDBObject</span><span class="o">()</span> <span class="c1">//from the mongo-java-driver</span>
+<span class="n">implicitly</span><span class="o">[</span><span class="kt">EncodeBsonField</span><span class="o">[</span><span class="kt">Int</span><span class="o">]].</span><span class="n">writeTo</span><span class="o">(</span><span class="n">dbo</span><span class="o">,</span> <span class="s">"someKey"</span><span class="o">,</span> <span class="mi">35</span><span class="o">)</span>
+</pre></div>
+
+<p>though, as the next section describes, there are easier ways.</p>
+
+<h3>
+<a name="building-dbobjects" class="anchor" href="#building-dbobjects"><span class="octicon octicon-link"></span></a>Building DBObjects</h3>
+
+<p>this library provides several methods for building DBObject from key-value pairs in the <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.Builders">Builders</a> trait.
+these methods rely on having <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.EncodeBsonField">EncodeBsonField</a> instances available for the value types.</p>
+
+<p>the two important items provided are <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.Builders%24DBO">DBOKV</a> and <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.Builders%24StringToDBOKV">StringToDBOKV</a>:</p>
+
+<div class="highlight highlight-scala"><pre><span class="k">val</span> <span class="n">dbo</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">BasicDBObject</span><span class="o">()</span> <span class="c1">//from the mongo-java-driver</span>
+<span class="k">val</span> <span class="n">kv</span> <span class="k">=</span> <span class="s">"keyname"</span> <span class="o">:&gt;</span> <span class="mi">25</span> <span class="c1">//produces DBOKV[Int]("keyname", 25)</span>
+<span class="n">kv</span><span class="o">.</span><span class="n">write</span><span class="o">(</span><span class="n">dbo</span><span class="o">)</span> <span class="c1">//writes 25 into db at the key "keyname"</span>
+</pre></div>
+
+<p>note that <code>:&gt;</code> only produces a <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.Builders%24DBO">DBOKV</a> if an implicit <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.EncodeBsonField">EncodeBsonField</a> can be found for the type of the argument.</p>
+
+<p>there are two different ways to write optional values.</p>
+
+<ul>
+<li>
+<p>the first way relies on the instance for <code>EncodeBsonField[Option[A]]</code> in <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.EncodeBsonFields">EncodeBsonFields</a></p>
+
+<div class="highlight highlight-scala"><pre><span class="k">val</span> <span class="n">kv1</span> <span class="k">=</span> <span class="s">"keyname1"</span> <span class="o">:&gt;</span> <span class="nc">Some</span><span class="o">(</span><span class="mi">25</span><span class="o">)</span> <span class="c1">// produces DBOKV[Option[Int]]("keyname1", Some(25))</span>
+<span class="k">val</span> <span class="n">kv2</span> <span class="k">=</span> <span class="s">"keyname2"</span> <span class="o">:&gt;</span> <span class="o">(</span><span class="nc">None</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">Int</span><span class="o">])</span> <span class="c1">// produces DBOKV[Option[Int]]("keyname2", None)</span>
+<span class="c1">//if you write them ...</span>
+<span class="k">val</span> <span class="n">dbo</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">BasicDBObject</span><span class="o">()</span> <span class="c1">//from the mongo-java-driver</span>
+<span class="n">kv1</span><span class="o">.</span><span class="n">write</span><span class="o">(</span><span class="n">dbo</span><span class="o">)</span> <span class="c1">//writes 25 into dbo at key "keyname1"</span>
+<span class="n">kv2</span><span class="o">.</span><span class="n">write</span><span class="o">(</span><span class="n">dbo</span><span class="o">)</span> <span class="c1">//does not write into dbo</span>
+</pre></div>
+</li>
+<li>
+<p>the second uses a method in <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.Builders%24StringToDBOKV">StringToDBOKV</a> and uses the encoder for A directly:</p>
+
+<div class="highlight highlight-scala"><pre><span class="k">val</span> <span class="n">kv1</span> <span class="k">=</span> <span class="s">"keyname1"</span> <span class="o">:?&gt;</span> <span class="nc">Some</span><span class="o">(</span><span class="mi">25</span><span class="o">)</span> <span class="c1">//produces Some(DBOKV[Int]("keyname1", 25))</span>
+<span class="k">val</span> <span class="n">kv2</span> <span class="k">=</span> <span class="err">"</span><span class="n">keyname2</span> <span class="o">:?&gt;</span> <span class="nc">None</span> <span class="c1">// produces None</span>
+</pre></div>
+
+<p>the utility of this method will be explained later</p>
+</li>
+</ul><p>there are two ways to use these <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.Builders%24DBO">DBOKV</a>s:</p>
+
+<ul>
+<li>
+<p>you can use the <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.Builders%24DBO%24">DBO</a> object and the apply method it contains:</p>
+
+<div class="highlight highlight-scala"><pre><span class="k">val</span> <span class="n">dbo</span> <span class="k">=</span> <span class="nc">DBO</span><span class="o">(</span><span class="s">"key1"</span> <span class="o">:&gt;</span> <span class="mi">33</span><span class="o">,</span> <span class="s">"key2"</span> <span class="o">:&gt;</span> <span class="s">"another value"</span><span class="o">,</span> <span class="s">"booleanKey"</span> <span class="o">:&gt;</span> <span class="kc">true</span><span class="o">)</span>
+</pre></div>
+</li>
+<li>
+<p>you can use the methods provided by <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.Builders%24DBOBuilder">DBOBuilder</a>, an implicit class which wraps around DBObjects:</p>
+
+<div class="highlight highlight-scala"><pre><span class="k">val</span> <span class="n">dbo</span> <span class="k">=</span> <span class="nc">DBO</span><span class="o">.</span><span class="n">empty</span> <span class="c1">//this just creates a new DBObject</span>
+<span class="n">dbo</span> <span class="o">+@+</span> <span class="o">(</span><span class="s">"key1"</span> <span class="o">:&gt;</span> <span class="mi">33</span><span class="o">)</span> <span class="c1">//the method +@+ writes the DBOKV into dbo and then returns dbo; this permits chaining</span>
+<span class="n">dbo</span> <span class="o">+@+</span> <span class="o">(</span><span class="s">"bool1"</span> <span class="o">:&gt;</span> <span class="kc">true</span><span class="o">)</span> <span class="o">+@+</span> <span class="o">(</span><span class="s">"bool2"</span> <span class="o">:&gt;</span> <span class="kc">false</span><span class="o">)</span>
+<span class="c1">//you can also append a sequenece of keys using the ++@++ method</span>
+<span class="n">dbo</span> <span class="o">++@++</span> <span class="nc">Seq</span><span class="o">(</span><span class="s">"k3"</span> <span class="o">:&gt;</span> <span class="s">"a string"</span><span class="o">,</span> <span class="s">"k4"</span> <span class="o">:&gt;</span> <span class="mf">3.14</span><span class="o">)</span>
+<span class="c1">//there is a method +?+ which takes an Optional[DBOKV], writes it it is Some, and returns the dbo either way</span>
+<span class="n">dbo</span> <span class="o">+?+</span> <span class="o">(</span><span class="s">"optionWritten"</span> <span class="o">:?&gt;</span> <span class="nc">Some</span><span class="o">(</span><span class="mi">55</span><span class="o">))</span> <span class="o">+?+</span> <span class="s">"(optionNotWritten"</span> <span class="o">:?&gt;</span> <span class="nc">None</span><span class="o">)</span> <span class="o">+@+</span> <span class="o">(</span><span class="s">"alwaysWritten"</span> <span class="o">:&gt;</span> <span class="kc">true</span><span class="o">)</span>
+<span class="c1">//finally, there is a Unitary write method.</span>
+<span class="n">dbo</span><span class="o">.</span><span class="n">write</span><span class="o">(</span><span class="s">"datetime"</span><span class="o">,</span> <span class="nc">DateTime</span><span class="o">.</span><span class="n">now</span><span class="o">())</span> <span class="c1">//using the joda-time DateTime</span>
+</pre></div>
+
+<p>note that all of these methods mutate dbo! this means they should be used with caution. in fact, it might be best not to allow DBOBjects to leak out of the scope they are instantiated in.</p>
+</li>
+</ul><h3>
+<a name="encoding" class="anchor" href="#encoding"><span class="octicon octicon-link"></span></a>Encoding</h3>
+
+<p>you can encode entire objects by defining instances of <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.EncodeBson">EncodeBson</a></p>
+
+<div class="highlight highlight-scala"><pre><span class="c1">//a junk trait</span>
+<span class="k">trait</span> <span class="nc">Junk</span> <span class="o">{</span>
+  <span class="k">val</span> <span class="n">x</span><span class="k">:</span> <span class="kt">Int</span>
+  <span class="k">val</span> <span class="n">y</span><span class="k">:</span> <span class="kt">String</span>
+<span class="o">}</span>
+<span class="c1">//define an encoder using the apply method in the EncodeBson object.</span>
+<span class="k">implicit</span> <span class="k">def</span> <span class="n">junkEncodeBson</span><span class="k">:</span> <span class="kt">EncodeBson</span><span class="o">[</span><span class="kt">Junk</span><span class="o">]</span> <span class="k">=</span> <span class="nc">EncodeBson</span> <span class="o">{</span> <span class="n">j</span> <span class="k">=&gt;</span>
+  <span class="nc">DBO</span><span class="o">(</span><span class="s">"x"</span> <span class="o">:&gt;</span> <span class="n">j</span><span class="o">.</span><span class="n">x</span><span class="o">,</span> <span class="s">"y"</span> <span class="o">:&gt;</span> <span class="n">j</span><span class="o">.</span><span class="n">y</span><span class="o">)</span>
+<span class="o">}</span>
+<span class="k">val</span> <span class="n">junk1</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Junk</span> <span class="o">{</span>
+  <span class="k">val</span> <span class="n">x</span> <span class="k">=</span> <span class="mi">133</span>
+  <span class="k">val</span> <span class="n">y</span> <span class="k">=</span> <span class="s">"some stuff"</span>
+<span class="o">}</span>
+<span class="k">val</span> <span class="n">dbo</span><span class="k">:</span> <span class="kt">DBObject</span> <span class="o">=</span> <span class="n">junkEncodeBson</span><span class="o">(</span><span class="n">junk1</span><span class="o">)</span> <span class="c1">//more explicitly: junkEncodeBson.encode(junk1)</span>
+</pre></div>
+
+<p>alternatively, using an implicit class in <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.Builders">Builders</a> that has so far gone unmentioned - <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.Builders%24ValueToBson">ValueToBson</a>, you could replace the last line there with</p>
+
+<div class="highlight highlight-scala"><pre><span class="k">val</span> <span class="n">dbo</span><span class="k">:</span> <span class="kt">DBObject</span> <span class="o">=</span> <span class="n">junk1</span><span class="o">.</span><span class="n">asBson</span> <span class="c1">//asBson looks for an implicit encoder instance for the wrapped type, and uses its encode method</span>
+</pre></div>
+
+<p>if you have an <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.EncodeBson">EncodeBson</a> trait for some type, it can also be used whenever an <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.EncodeBsonField">EncodeBsonField</a> is needed.</p>
+
+<div class="highlight highlight-scala"><pre><span class="c1">//let's say we have the same Junk trait, junkEncodeBson definition, and junk1 value</span>
+<span class="k">val</span> <span class="n">dbo</span><span class="k">:</span> <span class="kt">DBObject</span> <span class="o">=</span> <span class="nc">DBO</span><span class="o">(</span><span class="s">"isJunk"</span> <span class="o">:&gt;</span> <span class="kc">true</span><span class="o">,</span> <span class="s">"junk1"</span> <span class="o">:&gt;</span> <span class="n">junk1</span><span class="o">)</span>
+</pre></div>
+
+<p>you could replace the definition of junkEncodeBson using one of the bencode methods defined via <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.EncodeBsons">EncodeBsons</a>.</p>
+
+<div class="highlight highlight-scala"><pre><span class="k">implicit</span> <span class="k">def</span> <span class="n">junkEncodeBson</span><span class="k">:</span> <span class="kt">EncodeBson</span><span class="o">[</span><span class="kt">Junk</span><span class="o">]</span> <span class="k">=</span> <span class="n">bencode2f</span><span class="o">((</span><span class="n">j</span><span class="k">:</span> <span class="kt">Junk</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">j</span><span class="o">.</span><span class="n">x</span><span class="o">,</span> <span class="n">j</span><span class="o">.</span><span class="n">y</span><span class="o">))(</span><span class="s">"x"</span><span class="o">,</span> <span class="s">"y"</span><span class="o">)</span>
+</pre></div>
+
+<h3>
+<a name="decoding-fields" class="anchor" href="#decoding-fields"><span class="octicon octicon-link"></span></a>Decoding Fields</h3>
+
+<h3>
+<a name="decoding" class="anchor" href="#decoding"><span class="octicon octicon-link"></span></a>Decoding</h3>
+
+<h3>
+<a name="codecs" class="anchor" href="#codecs"><span class="octicon octicon-link"></span></a>Codecs</h3>
+
+<h3>
+<a name="using-the-macros" class="anchor" href="#using-the-macros"><span class="octicon octicon-link"></span></a>Using the macros</h3>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>

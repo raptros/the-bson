@@ -8,12 +8,7 @@ encoding and decoding Mongo DB Objects using typeclasses.
 Inspiration
 -----------
 This library was inspired by and is modeled on the [Argonaut](http://argonaut.io/) library, which is a great way to create and decode Json in Scala.
-The structure and interfaces of this library were made to be familiar to a user of Argonaut,
-and 
-
-this library is an attempt to recreate some of the utilities of the (excellent) for manipulation Mongo DB objects;
-(also various things, especially how to use SBT to generate a bunch of typeclass instance building methods, were figured out by looking at the prior library.)
-in particular, this library provides typeclasses for encoding and decoding DBObjects (and the fields of DBObjects).
+The structure and interfaces of this library were made to be familiar to a user of Argonaut.
 
 Features
 --------
@@ -29,14 +24,6 @@ Documentation
 Installation
 ------------
 (pending)
-
-### Decoding Fields
-
-### Decoding
-
-### Codecs
-
-### Using the macros
 
 [manual]: http://raptros.github.io/the-bson/manual/the-bson.html
 [api-docs]: http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.package 

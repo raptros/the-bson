@@ -1,0 +1,101 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html>
+      <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+        <title>the-bson — key-value pair construction</title>
+        
+        <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/blueprint/grid.css" type="text/css" media="screen and (min-device-width: 800px), projection"/>
+        <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print"/> 
+        <!--[if lt IE 8]>
+          <link rel="stylesheet" href={ relativeBase + "css/blueprint/ie.css" } type="text/css" media="screen, projection"/>
+        <![endif]-->
+        <link rel="stylesheet" href="css/pamflet.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/pamflet-print.css" type="text/css" media="print"/>
+        <link rel="stylesheet" href="css/pamflet-grid.css" type="text/css" media="screen and (min-device-width: 800px), projection"/>
+        <link rel="stylesheet" href="css/color_scheme-redmond.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/color_scheme-github.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/color_scheme-monokai.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/pamfletheight_2em_2em.css" type="text/css" media="screen and (min-device-width: 800px), projection"/>
+        <script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+        <script type="text/javascript" src="js/jquery.collapse.js"></script>
+        <script type="text/javascript" src="js/pamflet.js"></script>
+        <script type="text/javascript">
+          Pamflet.page.language = 'en';
+        </script>
+        <script type="text/javascript" src="js/prettify/prettify.js"></script><script type="text/javascript" src="js/prettify/lang-scala.js"></script><link type="text/css" rel="stylesheet" href="css/prettify.css"/><script type="text/javascript"><!--
+        window.onload=function() { prettyPrint(); };
+      --></script>
+        
+        
+        
+      </head>
+      <body class="color_scheme-redmond">
+        <a class="page prev nav" href="Building+DBObjects.html">
+            <span class="space">&nbsp;</span>
+            <span class="flip arrow">❧</span>
+          </a><a class="page next nav" href="DBO+and+DBOBuilder.html">
+            <span class="space">&nbsp;</span>
+            <span class="arrow">❧</span>
+          </a>
+        <div class="container contentswrapper">
+          <div class="span-16 prepend-1 append-1 contents">
+            <h4 id="key-value+pair+construction">key-value pair construction<a href="#key-value+pair+construction" class="header-link"><span class="header-link-content">&nbsp;</span></a></h4><p>the tools to build DBObjects rely on <a href="latest/api/#io.github.raptros.bson.Builders$DBO">DBOKV</a> to write the key-value pairs into the objects.
+the implicit class <a href="latest/api/#io.github.raptros.bson.Builders$StringToDBOKV">StringToDBOKV</a> provides methods for obtaining <code>DBOKV</code>s
+</p><pre><code class="prettyprint lang-scala">val dbo = new BasicDBObject() //from the mongo-java-driver
+val kv = &quot;keyname&quot; :&gt; 25 //produces DBOKV[Int](&quot;keyname&quot;, 25)
+kv.write(dbo) //writes 25 into db at the key &quot;keyname&quot;
+</code></pre><p>note that <code>:&gt;</code> only produces a <code>DBOKV</code> if an implicit <a href="latest/api/#io.github.raptros.bson.EncodeBsonField">EncodeBsonField</a> can be found for the type of the argument.
+</p><hr/><p>there are two different ways to write optional values.
+</p><ul><li><p>the first way relies on the instance for <code>EncodeBsonField[Option[A]]</code> in <a href="latest/api/#io.github.raptros.bson.EncodeBsonFields">EncodeBsonFields</a>
+</p><pre><code class="prettyprint lang-scala">val kv1: DBOKV[Option[Int]] = &quot;keyname1&quot; :&gt; Some(25)
+kv1 === DBOKV(&quot;keyname1&quot;, Some(25))
+
+val kv2: DBOKV[Option[Int]] = &quot;keyname2&quot; :&gt; (None: Option[Int])
+kv2 === DBOKV(&quot;keyname2&quot;, None)
+
+val dbo = DBO.empty
+kv1.write(dbo)
+kv2.write(dbo)
+
+kv1.keySet === Set(&quot;keyname1&quot;)
+kv1.get(&quot;keyname1&quot;) === 25
+</code></pre></li><li><p>the second uses a method in <a href="latest/api/#io.github.raptros.bson.Builders$StringToDBOKV">StringToDBOKV</a> and uses the encoder for A directly:
+</p><pre><code class="prettyprint lang-scala">val kv1: Option[DBOKV[Int]] = &quot;keyname1&quot; :?&gt; Some(25)
+kv1 === Some(DBOKV(&quot;keyname1&quot;, 25)
+
+val kv2: Option[DBOKV[Int]] = &quot;keyname2&quot; :?&gt; None
+kv2 === None
+</code></pre><p>the utility of this method will be explained later
+</p></li></ul><div class="bottom nav span-16">
+                        <em>Next Page</em>
+                        <span class="arrow">❧</span>
+                        <a href="DBO+and+DBOBuilder.html"> DBO and DBOBuilder </a>                        
+                        
+                      </div><div class="tocwrapper show">
+      <a class="tochead nav" style="display: none" href="#toc">❦</a>
+      <a name="toc"></a>
+      <h4 class="toctitle">Contents</h4>
+      <div class="tocbody">
+      <div><a href="the-bson.html">the-bson</a></div><ol class="toc"> <li><div><a href="Installation.html">Installation</a></div></li><li><div><a href="How+to+use.html">How to use</a></div><ol class="toc"> <li><div><a href="Field+encoding.html">Field encoding</a></div></li><li><div><a href="Building+DBObjects.html">Building DBObjects</a></div><ol class="toc"> <li><div class="current">key-value pair construction</div></li><li><div><a href="DBO+and+DBOBuilder.html">DBO and DBOBuilder</a></div></li> </ol></li><li><div><a href="Encoding.html">Encoding</a></div></li><li><div><a href="Decoding+DBObjects.html">Decoding DBObjects</a></div><ol class="toc"> <li><div><a href="Decoding+Fields.html">Decoding Fields</a></div></li><li><div><a href="Decoding+objects.html">Decoding objects</a></div></li> </ol></li><li><div><a href="Case+Classes%2C+Codecs%2C+etc..html">Case Classes, Codecs, etc.</a></div><ol class="toc"> <li><div><a href="Macros.html">Macros</a></div></li> </ol></li> </ol></li><li class="generated"><div><a href="Contents+in+Depth.html">Contents in Depth</a></div></li><li class="generated"><div><a href="Combined+Pages.html">Combined Pages</a></div></li> </ol></div></div>
+          </div>
+        </div>
+        <div class="header">
+          <div class="container">
+        <div class="span-16 prepend-1 append-1">
+          <div class="span-16 top nav">
+            <div class="span-16 title">
+              <span>the-bson</span> — key-value pair construction
+            </div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="footer">
+          
+        </div>
+        
+        
+      </body>
+    </html>

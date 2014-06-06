@@ -1,0 +1,102 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html manifest="pamflet.manifest">
+      <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+        <title>the-bson — DBO and DBOBuilder</title>
+        
+        <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/blueprint/grid.css" type="text/css" media="screen and (min-device-width: 800px), projection"/>
+        <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print"/> 
+        <!--[if lt IE 8]>
+          <link rel="stylesheet" href={ relativeBase + "css/blueprint/ie.css" } type="text/css" media="screen, projection"/>
+        <![endif]-->
+        <link rel="stylesheet" href="css/pamflet.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/pamflet-print.css" type="text/css" media="print"/>
+        <link rel="stylesheet" href="css/pamflet-grid.css" type="text/css" media="screen and (min-device-width: 800px), projection"/>
+        <link rel="stylesheet" href="css/color_scheme-redmond.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/color_scheme-github.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/color_scheme-monokai.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/pamfletheight_2em_2em.css" type="text/css" media="screen and (min-device-width: 800px), projection"/>
+        <script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+        <script type="text/javascript" src="js/jquery.collapse.js"></script>
+        <script type="text/javascript" src="js/pamflet.js"></script>
+        <script type="text/javascript">
+          Pamflet.page.language = 'en';
+        </script>
+        <script type="text/javascript" src="js/prettify/prettify.js"></script><script type="text/javascript" src="js/prettify/lang-scala.js"></script><link type="text/css" rel="stylesheet" href="css/prettify.css"/><script type="text/javascript"><!--
+        window.onload=function() { prettyPrint(); };
+      --></script>
+        
+        
+        
+      </head>
+      <body class="color_scheme-redmond">
+        <a class="page prev nav" href="key-value+pair+construction.html">
+            <span class="space">&nbsp;</span>
+            <span class="flip arrow">❧</span>
+          </a><a class="page next nav" href="Encoding.html">
+            <span class="space">&nbsp;</span>
+            <span class="arrow">❧</span>
+          </a>
+        <div class="container contentswrapper">
+          <div class="span-16 prepend-1 append-1 contents">
+            <h4 id="DBO+and+DBOBuilder">DBO and DBOBuilder<a href="#DBO+and+DBOBuilder" class="header-link"><span class="header-link-content">&nbsp;</span></a></h4><p>there are two ways to use these <a href="latest/api/#io.github.raptros.bson.Builders$DBO">DBOKV</a>s:
+</p><ul><li>you can use the <a href="latest/api/#io.github.raptros.bson.Builders$DBO$">DBO</a> object and the apply method it contains:
+</li></ul><pre><code class="prettyprint lang-scala">    val dbo = DBO(
+      &quot;key1&quot; :&gt; 33,
+      &quot;key2&quot; :&gt; &quot;another value&quot;,
+      &quot;booleanKey&quot; :&gt; true)
+</code></pre><ul><li><p>you can use the methods provided by <a href="latest/api/#io.github.raptros.bson.Builders$DBOBuilder">DBOBuilder</a>, an implicit class which wraps around DBObjects:
+</p><pre><code class="prettyprint lang-scala">//this just creates a new DBObject
+val dbo = DBO.empty
+
+//the method +@+ writes the DBOKV into dbo and then returns dbo;
+//this permits chaining
+dbo +@+ (&quot;key1&quot; :&gt; 33) 
+dbo +@+ (&quot;bool1&quot; :&gt; true) +@+ (&quot;bool2&quot; :&gt; false)
+
+//you can also append a sequenece of keys using the ++@++ method
+dbo ++@++ Seq(&quot;k3&quot; :&gt; &quot;a string&quot;, &quot;k4&quot; :&gt; 3.14)
+
+//there is a method +?+ which takes an Optional[DBOKV],
+//writes it it is Some, and returns the dbo either way
+dbo +?+ (&quot;optionWritten&quot; :?&gt; Some(55)) +?+ 
+    (&quot;optionNotWritten&quot; :?&gt; None) +@+ 
+    (&quot;alwaysWritten&quot; :&gt; true)
+    
+//finally, there is a Unitary write method.
+dbo.write(&quot;datetime&quot;, DateTime.now()) //joda-time DateTime
+</code></pre><p>note that all of these methods mutate dbo! this means they should be used with caution.
+in fact, it might be best not to allow DBOBjects to leak out of the scope they are instantiated in.
+</p></li></ul><div class="bottom nav span-16">
+                        <em>Next Page</em>
+                        <span class="arrow">❧</span>
+                        <a href="Encoding.html"> Encoding </a>                        
+                        
+                      </div><div class="tocwrapper show">
+      <a class="tochead nav" style="display: none" href="#toc">❦</a>
+      <a name="toc"></a>
+      <h4 class="toctitle">Contents</h4>
+      <div class="tocbody">
+      <div><a href="the-bson.html">the-bson</a></div><ol class="toc"> <li><div><a href="Installation.html">Installation</a></div></li><li><div><a href="How+to+use.html">How to use</a></div><ol class="toc"> <li><div><a href="Field+encoding.html">Field encoding</a></div></li><li><div><a href="Building+DBObjects.html">Building DBObjects</a></div><ol class="toc"> <li><div><a href="key-value+pair+construction.html">key-value pair construction</a></div></li><li><div class="current">DBO and DBOBuilder</div></li> </ol></li><li><div><a href="Encoding.html">Encoding</a></div></li><li><div><a href="Decoding+DBObjects.html">Decoding DBObjects</a></div><ol class="toc"> <li><div><a href="Decoding+Fields.html">Decoding Fields</a></div></li><li><div><a href="Decoding+objects.html">Decoding objects</a></div></li> </ol></li><li><div><a href="Case+Classes%2C+Codecs%2C+etc..html">Case Classes, Codecs, etc.</a></div><ol class="toc"> <li><div><a href="Macros.html">Macros</a></div></li> </ol></li> </ol></li><li class="generated"><div><a href="Contents+in+Depth.html">Contents in Depth</a></div></li><li class="generated"><div><a href="Combined+Pages.html">Combined Pages</a></div></li> </ol></div></div>
+          </div>
+        </div>
+        <div class="header">
+          <div class="container">
+        <div class="span-16 prepend-1 append-1">
+          <div class="span-16 top nav">
+            <div class="span-16 title">
+              <span>the-bson</span> — DBO and DBOBuilder
+            </div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="footer">
+          
+        </div>
+        
+        
+      </body>
+    </html>

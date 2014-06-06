@@ -1,0 +1,99 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html>
+      <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+        <title>the-bson — Encoding</title>
+        
+        <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/blueprint/grid.css" type="text/css" media="screen and (min-device-width: 800px), projection"/>
+        <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print"/> 
+        <!--[if lt IE 8]>
+          <link rel="stylesheet" href={ relativeBase + "css/blueprint/ie.css" } type="text/css" media="screen, projection"/>
+        <![endif]-->
+        <link rel="stylesheet" href="css/pamflet.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/pamflet-print.css" type="text/css" media="print"/>
+        <link rel="stylesheet" href="css/pamflet-grid.css" type="text/css" media="screen and (min-device-width: 800px), projection"/>
+        <link rel="stylesheet" href="css/color_scheme-redmond.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/color_scheme-github.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/color_scheme-monokai.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/pamfletheight_2em_2em.css" type="text/css" media="screen and (min-device-width: 800px), projection"/>
+        <script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+        <script type="text/javascript" src="js/jquery.collapse.js"></script>
+        <script type="text/javascript" src="js/pamflet.js"></script>
+        <script type="text/javascript">
+          Pamflet.page.language = 'en';
+        </script>
+        <script type="text/javascript" src="js/prettify/prettify.js"></script><script type="text/javascript" src="js/prettify/lang-scala.js"></script><link type="text/css" rel="stylesheet" href="css/prettify.css"/><script type="text/javascript"><!--
+        window.onload=function() { prettyPrint(); };
+      --></script>
+        
+        
+        
+      </head>
+      <body class="color_scheme-redmond">
+        <a class="page prev nav" href="Building+DBObjects.html">
+            <span class="space">&nbsp;</span>
+            <span class="flip arrow">❧</span>
+          </a><a class="page next nav" href="Decoding+DBObjects.html">
+            <span class="space">&nbsp;</span>
+            <span class="arrow">❧</span>
+          </a>
+        <div class="container contentswrapper">
+          <div class="span-16 prepend-1 append-1 contents">
+            <h4 id="Encoding">Encoding<a href="#Encoding" class="header-link"><span class="header-link-content">&nbsp;</span></a></h4><p>you can encode entire objects by defining instances of <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.EncodeBson">EncodeBson</a>
+</p><pre><code class="prettyprint lang-scala">//a junk trait
+trait Junk {
+  val x: Int
+  val y: String
+}
+//define an encoder using the apply method in the EncodeBson object.
+implicit def junkEncodeBson: EncodeBson[Junk] = EncodeBson { j =&gt;
+  DBO(&quot;x&quot; :&gt; j.x, &quot;y&quot; :&gt; j.y)
+}
+val junk1 = new Junk {
+  val x = 133
+  val y = &quot;some stuff&quot;
+}
+val dbo: DBObject = junkEncodeBson(junk1)
+//alternatively
+val dbo: DBObject = junkEncodeBson.encode(junk1)
+</code></pre><h5 id="what">what<a href="#what" class="header-link"><span class="header-link-content">&nbsp;</span></a></h5><p>alternatively, using an implicit class in <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.Builders">Builders</a> that has so far gone unmentioned - <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.Builders$ValueToBson">ValueToBson</a>, you could replace the last line there with
+</p><pre><code class="prettyprint lang-scala">val dbo: DBObject = junk1.asBson 
+</code></pre><p>(asBson looks for an implicit encoder instance for the wrapped type, and uses its encode method)
+</p><p>if you have an <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.EncodeBson">EncodeBson</a> trait for some type, it can also be used whenever an <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.EncodeBsonField">EncodeBsonField</a> is needed.
+</p><pre><code class="prettyprint lang-scala">//let's say we have the same Junk trait, junkEncodeBson definition, and junk1 value
+val dbo: DBObject = DBO(&quot;isJunk&quot; :&gt; true, &quot;junk1&quot; :&gt; junk1)
+</code></pre><p>you could replace the definition of junkEncodeBson using one of the bencode methods defined via <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.EncodeBsons">EncodeBsons</a>.
+</p><pre><code class="prettyprint lang-scala">implicit def junkEncodeBson: EncodeBson[Junk] = bencode2f((j: Junk) =&gt; (j.x, j.y))(&quot;x&quot;, &quot;y&quot;)
+</code></pre><div class="bottom nav span-16">
+                        <em>Next Page</em>
+                        <span class="arrow">❧</span>
+                        <a href="Decoding+DBObjects.html"> Decoding DBObjects </a>                        
+                        
+                      </div><div class="tocwrapper show">
+      <a class="tochead nav" style="display: none" href="#toc">❦</a>
+      <a name="toc"></a>
+      <h4 class="toctitle">Contents</h4>
+      <div class="tocbody">
+      <div><a href="the-bson.html">the-bson</a></div><ol class="toc"> <li><div><a href="Installation.html">Installation</a></div></li><li><div><a href="How+to+use.html">How to use</a></div><ol class="toc"> <li><div><a href="Making+DBOs.html">Making DBOs</a></div><ol class="toc"> <li><div><a href="Field+encoding.html">Field encoding</a></div></li><li><div><a href="Building+DBObjects.html">Building DBObjects</a></div></li><li><div class="current">Encoding</div></li> </ol></li><li><div><a href="Decoding+DBObjects.html">Decoding DBObjects</a></div><ol class="toc"> <li><div><a href="Decoding+Fields.html">Decoding Fields</a></div></li><li><div><a href="Decoding+objects.html">Decoding objects</a></div></li> </ol></li><li><div><a href="Codecs.html">Codecs</a></div></li><li><div><a href="Macros.html">Macros</a></div></li> </ol></li><li class="generated"><div><a href="Contents+in+Depth.html">Contents in Depth</a></div></li><li class="generated"><div><a href="Combined+Pages.html">Combined Pages</a></div></li> </ol></div></div>
+          </div>
+        </div>
+        <div class="header">
+          <div class="container">
+        <div class="span-16 prepend-1 append-1">
+          <div class="span-16 top nav">
+            <div class="span-16 title">
+              <span>the-bson</span> — Encoding
+            </div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="footer">
+          
+        </div>
+        
+        
+      </body>
+    </html>

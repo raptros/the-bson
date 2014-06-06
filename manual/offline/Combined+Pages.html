@@ -1,0 +1,167 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html manifest="pamflet.manifest">
+      <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+        <title>the-bson — Combined Pages</title>
+        
+        <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/blueprint/grid.css" type="text/css" media="screen and (min-device-width: 800px), projection"/>
+        <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print"/> 
+        <!--[if lt IE 8]>
+          <link rel="stylesheet" href={ relativeBase + "css/blueprint/ie.css" } type="text/css" media="screen, projection"/>
+        <![endif]-->
+        <link rel="stylesheet" href="css/pamflet.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/pamflet-print.css" type="text/css" media="print"/>
+        <link rel="stylesheet" href="css/pamflet-grid.css" type="text/css" media="screen and (min-device-width: 800px), projection"/>
+        <link rel="stylesheet" href="css/color_scheme-redmond.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/color_scheme-github.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/color_scheme-monokai.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="css/pamfletheight_2em_2em.css" type="text/css" media="screen and (min-device-width: 800px), projection"/>
+        <script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+        <script type="text/javascript" src="js/jquery.collapse.js"></script>
+        <script type="text/javascript" src="js/pamflet.js"></script>
+        <script type="text/javascript">
+          Pamflet.page.language = 'en';
+        </script>
+        <script type="text/javascript" src="js/prettify/prettify.js"></script><script type="text/javascript" src="js/prettify/lang-scala.js"></script><link type="text/css" rel="stylesheet" href="css/prettify.css"/><script type="text/javascript"><!--
+        window.onload=function() { prettyPrint(); };
+      --></script>
+        
+        
+        
+      </head>
+      <body class="color_scheme-redmond">
+        <a class="page prev nav" href="Contents+in+Depth.html">
+            <span class="space">&nbsp;</span>
+            <span class="flip arrow">❧</span>
+          </a>
+        <div class="container contentswrapper">
+          <div class="span-16 prepend-1 append-1 contents">
+            <div class="tocwrapper show">
+      <a class="tochead nav" style="display: none" href="#toc">❦</a>
+      <a name="toc"></a>
+      <h4 class="toctitle">Contents</h4>
+      <div class="tocbody">
+      <div><a href="#the-bson">the-bson</a></div><ol class="toc"> <li><div><a href="#Installation">Installation</a></div></li><li><div><a href="#How+to+use">How to use</a></div><ol class="toc"> <li><div><a href="#Making+DBOs">Making DBOs</a></div><ol class="toc"> <li><div><a href="#Field+encoding">Field encoding</a></div></li><li><div><a href="#Building+DBObjects">Building DBObjects</a></div></li><li><div><a href="#Encoding">Encoding</a></div></li> </ol></li><li><div><a href="#Decoding+DBObjects">Decoding DBObjects</a></div><ol class="toc"> <li><div><a href="#Decoding+Fields">Decoding Fields</a></div></li><li><div><a href="#Decoding+objects">Decoding objects</a></div></li> </ol></li><li><div><a href="#Codecs">Codecs</a></div></li><li><div><a href="#Macros">Macros</a></div></li> </ol></li> </ol></div></div><h1 id="the-bson">the-bson<a href="#the-bson" class="header-link"><span class="header-link-content">&nbsp;</span></a></h1><p>Documentation on how to use this library.
+</p><p><a href="/latest/api/#io.github.raptros.bson.package">API Docs can be found here</a>.
+</p><h2 id="Installation">Installation<a href="#Installation" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>pending</p><h2 id="How+to+use">How to use<a href="#How+to+use" class="header-link"><span class="header-link-content">&nbsp;</span></a></h2><p>The entire functionality of the-bson can be imported in one go:
+</p><pre><code class="prettyprint lang-scala">import io.github.raptros.bson._
+import Bson._
+</code></pre><p>if you find this too cumbersome, functionality and implicits can also be imported in various objects, e.g.
+</p><ul><li><p>implicits for encoding basic types as object fields
+</p><pre><code class="prettyprint lang-scala">import EncodeBsonField._ 
+</code></pre></li><li><p>additional implicits and several methods for constructing EncodeBson instances using extraction functions and named fields
+</p><pre><code class="prettyprint lang-scala">import EncodeBson._ 
+</code></pre></li><li><p>implicits for decoding basic types from DBObjects
+</p><pre><code class="prettyprint lang-scala">import DecodeBsonField._ 
+</code></pre></li><li><p>additional implicit decoders (that work at the DBObject level), 
+along with several methods for building DecodeBson instances by extracting named fields and applying constructor functions (or making tuples)
+</p><pre><code class="prettyprint lang-scala">import DecodeBson._
+</code></pre></li><li><p>implicit classes that give syntax for encoding entire objects or building DBObjects from key-value pairs
+</p><pre><code class="prettyprint lang-scala">import Builders._
+</code></pre></li><li><p>to import implicit classes that wrap DBObjects to allow you to decode entire objects or decode particular fields
+</p><pre><code class="prettyprint lang-scala">import Extractors._
+</code></pre></li></ul><h3 id="Making+DBOs">Making DBOs<a href="#Making+DBOs" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>Encoding objects to MongoDB is done by constructing DBObjects, and this library provides functionality to make that easier.
+</p><h4 id="Field+encoding">Field encoding<a href="#Field+encoding" class="header-link"><span class="header-link-content">&nbsp;</span></a></h4><p>instances of the trait <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.EncodeBsonField">EncodeBsonField</a> are used to write key-value pairs to DBObjects.
+for instance, one of the provided definition in <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.EncodeBsonFields">EncodeBsonFields</a> is:
+</p><pre><code class="prettyprint lang-scala">implicit val intEncodeField: EncodeBsonField[Int] = directWritable[Int]
+</code></pre><p>you could use this like so:
+</p><pre><code class="prettyprint lang-scala">val dbo = new BasicDBObject() //from the mongo-java-driver
+implicitly[EncodeBsonField[Int]].writeTo(dbo, &quot;someKey&quot;, 35)
+</code></pre><p>athough, as the next section describes, there are easier ways.
+</p><h4 id="Building+DBObjects">Building DBObjects<a href="#Building+DBObjects" class="header-link"><span class="header-link-content">&nbsp;</span></a></h4><p>this library provides several methods for building DBObject from key-value pairs in the <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.Builders">Builders</a> trait.
+these methods rely on having <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.EncodeBsonField">EncodeBsonField</a> instances available for the value types.
+</p><p>the two important items provided are <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.Builders$DBO">DBOKV</a> and <a href="/latest/api/#io.github.raptros.bson.Builders$StringToDBOKV">StringToDBOKV</a>:
+</p><pre><code class="prettyprint lang-scala">val dbo = new BasicDBObject() //from the mongo-java-driver
+val kv = &quot;keyname&quot; :&gt; 25 //produces DBOKV[Int](&quot;keyname&quot;, 25)
+kv.write(dbo) //writes 25 into db at the key &quot;keyname&quot;
+</code></pre><p>note that <code>:&gt;</code> only produces a <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.Builders$DBO">DBOKV</a> if an implicit <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.EncodeBsonField">EncodeBsonField</a> can be found for the type of the argument.
+</p><p>there are two different ways to write optional values.
+</p><ul><li><p>the first way relies on the instance for <code>EncodeBsonField[Option[A]]</code> in <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.EncodeBsonFields">EncodeBsonFields</a>
+</p><pre><code class="prettyprint lang-scala">// produces DBOKV[Option[Int]](&quot;keyname1&quot;, Some(25))
+val kv1 = &quot;keyname1&quot; :&gt; Some(25)
+// produces DBOKV[Option[Int]](&quot;keyname2&quot;, None)
+val kv2 = &quot;keyname2&quot; :&gt; (None: Option[Int])
+//if you write them ...
+val dbo = new BasicDBObject() //from the mongo-java-driver
+kv1.write(dbo) //writes 25 into dbo at key &quot;keyname1&quot;
+kv2.write(dbo) //does not write into dbo
+</code></pre></li><li><p>the second uses a method in <a href="/latest/api/#io.github.raptros.bson.Builders$StringToDBOKV">StringToDBOKV</a> and uses the encoder for A directly:
+</p><pre><code class="prettyprint lang-scala">//produces Some(DBOKV[Int](&quot;keyname1&quot;, 25))
+val kv1 = &quot;keyname1&quot; :?&gt; Some(25)
+// produces None
+val kv2 = &quot;keyname2&quot; :?&gt; None
+</code></pre><p>the utility of this method will be explained later
+</p></li></ul><p>there are two ways to use these <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.Builders$DBO">DBOKV</a>s:
+</p><ul><li><p>you can use the <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.Builders$DBO$">DBO</a> object and the apply method it contains:
+</p><pre><code class="prettyprint lang-scala">val dbo = DBO(
+    &quot;key1&quot; :&gt; 33,
+    &quot;key2&quot; :&gt; &quot;another value&quot;,
+    &quot;booleanKey&quot; :&gt; true)
+</code></pre></li><li><p>you can use the methods provided by <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.Builders$DBOBuilder">DBOBuilder</a>, an implicit class which wraps around DBObjects:
+</p><pre><code class="prettyprint lang-scala">//this just creates a new DBObject
+val dbo = DBO.empty 
+//the method +@+ writes the DBOKV into dbo and then returns dbo;
+//this permits chaining
+dbo +@+ (&quot;key1&quot; :&gt; 33) 
+dbo +@+ (&quot;bool1&quot; :&gt; true) +@+ (&quot;bool2&quot; :&gt; false)
+//you can also append a sequenece of keys using the ++@++ method
+dbo ++@++ Seq(&quot;k3&quot; :&gt; &quot;a string&quot;, &quot;k4&quot; :&gt; 3.14)
+//there is a method +?+ which takes an Optional[DBOKV],
+//writes it it is Some, and returns the dbo either way
+dbo +?+ (&quot;optionWritten&quot; :?&gt; Some(55)) +?+ 
+    (&quot;optionNotWritten&quot; :?&gt; None) +@+ 
+    (&quot;alwaysWritten&quot; :&gt; true)
+//finally, there is a Unitary write method.
+dbo.write(&quot;datetime&quot;, DateTime.now()) //using the joda-time DateTime
+</code></pre><p>note that all of these methods mutate dbo! this means they should be used with caution.
+in fact, it might be best not to allow DBOBjects to leak out of the scope they are instantiated in.
+</p></li></ul><h4 id="Encoding">Encoding<a href="#Encoding" class="header-link"><span class="header-link-content">&nbsp;</span></a></h4><p>you can encode entire objects by defining instances of <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.EncodeBson">EncodeBson</a>
+</p><pre><code class="prettyprint lang-scala">//a junk trait
+trait Junk {
+  val x: Int
+  val y: String
+}
+//define an encoder using the apply method in the EncodeBson object.
+implicit def junkEncodeBson: EncodeBson[Junk] = EncodeBson { j =&gt;
+  DBO(&quot;x&quot; :&gt; j.x, &quot;y&quot; :&gt; j.y)
+}
+val junk1 = new Junk {
+  val x = 133
+  val y = &quot;some stuff&quot;
+}
+val dbo: DBObject = junkEncodeBson(junk1)
+//alternatively
+val dbo: DBObject = junkEncodeBson.encode(junk1)
+</code></pre><h5 id="what">what<a href="#what" class="header-link"><span class="header-link-content">&nbsp;</span></a></h5><p>alternatively, using an implicit class in <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.Builders">Builders</a> that has so far gone unmentioned - <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.Builders$ValueToBson">ValueToBson</a>, you could replace the last line there with
+</p><pre><code class="prettyprint lang-scala">val dbo: DBObject = junk1.asBson 
+</code></pre><p>(asBson looks for an implicit encoder instance for the wrapped type, and uses its encode method)
+</p><p>if you have an <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.EncodeBson">EncodeBson</a> trait for some type, it can also be used whenever an <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.EncodeBsonField">EncodeBsonField</a> is needed.
+</p><pre><code class="prettyprint lang-scala">//let's say we have the same Junk trait, junkEncodeBson definition, and junk1 value
+val dbo: DBObject = DBO(&quot;isJunk&quot; :&gt; true, &quot;junk1&quot; :&gt; junk1)
+</code></pre><p>you could replace the definition of junkEncodeBson using one of the bencode methods defined via <a href="http://raptros.github.io/the-bson/latest/api/#io.github.raptros.bson.EncodeBsons">EncodeBsons</a>.
+</p><pre><code class="prettyprint lang-scala">implicit def junkEncodeBson: EncodeBson[Junk] = bencode2f((j: Junk) =&gt; (j.x, j.y))(&quot;x&quot;, &quot;y&quot;)
+</code></pre><h3 id="Decoding+DBObjects">Decoding DBObjects<a href="#Decoding+DBObjects" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>DecodeResult</p><h4 id="Decoding+Fields">Decoding Fields<a href="#Decoding+Fields" class="header-link"><span class="header-link-content">&nbsp;</span></a></h4><p>explain</p><h4 id="Decoding+objects">Decoding objects<a href="#Decoding+objects" class="header-link"><span class="header-link-content">&nbsp;</span></a></h4><p>explain</p><h3 id="Codecs">Codecs<a href="#Codecs" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>(howto)
+</p><h3 id="Macros">Macros<a href="#Macros" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>we have them
+</p>
+          </div>
+        </div>
+        <div class="header">
+          <div class="container">
+        <div class="span-16 prepend-1 append-1">
+          <div class="span-16 top nav">
+            <div class="span-16 title">
+              <span>the-bson</span> — Combined Pages
+            </div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="footer">
+          
+        </div>
+        
+        
+      </body>
+    </html>

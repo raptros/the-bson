@@ -71,7 +71,7 @@ implicitly[EncodeBsonField[Int]].writeTo(dbo, &quot;someKey&quot;, 35)
 </code></pre><p>athough, as the next section describes, there are easier ways.
 </p><h3 id="Building+DBObjects">Building DBObjects<a href="#Building+DBObjects" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>this library provides several methods for building DBObject from key-value pairs in the <a href="latest/api/#io.github.raptros.bson.Builders">Builders</a> trait.
 these methods rely on having <a href="latest/api/#io.github.raptros.bson.EncodeBsonField">EncodeBsonField</a> instances available for the value types.
-</p><h4 id="key-value+pair+construction">key-value pair construction<a href="#key-value+pair+construction" class="header-link"><span class="header-link-content">&nbsp;</span></a></h4><p>the tools to build DBObjects rely on <a href="latest/api/#io.github.raptros.bson.Builders$DBO">DBOKV</a> to write the key-value pairs into the objects.
+</p><h4 id="key-value+pair+construction">key-value pair construction<a href="#key-value+pair+construction" class="header-link"><span class="header-link-content">&nbsp;</span></a></h4><p>the tools to build DBObjects rely on <a href="latest/api/#io.github.raptros.bson.Builders$DBO$">DBOKV</a> to write the key-value pairs into the objects.
 the implicit class <a href="latest/api/#io.github.raptros.bson.Builders$StringToDBOKV">StringToDBOKV</a> provides methods for obtaining <code>DBOKV</code>s
 </p><pre><code class="prettyprint lang-scala">val dbo = new BasicDBObject() //from the mongo-java-driver
 val kv = &quot;keyname&quot; :&gt; 25 //produces DBOKV[Int](&quot;keyname&quot;, 25)

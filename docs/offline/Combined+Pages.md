@@ -151,7 +151,7 @@ there are two different ways to write optional values.
     the utility of this method will be explained later
 
 
-[DBOKV]: latest/api/#io.github.raptros.bson.Builders$DBO
+[DBOKV]: latest/api/#io.github.raptros.bson.Builders$DBO$
 [StringToDBOKV]: latest/api/#io.github.raptros.bson.Builders$StringToDBOKV
 [EncodeBsonField]: latest/api/#io.github.raptros.bson.EncodeBsonField
 [EncodeBsonFields]: latest/api/#io.github.raptros.bson.EncodeBsonFields

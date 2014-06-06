@@ -37,7 +37,6 @@ lazy val root = (project in file(".")).
   settings(unidocSettings: _*).
   settings(site.settings: _*).
   settings(ghpages.settings: _*).
-  settings(LaikaPlugin.defaults: _*).
   aggregate(core, macros)
 
 name := "the-bson"
@@ -52,17 +51,22 @@ mappings in (Compile, packageBin) ++= mappings.in(macros, Compile, packageBin).v
 
 mappings in (Compile, packageSrc) ++= mappings.in(macros, Compile, packageSrc).value
 
-sourceDirectories in LaikaKeys.Laika += siteManaged.value
-
 mkSiteManaged := {
-  IO.copyFile(file("README.md"), siteManaged.value / "index.md")
+  val target = siteManaged.value / "index.md"
+  IO.writeLines(target, "---" :: "layout: index" :: "---" :: Nil)
+  val readme = IO.readLines(file("README.md"))
+  IO.writeLines(target, readme, append = true)
 }
 
-LaikaKeys.site in LaikaKeys.Laika <<= (LaikaKeys.site in LaikaKeys.Laika) dependsOn mkSiteManaged
+SiteKeys.makeSite <<= SiteKeys.makeSite dependsOn mkSiteManaged
+
+GhPagesKeys.ghpagesNoJekyll := false
 
 site.addMappingsToSiteDir(mappings in (ScalaUnidoc, packageDoc), "latest/api")
 
-site.addMappingsToSiteDir(mappings in (LaikaKeys.Laika, LaikaKeys.site), ".")
+SiteKeys.siteMappings ++= Seq(siteManaged.value / "index.md" -> "index.md")
+
+(includeFilter in SiteKeys.makeSite) := "*.html" | "*.css" | "*.png" | "*.jpg" | "*.gif" | "*.js" | "*.swf" | "*.yml" | "*.md"
 
 git.remoteRepo := "git@github.com:raptros/the-bson.git"
 

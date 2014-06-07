@@ -24,7 +24,9 @@
         <script type="text/javascript">
           Pamflet.page.language = 'en';
         </script>
-        
+        <script type="text/javascript" src="js/prettify/prettify.js"></script><script type="text/javascript" src="js/prettify/lang-scala.js"></script><link type="text/css" rel="stylesheet" href="css/prettify.css"/><script type="text/javascript"><!--
+        window.onload=function() { prettyPrint(); };
+      --></script>
         
         
         
@@ -39,8 +41,16 @@
           </a>
         <div class="container contentswrapper">
           <div class="span-16 prepend-1 append-1 contents">
-            <h3 id="Case+Classes%2C+Codecs%2C+etc.">Case Classes, Codecs, etc.<a href="#Case+Classes%2C+Codecs%2C+etc." class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>a <a href="latest/api/#io.github.raptros.bson.CodecBson">CodecBson</a> instance is both an encoder and a decoder - it implements both <a href="latest/api/#io.github.raptros.bson.EncodeBson">EncodeBson</a> and <a href="latest/api/#io.github.raptros.bson.DecodeBson">DecodeBson</a>. 
-</p><div class="bottom nav span-16">
+            <h3 id="Case+Classes%2C+Codecs%2C+etc.">Case Classes, Codecs, etc.<a href="#Case+Classes%2C+Codecs%2C+etc." class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>a <a href="latest/api/#io.github.raptros.bson.CodecBson">CodecBson</a> instance is both an encoder and a decoder - it implements both <a href="latest/api/#io.github.raptros.bson.EncodeBson">EncodeBson</a> and <a href="latest/api/#io.github.raptros.bson.DecodeBson">DecodeBson</a>.
+the main use for them is to define encoding and decoding of a case class simultaneously.
+</p><pre><code class="prettyprint lang-scala">case class ThreePart(x: String, y: List[Int], z: DateTime)
+implicit val codecThreePart =
+  bsonCaseCodec3(ThreePart.apply, ThreePart.unapply)(&quot;x&quot;, &quot;y&quot;, &quot;z&quot;)
+val example = ThreePart(&quot;hi&quot;, List(4, 3), z = DateTime.now())
+val dbo = example.asBson
+dbo.keySet === Set(&quot;x&quot;, &quot;y&quot;, &quot;z&quot;)
+dbo.decode[ThreePart] === \/-(example)
+</code></pre><div class="bottom nav span-16">
                         <em>Next Page</em>
                         <span class="arrow">❧</span>
                         <a href="Macros.html"> Macros </a>                        

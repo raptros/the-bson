@@ -151,9 +151,110 @@ val dbo: DBObject = junkEncodeBson.encode(junk1)
 </code></pre><hr/><p>you could replace the definition of junkEncodeBson using one of the bencode methods defined via <a href="latest/api/#io.github.raptros.bson.EncodeBsons">EncodeBsons</a>.
 </p><pre><code class="prettyprint lang-scala">implicit def junkEncodeBson: EncodeBson[Junk] =
   bencode2f((j: Junk) =&gt; (j.x, j.y))(&quot;x&quot;, &quot;y&quot;)
-</code></pre><h3 id="Decoding+DBObjects">Decoding DBObjects<a href="#Decoding+DBObjects" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>DecodeResult</p><h4 id="Decoding+Fields">Decoding Fields<a href="#Decoding+Fields" class="header-link"><span class="header-link-content">&nbsp;</span></a></h4><p>explain</p><h4 id="Decoding+objects">Decoding objects<a href="#Decoding+objects" class="header-link"><span class="header-link-content">&nbsp;</span></a></h4><p>explain</p><h3 id="Case+Classes%2C+Codecs%2C+etc.">Case Classes, Codecs, etc.<a href="#Case+Classes%2C+Codecs%2C+etc." class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>a <a href="latest/api/#io.github.raptros.bson.CodecBson">CodecBson</a> instance is both an encoder and a decoder - it implements both <a href="latest/api/#io.github.raptros.bson.EncodeBson">EncodeBson</a> and <a href="latest/api/#io.github.raptros.bson.DecodeBson">DecodeBson</a>. 
-</p><h3 id="Macros">Macros<a href="#Macros" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>we have them. they are good for deriving encoders, decoders, and codecs for case classes. see <a href="latest/api/#io.github.raptros.bson.BsonMacros$">BsonMacros</a>
-</p>
+</code></pre><h3 id="Decoding+DBObjects">Decoding DBObjects<a href="#Decoding+DBObjects" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>all decode operations in the-bson produce <a href="latest/api/#io.github.raptros.bson.DecodeResult">DecodeResult</a>, defined as
+</p><pre><code class="prettyprint lang-scala">// \/ and NonEmptyList come from scalaz
+type DecodeResult[+A] = \/[NonEmptyList[DecodeError], A]
+</code></pre><p>if any decode operation fails, all the errors involved will be reported.
+</p><hr/><p><a href="latest/api/#io.github.raptros.bson.DecodeError">DecodeError</a> has fixed set of subtypes:
+</p><ul><li><a href="latest/api/#io.github.raptros.bson.NoSuchField">NoSuchField</a>: a field that was expected to be present in an object is not
+</li><li><a href="latest/api/#io.github.raptros.bson.WrongType">WrongType</a> and
+</li><li><a href="latest/api/#io.github.raptros.bson.WrongFieldType">WrongFieldType</a>: both result from casting failures, which means the latter is more likely
+</li><li><a href="latest/api/#io.github.raptros.bson.WrongFieldCount">WrongFieldCount</a>: see <a href="latest/api/#io.github.raptros.bson.DecodeBson#validateFields">validateFields in DecodeBson</a>
+</li><li><a href="latest/api/#io.github.raptros.bson.CustomError">CustomError</a>: if you need to report an error that doesn’t fit into one of the above ones, you can use this.
+</li></ul><h4 id="Decoding+Fields">Decoding Fields<a href="#Decoding+Fields" class="header-link"><span class="header-link-content">&nbsp;</span></a></h4><p>instances of the trait <a href="latest/api/#io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a> are used to extract values from DBObject. various instances are already provided in <a href="latest/api/#io.github.raptros.bson.DecodeBsonFields">DecodeBsonFields</a>
+</p><pre><code class="prettyprint lang-scala">import io.github.raptros.bson._
+import scalaz.\/-
+import Bson._ 
+
+val dbo = DBO(&quot;int-key&quot; :&gt; 35)
+
+val v = implicitly[DecodeBsonField[Int]].decode(&quot;int-key&quot;, dbo)
+//alternatively
+val v = implicitly[DecodeBsonField[Int]](&quot;int-key&quot;, dbo)
+
+v === \/-(35)
+</code></pre><h5 id="Extractor+syntax">Extractor syntax<a href="#Extractor+syntax" class="header-link"><span class="header-link-content">&nbsp;</span></a></h5><p>The implicit class <a href="latest/api/#io.github.raptros.bson.Extractors$DBOWrapper">DBOWrapper</a> is provided in <a href="latest/api/#io.github.raptros.bson.Extractors">Extractors</a>; among others methods, it provides <code>field</code>.
+</p><pre><code class="prettyprint lang-scala">val dbo = DBO(&quot;doubleKey&quot; :&gt; 33.2)
+
+dbo.field[Double](&quot;doubleKey&quot;)
+v === \/-(33.2)
+</code></pre><p>it also provides <code>fieldOpt</code>:
+</p><pre><code class="prettyprint lang-scala">val dbo = DBO(&quot;k1&quot;: true)
+
+val v0 = dbo.fieldOpt[Boolean](&quot;k1&quot;)
+v0 === \/-(Some(true))
+
+val v1 = dbo.fieldOpt[Boolean](&quot;k2&quot;)
+v1 === \/-(None)
+
+val v2 = dbo.fieldOpt[Double](&quot;k1)
+v2 === -\/(NonEmptyList(WrongFieldType(&quot;k1&quot;,
+  classOf[java.lang.Double],
+  classOf[java.lang.Boolean])))
+</code></pre><h5 id="Deriving+new+instances">Deriving new instances<a href="#Deriving+new+instances" class="header-link"><span class="header-link-content">&nbsp;</span></a></h5><p>hopefully, you will not need to do this too often (for reasons explained in the next section),
+but there are several ways to derive new instances.
+</p><ul><li><p>you can transform successfully decoded values
+</p><pre><code class="prettyprint lang-scala">implicit val urlDecodeField: DecodeBsonField[URI] = 
+  stringDecodeField map { s =&gt;
+    new URI(s) //pretend this works
+  }
+</code></pre></li><li>you can use <code>flatMap</code>
+</li><li><p>you can use <code>orElse</code> (aka <code>|||</code>), as used in the library itself
+</p><pre><code class="prettyprint lang-scala">implicit val datetimeDecodeField = 
+  castableDecoder[DateTime] ||| 
+  dateDecodeField map { d =&gt; new DateTime(d) }
+</code></pre></li><li><p>you can define new ones using the <a href="latest/api/#io.github.raptros.bson.DecodeBsonField$apply">apply method in the DecodeBsonField object</a>
+</p><pre><code class="prettyprint lang-scala">implicit def decodeOptionalField[A](implicit d: DecodeBsonField[A]): DecodeBsonField[Option[A]] = 
+  DecodeBsonField { (k, dbo) =&gt;
+    if (dbo.containsField(k)) d(k, dbo) map { Some(_) } else none[A].right
+  }
+</code></pre></li></ul><h4 id="Decoding+objects">Decoding objects<a href="#Decoding+objects" class="header-link"><span class="header-link-content">&nbsp;</span></a></h4><p>instances of <a href="latest/api/#io.github.raptros.bson.DecodeBson">DecodeBson</a> allow you to decode entire DBObjects.
+this example demonstrates several decoding utilities:
+</p><pre><code class="prettyprint lang-scala">def bdecode4f[A, B, C, D, X](
+  fxn: (A, B, C, D) =&gt; X)(ak: String, bk: String, ck: String,
+  dk: String)(implicit decodea: DecodeBsonField[A], 
+  decodeb: DecodeBsonField[B], decodec: DecodeBsonField[C],
+  decoded: DecodeBsonField[D]): DecodeBson[X] = DecodeBson { dbo =&gt;
+  ApV.apply4(
+    decodea(ak, dbo).validation,
+    decodeb(bk, dbo).validation,
+    decodec(ck, dbo).validation,
+    decoded(dk, dbo).validation
+  )(fxn).disjunction
+}
+</code></pre><ul><li>It uses <a href="latest/api/#io.github.raptros.bson.DecodeBson$apply">the DecodeBson object's apply method</a> to construct a decoder that takes apart a DBObject.
+</li><li>It shows how one might use the <code>Applicative</code> instance, <a href="latest/api/index.html#io.github.raptros.bson.DecodeBsons@ApV:scalaz.Applicative[DecodeBsons.this.DecodeResultV]">ApV in DecodeBsons</a>, to collect up multiple decoding errors.
+</li><li><p>It is actually one of the methods available in <a href="latest/api/#io.github.raptros.bson.DecodeBsons">DecodeBsons</a> for conveniently defining a decoder for e.g. a case class
+</p><pre><code class="prettyprint lang-scala">case class FourThings(str: String, anInt: Int, b: Boolean, d: Double)
+implicit def decodeFourThings: DecodeBson[FourThings] = 
+  bdecode4f(FourThings.apply)(&quot;str&quot;, &quot;anInt&quot;, &quot;b&quot;, &quot;d&quot;)
+</code></pre></li></ul><p>of course, there are other ways to define new implementations of <a href="latest/api/#io.github.raptros.bson.DecodeBson">DecodeBson</a>, which you can find in the Scaladocs.
+</p><h5 id="Extractor+syntax">Extractor syntax<a href="#Extractor+syntax" class="header-link"><span class="header-link-content">&nbsp;</span></a></h5><p><a href="latest/api/#io.github.raptros.bson.Extractors$DBOWrapper">DBOWrapper</a> defines a method <code>decode</code>, which looks up a <code>DecodeBson[A]</code>.
+</p><pre><code class="prettyprint lang-scala">val dbo = DBO(&quot;str&quot; :&gt; &quot;some string&quot;, &quot;anInt&quot; :&gt; 23, &quot;b&quot; :&gt; false, &quot;d&quot; :&gt; 55.3)
+val v = dbo.decode[FourThings]
+v === \/-(FourThings(&quot;some string&quot;, 23, false, 55.3))
+</code></pre><h5 id="decoders+and+fields">decoders and fields<a href="#decoders+and+fields" class="header-link"><span class="header-link-content">&nbsp;</span></a></h5><p>any <code>DecodeBson</code> instance can also be used as a <code>DecodeBsonField</code>
+</p><pre><code class="prettyprint lang-scala">val dbo = DBO(&quot;4things&quot; :&gt; DBO(&quot;str&quot; :&gt; &quot;some string&quot;,
+  &quot;anInt&quot; :&gt; 23, &quot;b&quot; :&gt; false, &quot;d&quot; :&gt; 55.3))
+val v = dbo.field[FourThings](&quot;4things&quot;)
+v === \/-(FourThings(&quot;some string&quot;, 23, false, 55.3))
+</code></pre><h3 id="Case+Classes%2C+Codecs%2C+etc.">Case Classes, Codecs, etc.<a href="#Case+Classes%2C+Codecs%2C+etc." class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>a <a href="latest/api/#io.github.raptros.bson.CodecBson">CodecBson</a> instance is both an encoder and a decoder - it implements both <a href="latest/api/#io.github.raptros.bson.EncodeBson">EncodeBson</a> and <a href="latest/api/#io.github.raptros.bson.DecodeBson">DecodeBson</a>.
+the main use for them is to define encoding and decoding of a case class simultaneously.
+</p><pre><code class="prettyprint lang-scala">case class ThreePart(x: String, y: List[Int], z: DateTime)
+implicit val codecThreePart =
+  bsonCaseCodec3(ThreePart.apply, ThreePart.unapply)(&quot;x&quot;, &quot;y&quot;, &quot;z&quot;)
+val example = ThreePart(&quot;hi&quot;, List(4, 3), z = DateTime.now())
+val dbo = example.asBson
+dbo.keySet === Set(&quot;x&quot;, &quot;y&quot;, &quot;z&quot;)
+dbo.decode[ThreePart] === \/-(example)
+</code></pre><h3 id="Macros">Macros<a href="#Macros" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p><a href="latest/api/#io.github.raptros.bson.BsonMacros$">BsonMacros</a> defines macros for deriving <a href="latest/api/#io.github.raptros.bson.EncodeBson">EncodeBson</a>s, <a href="latest/api/#io.github.raptros.bson.DecodeBson">DecodeBson</a>s and <a href="latest/api/#io.github.raptros.bson.CodecBson">CodecBson</a>s for case classes. 
+</p><pre><code class="prettyprint lang-scala">case class Simple(name: String, something: Boolean, amount: Int)
+implicit val simpleCodec: CodecBson[Simple] =
+  BsonMacros.deriveCaseCodecBson[Simple]
+val t1 = Simple(&quot;test 2&quot;, true, 35)
+val dbo = t1.asBson
+dbo.decode[Simple] === \/-(t1)
+</code></pre>
           </div>
         </div>
         <div class="header">

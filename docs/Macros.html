@@ -24,7 +24,9 @@
         <script type="text/javascript">
           Pamflet.page.language = 'en';
         </script>
-        
+        <script type="text/javascript" src="js/prettify/prettify.js"></script><script type="text/javascript" src="js/prettify/lang-scala.js"></script><link type="text/css" rel="stylesheet" href="css/prettify.css"/><script type="text/javascript"><!--
+        window.onload=function() { prettyPrint(); };
+      --></script>
         
         
         
@@ -39,8 +41,14 @@
           </a>
         <div class="container contentswrapper">
           <div class="span-16 prepend-1 append-1 contents">
-            <h3 id="Macros">Macros<a href="#Macros" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p>we have them. they are good for deriving encoders, decoders, and codecs for case classes. see <a href="latest/api/#io.github.raptros.bson.BsonMacros$">BsonMacros</a>
-</p><div class="bottom nav end span-16">
+            <h3 id="Macros">Macros<a href="#Macros" class="header-link"><span class="header-link-content">&nbsp;</span></a></h3><p><a href="latest/api/#io.github.raptros.bson.BsonMacros$">BsonMacros</a> defines macros for deriving <a href="latest/api/#io.github.raptros.bson.EncodeBson">EncodeBson</a>s, <a href="latest/api/#io.github.raptros.bson.DecodeBson">DecodeBson</a>s and <a href="latest/api/#io.github.raptros.bson.CodecBson">CodecBson</a>s for case classes. 
+</p><pre><code class="prettyprint lang-scala">case class Simple(name: String, something: Boolean, amount: Int)
+implicit val simpleCodec: CodecBson[Simple] =
+  BsonMacros.deriveCaseCodecBson[Simple]
+val t1 = Simple(&quot;test 2&quot;, true, 35)
+val dbo = t1.asBson
+dbo.decode[Simple] === \/-(t1)
+</code></pre><div class="bottom nav end span-16">
                         
                       </div><div class="tocwrapper show">
       <a class="tochead nav" style="display: none" href="#toc">❦</a>

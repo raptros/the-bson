@@ -24,7 +24,9 @@
         <script type="text/javascript">
           Pamflet.page.language = 'en';
         </script>
-        
+        <script type="text/javascript" src="js/prettify/prettify.js"></script><script type="text/javascript" src="js/prettify/lang-scala.js"></script><link type="text/css" rel="stylesheet" href="css/prettify.css"/><script type="text/javascript"><!--
+        window.onload=function() { prettyPrint(); };
+      --></script>
         
         
         
@@ -39,7 +41,37 @@
           </a>
         <div class="container contentswrapper">
           <div class="span-16 prepend-1 append-1 contents">
-            <h4 id="Decoding+objects">Decoding objects<a href="#Decoding+objects" class="header-link"><span class="header-link-content">&nbsp;</span></a></h4><p>explain</p><div class="bottom nav span-16">
+            <h4 id="Decoding+objects">Decoding objects<a href="#Decoding+objects" class="header-link"><span class="header-link-content">&nbsp;</span></a></h4><p>instances of <a href="latest/api/#io.github.raptros.bson.DecodeBson">DecodeBson</a> allow you to decode entire DBObjects.
+this example demonstrates several decoding utilities:
+</p><pre><code class="prettyprint lang-scala">def bdecode4f[A, B, C, D, X](
+  fxn: (A, B, C, D) =&gt; X)(ak: String, bk: String, ck: String,
+  dk: String)(implicit decodea: DecodeBsonField[A], 
+  decodeb: DecodeBsonField[B], decodec: DecodeBsonField[C],
+  decoded: DecodeBsonField[D]): DecodeBson[X] = DecodeBson { dbo =&gt;
+  ApV.apply4(
+    decodea(ak, dbo).validation,
+    decodeb(bk, dbo).validation,
+    decodec(ck, dbo).validation,
+    decoded(dk, dbo).validation
+  )(fxn).disjunction
+}
+</code></pre><ul><li>It uses <a href="latest/api/#io.github.raptros.bson.DecodeBson$apply">the DecodeBson object's apply method</a> to construct a decoder that takes apart a DBObject.
+</li><li>It shows how one might use the <code>Applicative</code> instance, <a href="latest/api/index.html#io.github.raptros.bson.DecodeBsons@ApV:scalaz.Applicative[DecodeBsons.this.DecodeResultV]">ApV in DecodeBsons</a>, to collect up multiple decoding errors.
+</li><li><p>It is actually one of the methods available in <a href="latest/api/#io.github.raptros.bson.DecodeBsons">DecodeBsons</a> for conveniently defining a decoder for e.g. a case class
+</p><pre><code class="prettyprint lang-scala">case class FourThings(str: String, anInt: Int, b: Boolean, d: Double)
+implicit def decodeFourThings: DecodeBson[FourThings] = 
+  bdecode4f(FourThings.apply)(&quot;str&quot;, &quot;anInt&quot;, &quot;b&quot;, &quot;d&quot;)
+</code></pre></li></ul><p>of course, there are other ways to define new implementations of <a href="latest/api/#io.github.raptros.bson.DecodeBson">DecodeBson</a>, which you can find in the Scaladocs.
+</p><h5 id="Extractor+syntax">Extractor syntax<a href="#Extractor+syntax" class="header-link"><span class="header-link-content">&nbsp;</span></a></h5><p><a href="latest/api/#io.github.raptros.bson.Extractors$DBOWrapper">DBOWrapper</a> defines a method <code>decode</code>, which looks up a <code>DecodeBson[A]</code>.
+</p><pre><code class="prettyprint lang-scala">val dbo = DBO(&quot;str&quot; :&gt; &quot;some string&quot;, &quot;anInt&quot; :&gt; 23, &quot;b&quot; :&gt; false, &quot;d&quot; :&gt; 55.3)
+val v = dbo.decode[FourThings]
+v === \/-(FourThings(&quot;some string&quot;, 23, false, 55.3))
+</code></pre><h5 id="decoders+and+fields">decoders and fields<a href="#decoders+and+fields" class="header-link"><span class="header-link-content">&nbsp;</span></a></h5><p>any <code>DecodeBson</code> instance can also be used as a <code>DecodeBsonField</code>
+</p><pre><code class="prettyprint lang-scala">val dbo = DBO(&quot;4things&quot; :&gt; DBO(&quot;str&quot; :&gt; &quot;some string&quot;,
+  &quot;anInt&quot; :&gt; 23, &quot;b&quot; :&gt; false, &quot;d&quot; :&gt; 55.3))
+val v = dbo.field[FourThings](&quot;4things&quot;)
+v === \/-(FourThings(&quot;some string&quot;, 23, false, 55.3))
+</code></pre><div class="bottom nav span-16">
                         <em>Next Page</em>
                         <span class="arrow">❧</span>
                         <a href="Case+Classes%2C+Codecs%2C+etc..html"> Case Classes, Codecs, etc. </a>                        

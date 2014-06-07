@@ -24,7 +24,9 @@
         <script type="text/javascript">
           Pamflet.page.language = 'en';
         </script>
-        
+        <script type="text/javascript" src="js/prettify/prettify.js"></script><script type="text/javascript" src="js/prettify/lang-scala.js"></script><link type="text/css" rel="stylesheet" href="css/prettify.css"/><script type="text/javascript"><!--
+        window.onload=function() { prettyPrint(); };
+      --></script>
         
         
         
@@ -39,7 +41,54 @@
           </a>
         <div class="container contentswrapper">
           <div class="span-16 prepend-1 append-1 contents">
-            <h4 id="Decoding+Fields">Decoding Fields<a href="#Decoding+Fields" class="header-link"><span class="header-link-content">&nbsp;</span></a></h4><p>explain</p><div class="bottom nav span-16">
+            <h4 id="Decoding+Fields">Decoding Fields<a href="#Decoding+Fields" class="header-link"><span class="header-link-content">&nbsp;</span></a></h4><p>instances of the trait <a href="latest/api/#io.github.raptros.bson.DecodeBsonField">DecodeBsonField</a> are used to extract values from DBObject. various instances are already provided in <a href="latest/api/#io.github.raptros.bson.DecodeBsonFields">DecodeBsonFields</a>
+</p><pre><code class="prettyprint lang-scala">import io.github.raptros.bson._
+import scalaz.\/-
+import Bson._ 
+
+val dbo = DBO(&quot;int-key&quot; :&gt; 35)
+
+val v = implicitly[DecodeBsonField[Int]].decode(&quot;int-key&quot;, dbo)
+//alternatively
+val v = implicitly[DecodeBsonField[Int]](&quot;int-key&quot;, dbo)
+
+v === \/-(35)
+</code></pre><h5 id="Extractor+syntax">Extractor syntax<a href="#Extractor+syntax" class="header-link"><span class="header-link-content">&nbsp;</span></a></h5><p>The implicit class <a href="latest/api/#io.github.raptros.bson.Extractors$DBOWrapper">DBOWrapper</a> is provided in <a href="latest/api/#io.github.raptros.bson.Extractors">Extractors</a>; among others methods, it provides <code>field</code>.
+</p><pre><code class="prettyprint lang-scala">val dbo = DBO(&quot;doubleKey&quot; :&gt; 33.2)
+
+dbo.field[Double](&quot;doubleKey&quot;)
+v === \/-(33.2)
+</code></pre><p>it also provides <code>fieldOpt</code>:
+</p><pre><code class="prettyprint lang-scala">val dbo = DBO(&quot;k1&quot;: true)
+
+val v0 = dbo.fieldOpt[Boolean](&quot;k1&quot;)
+v0 === \/-(Some(true))
+
+val v1 = dbo.fieldOpt[Boolean](&quot;k2&quot;)
+v1 === \/-(None)
+
+val v2 = dbo.fieldOpt[Double](&quot;k1)
+v2 === -\/(NonEmptyList(WrongFieldType(&quot;k1&quot;,
+  classOf[java.lang.Double],
+  classOf[java.lang.Boolean])))
+</code></pre><h5 id="Deriving+new+instances">Deriving new instances<a href="#Deriving+new+instances" class="header-link"><span class="header-link-content">&nbsp;</span></a></h5><p>hopefully, you will not need to do this too often (for reasons explained in the next section),
+but there are several ways to derive new instances.
+</p><ul><li><p>you can transform successfully decoded values
+</p><pre><code class="prettyprint lang-scala">implicit val urlDecodeField: DecodeBsonField[URI] = 
+  stringDecodeField map { s =&gt;
+    new URI(s) //pretend this works
+  }
+</code></pre></li><li>you can use <code>flatMap</code>
+</li><li><p>you can use <code>orElse</code> (aka <code>|||</code>), as used in the library itself
+</p><pre><code class="prettyprint lang-scala">implicit val datetimeDecodeField = 
+  castableDecoder[DateTime] ||| 
+  dateDecodeField map { d =&gt; new DateTime(d) }
+</code></pre></li><li><p>you can define new ones using the <a href="latest/api/#io.github.raptros.bson.DecodeBsonField$apply">apply method in the DecodeBsonField object</a>
+</p><pre><code class="prettyprint lang-scala">implicit def decodeOptionalField[A](implicit d: DecodeBsonField[A]): DecodeBsonField[Option[A]] = 
+  DecodeBsonField { (k, dbo) =&gt;
+    if (dbo.containsField(k)) d(k, dbo) map { Some(_) } else none[A].right
+  }
+</code></pre></li></ul><div class="bottom nav span-16">
                         <em>Next Page</em>
                         <span class="arrow">❧</span>
                         <a href="Decoding+objects.html"> Decoding objects </a>                        

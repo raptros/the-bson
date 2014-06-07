@@ -3,7 +3,7 @@ package io.github.raptros.bson
 import org.scalatest.{GivenWhenThen, Matchers, FlatSpec}
 import scalaz.syntax.std.option._
 import scalaz.std.option._
-import com.mongodb.{BasicDBList, BasicDBObject}
+import com.mongodb.{DBObject, BasicDBList, BasicDBObject}
 import org.bson.types.ObjectId
 import org.joda.time.DateTime
 
@@ -61,6 +61,7 @@ class EncodeBsonFieldSpec extends FlatSpec with Matchers with GivenWhenThen {
     dbo.get("k1") shouldBe "howdily"
   }
 
+
   behavior of "EncodeBsonField in the DBOKV/DBOBuilder/DBO() context"
 
   it should "allow construction via DBO()" in {
@@ -95,5 +96,14 @@ class EncodeBsonFieldSpec extends FlatSpec with Matchers with GivenWhenThen {
     dbo.get("in") shouldBe 44
     dbo.get("alsoIn") shouldBe true
 
+  }
+
+  it should "allow embedding DBOs inside DBOs" in {
+    val dbo = DBO("embed" :> DBO("embedded" :> true, "other" :> "something"))
+    dbo.keySet() should contain only "embed"
+    val embedded = dbo.get("embed").asInstanceOf[DBObject]
+    embedded.keySet() should contain only ("embedded", "other")
+    embedded.get("embedded") shouldBe true
+    embedded.get("other") shouldBe "something"
   }
 }

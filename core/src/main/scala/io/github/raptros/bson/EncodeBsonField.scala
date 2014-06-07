@@ -42,7 +42,6 @@ object EncodeBsonField extends EncodeBsonFields {
 }
 
 trait EncodeBsonFields {
-
   /** this allows anything that has an [[EncodeBson]] to also be encoded as a bson field. */
   implicit def EncodeBsonEncodeBsonField[A](implicit eb: EncodeBson[A]) = new EncodeBsonField[A] {
     def writeTo(dbo: DBObject, k: String, v: A): Unit = dbo.put(k, eb(v))
@@ -61,6 +60,7 @@ trait EncodeBsonFields {
   implicit val dateEncodeField: EncodeBsonField[Date] = directWritable[Date]
   implicit val stringEncodeField: EncodeBsonField[String] = directWritable[String]
   implicit val objectIdEncodeField: EncodeBsonField[ObjectId] = directWritable[ObjectId]
+  implicit val dboEncodeField: EncodeBsonField[DBObject] = directWritable[DBObject]
 
   implicit val dateTimeEncodeField: EncodeBsonField[DateTime] = dateEncodeField contramap { _.toDate }
 

@@ -23,7 +23,13 @@ Documentation on how to use this library.
 
 ## Installation
 
-pending
+using SBT: just add 
+
+```scala
+libraryDependencies += "io.github.raptros" %% "the-bson" % "0.1"`
+```
+    
+
 ## How to use
 
 The entire functionality of the-bson can be imported in one go:

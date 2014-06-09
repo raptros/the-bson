@@ -21,7 +21,10 @@ Documentation
 
 Installation
 ------------
-(pending)
+
+using SBT: just add 
+ 
+`libraryDependencies += "io.github.raptros" %% "the-bson" % "0.1"`
 
 [manual]: http://raptros.github.io/the-bson/docs/the-bson.html
 [api-docs]: http://raptros.github.io/the-bson/docs/latest/api/#io.github.raptros.bson.package 

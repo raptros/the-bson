@@ -120,10 +120,16 @@ releaseProcess := Seq(
   setReleaseVersion,
   commitReleaseVersion,
   tagRelease,
-  releaseTask(publishSigned),
-  releaseTask(sonatypeReleaseAll),
+  ReleaseStep { state =>
+    val extracted = Project extract state
+    extracted.runAggregated(PgpKeys.publishSigned in Global in extracted.get(thisProjectRef), state)
+  },
   setNextVersion,
   commitNextVersion,
+  ReleaseStep { state =>
+    val extracted = Project extract state
+    extracted.runAggregated(sonatypeReleaseAll in Global in extracted.get(thisProjectRef), state)
+  },
   pushChanges
 )
 
